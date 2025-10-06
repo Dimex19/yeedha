@@ -1,4 +1,4 @@
-import Rectangle1009 from '../../assets/images/Rectangle1009.png'
+import Rectangle1009 from '../../assets/images/rectangle1009.png'
 import Group10 from '../../assets/icons/group10.png'
 
 const Hero = () => {

@@ -1,4 +1,4 @@
-import Group2 from "../../assets/icons/Group2.png"
+import Group2 from "../../assets/icons/group2.png"
 const HowItWorks = () => {
   const services = [
     {
