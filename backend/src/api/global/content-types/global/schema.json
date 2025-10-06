@@ -1,0 +1,68 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "Global",
+    "description": "Define global settings"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "header": {
+      "type": "component",
+      "component": "layout.header",
+      "repeatable": false
+    },
+    "description": {
+      "type": "string"
+    },
+    "footer": {
+      "type": "component",
+      "component": "layout.footer",
+      "repeatable": false
+    },
+    "hero": {
+      "type": "component",
+      "component": "homepage.hero",
+      "repeatable": false
+    },
+    "doMoreSection": {
+      "type": "component",
+      "component": "homepage.do-more-section",
+      "repeatable": false
+    },
+    "aboutSection": {
+      "type": "component",
+      "component": "homepage.about-section",
+      "repeatable": false
+    },
+    "rideAndEarn": {
+      "type": "component",
+      "component": "homepage.ride-and-earn",
+      "repeatable": true
+    },
+    "extraSection": {
+      "type": "component",
+      "component": "homepage.extra-section",
+      "repeatable": false
+    },
+    "downloadSection": {
+      "type": "component",
+      "component": "homepage.download-section",
+      "repeatable": false
+    },
+    "startAndNewsletter": {
+      "type": "component",
+      "component": "homepage.start-and-newsletter",
+      "repeatable": false
+    }
+  }
+}

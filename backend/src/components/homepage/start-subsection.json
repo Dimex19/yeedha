@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_homepage_start_subsections",
+  "info": {
+    "displayName": "startSubsection"
+  },
+  "options": {},
+  "attributes": {
+    "getStarted": {
+      "type": "component",
+      "component": "shared.actions",
+      "repeatable": false
+    },
+    "newsletterSubsection": {
+      "type": "component",
+      "component": "homepage.newsletter-subsection",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

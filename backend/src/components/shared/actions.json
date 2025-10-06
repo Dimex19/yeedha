@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_actions",
+  "info": {
+    "displayName": "Actions"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    },
+    "images": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": true
+    },
+    "backgroundImage": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

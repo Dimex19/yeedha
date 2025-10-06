@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_homepage_newsletter_subsections",
+  "info": {
+    "displayName": "newsletterSubsection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

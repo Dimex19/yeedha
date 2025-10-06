@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_homepage_do_more_sections",
+  "info": {
+    "displayName": "doMoreSection"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "images": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": true
+    },
+    "actions": {
+      "type": "component",
+      "component": "shared.actions",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

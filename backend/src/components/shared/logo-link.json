@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_logo_links",
+  "info": {
+    "displayName": "Logo Link"
+  },
+  "options": {},
+  "attributes": {
+    "alt": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
+    },
+    "href": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

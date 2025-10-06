@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_homepage_ride_and_earns",
+  "info": {
+    "displayName": "rideAndEarn"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "rideAndEarnSubsection": {
+      "type": "component",
+      "component": "homepage.ride-and-earn-subsection",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

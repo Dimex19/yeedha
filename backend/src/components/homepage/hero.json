@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_homepage_heroes",
+  "info": {
+    "displayName": "Hero"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    },
+    "heroVideo": {
+      "type": "component",
+      "component": "shared.video",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

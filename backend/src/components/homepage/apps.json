@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_homepage_apps",
+  "info": {
+    "displayName": "Apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "downloadLinks": {
+      "type": "component",
+      "component": "shared.logo-link",
+      "repeatable": true
+    },
+    "images": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

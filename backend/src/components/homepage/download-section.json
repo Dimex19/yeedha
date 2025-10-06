@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_homepage_download_sections",
+  "info": {
+    "displayName": "downloadSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "apps": {
+      "type": "component",
+      "component": "homepage.apps",
+      "repeatable": true
+    },
+    "backgroundImage": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

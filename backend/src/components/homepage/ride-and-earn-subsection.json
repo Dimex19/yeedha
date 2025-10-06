@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_homepage_ride_and_earn_subsections",
+  "info": {
+    "displayName": "rideAndEarnSubsection"
+  },
+  "options": {},
+  "attributes": {
+    "info": {
+      "type": "component",
+      "component": "shared.info",
+      "repeatable": true
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

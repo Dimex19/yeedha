@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_layout_footers",
+  "info": {
+    "displayName": "Footer"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "component",
+      "component": "shared.logo-link",
+      "repeatable": false
+    },
+    "quickLinks": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "newsLinks": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "productsLinks": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "contactEmail": {
+      "type": "string"
+    },
+    "socialIcons": {
+      "type": "component",
+      "component": "shared.logo-link",
+      "repeatable": true
+    },
+    "yeedhaDescription": {
+      "type": "text"
+    },
+    "downloadStore": {
+      "type": "component",
+      "component": "shared.logo-link",
+      "repeatable": true
+    },
+    "emergency": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

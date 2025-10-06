@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_homepage_start_and_newsletters",
+  "info": {
+    "displayName": "startAndNewsletter"
+  },
+  "options": {},
+  "attributes": {
+    "startSubsection": {
+      "type": "component",
+      "component": "homepage.start-subsection",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

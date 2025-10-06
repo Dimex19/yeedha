@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_homepage_extra_sections",
+  "info": {
+    "displayName": "extraSection"
+  },
+  "options": {},
+  "attributes": {
+    "infoPlusImage": {
+      "type": "component",
+      "component": "shared.info-plus-image",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

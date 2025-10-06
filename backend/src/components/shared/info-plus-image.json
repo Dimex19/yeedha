@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_info_plus_images",
+  "info": {
+    "displayName": "infoPlusImage"
+  },
+  "options": {},
+  "attributes": {
+    "text1": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
