@@ -1,6 +1,6 @@
-import Rectangle1017 from '../../assets/images/Rectangle1017.png';
-import Rectangle1018 from '../../assets/images/Rectangle1018.png';
-import Rectangle1019 from '../../assets/images/Rectangle1019.png';
+import Rectangle1017 from '../../assets/images/rectangle1017.png';
+import Rectangle1018 from '../../assets/images/rectangle1018.png';
+import Rectangle1019 from '../../assets/images/rectangle1019.png';
 
 const Empower = () => {
   return (
