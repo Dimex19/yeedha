@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import StartAndNewsletter from '../home/StartAndNewsletter';
 
 const Discover = () => {

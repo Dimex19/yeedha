@@ -1,7 +1,7 @@
 // HowItWorks.tsx
 import Group6 from "../../assets/icons/Group6.png";
 import Group7 from "../../assets/icons/Group7.png";
-import Group8 from "../../assets/icons/Group8.png";
+// import Group8 from "../../assets/icons/Group8.png";
 import ListIconTitleDesc from "../cng/ListIconTitleDesc";
 
 const CarReady = () => {
