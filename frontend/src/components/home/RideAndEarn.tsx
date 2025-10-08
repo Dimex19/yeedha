@@ -48,7 +48,7 @@ const RideAndEarn = () => {
           ]}
         />
         <RideAndEarnSubProps
-            order="order-1"
+            order="order-0 md:order-1"
           image={Frame39}
           BtnText="Become a Driver"
           subItems={[

@@ -96,12 +96,14 @@ const Header = ({
       >
         <div className="flex items-center justify-between px-4 py-3">
           {/* Logo */}
-          <img
-            src={Logo}
-            alt="Yeedha Logo"
-            className="w-[110px] transition-all duration-300"
-            style={{ filter: logoFilter }}
-          />
+          <Link to="/">
+            <img
+              src={Logo}
+              alt="Yeedha Logo"
+              className="w-[110px] transition-all duration-300"
+              style={{ filter: logoFilter }}
+            />
+          </Link>
 
           <div className="flex items-center gap-3">
             

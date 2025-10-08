@@ -12,8 +12,8 @@ interface RideAndEarnSubPropsType {
 
 const RideAndEarnSubProps: React.FC<RideAndEarnSubPropsType> = ({ image, BtnText, subItems, order }) => {
   return (
-    <div className="mb-10 md:mb-[86px] flex gap-15 lg:gap-[120px]">
-      <img src={image} alt="" className={`${order} flex-1 h-[100%] my-auto w-[0px] md:max-w-[600px] lg:max-w-[700px] object-contain`}/>
+    <div className="mb-10 md:mb-[86px] grid md:grid-cols-2 gap-15 lg:gap-[120px]">
+      <img src={image} alt="" className={`${order} flex-1 h-[100%] my-auto w-full md:max-w-[600px] lg:max-w-[700px] object-contain`}/>
       <div className="my-auto flex-1">
           {subItems.map((item, index) => (
             <SubTitleDesc
