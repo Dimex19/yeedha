@@ -36,7 +36,7 @@ const Header = ({
     <>
       {/* Desktop Navbar */}
       <header
-        className={`fixed top-0 z-50 w-full hidden lg:flex items-center justify-between px-[99px] py-[25px] font-[Manrope] transition-all duration-300 ${headerBg}`}
+        className={`fixed top-0 z-50 w-full hidden lg:flex items-center justify-between px-10 xl:px-[99px] py-[25px] font-[Manrope] transition-all duration-300 ${headerBg}`}
       >
         {/* Logo */}
         <Link to="/">
@@ -104,15 +104,7 @@ const Header = ({
           />
 
           <div className="flex items-center gap-3">
-            <button
-              className="px-3 py-[6px] text-[15px] font-medium rounded-[7px]"
-              style={{
-                backgroundColor: buttonBg,
-                color: buttonText,
-              }}
-            >
-              Join Us
-            </button>
+            
 
             {/* Hamburger */}
             <div
@@ -169,6 +161,15 @@ const Header = ({
             <Link to="/contact" onClick={() => setMenuOpen(false)}>
               Contact
             </Link>
+            <button
+              className="px-3 py-[6px] text-[15px] font-medium rounded-[7px]"
+              style={{
+                backgroundColor: buttonBg,
+                color: buttonText,
+              }}
+            >
+              Join Us
+            </button>
           </div>
         </div>
       </header>
