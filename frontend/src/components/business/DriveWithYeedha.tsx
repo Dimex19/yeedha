@@ -11,13 +11,13 @@ import Group4 from '../../assets/icons/group4.png'
 const DriveWithYeedha = () => {
     const [activeButton, setActiveButton] = useState<string>("e-hailing"); // default active
        
-         const handleButtonClick = (buttonName: string) => {
-           setActiveButton(buttonName);
-         };
+        const handleButtonClick = (buttonName: string) => {
+        setActiveButton(buttonName);
+        };
   return (
     <>
         <div className="py-10 px-6 mt-[80px] md:mt-20 md:px-12 lg:px-20 xl:px-[97px]">
-            <div className="max-w-[697px] font-[Manrope] ">
+            <div className="max-w-[797px] font-[Manrope] ">
                 <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px] font-semibold leading-snug">Benefits of partnering with Yeedha?</p>
                 <p className="text-base sm:text-lg md:text-xl font-medium mt-2">Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam. Ut maecenas consequat habitasse.</p>
             </div>

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_card_with_icons",
+  "info": {
+    "displayName": "cardWithIcon"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

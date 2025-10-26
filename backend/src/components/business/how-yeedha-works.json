@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_business_how_yeedha_works",
+  "info": {
+    "displayName": "howYeedhaWorks"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": true
+    },
+    "titleDesc": {
+      "type": "component",
+      "component": "business.title-desc",
+      "repeatable": true
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

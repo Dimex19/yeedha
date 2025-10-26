@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import HeroImg from "../../assets/images/Rectangle44.png";
 import HeroImg2 from "../../assets/images/Rectangle45.png";
 import HeroImg3 from "../../assets/images/Rectangle46.png";
@@ -9,24 +10,34 @@ import Group1 from "../../assets/icons/group1.png";
 import Group2 from "../../assets/icons/group2.png";
 import Group3 from "../../assets/icons/group3.png";
 import Group4 from "../../assets/icons/group4.png";
+import type { BusinessBenefitBlock } from "../../utils/types/drivers";
 
-const DriveWithYeedha = () => {
+
+const DriveWithYeedha = ({title, description, imageTitleDesc }: BusinessBenefitBlock) => {
+  const location = useLocation();
   const [activeButton, setActiveButton] = useState<string>("e-hailing");
 
   const handleButtonClick = (buttonName: string) => {
     setActiveButton(buttonName);
   };
 
+  useEffect(() => {
+    if (location.state?.tab) {
+      setActiveButton(location.state.tab);
+      console.log(location.state.tab);
+      
+    }
+  }, [location.state]);
+
   return (
     <div className="py-10 px-6 mt-[80px] md:mt-20 md:px-12 lg:px-20 xl:px-[97px]">
       {/* HEADER TEXT */}
       <div className="max-w-[617px] font-[Manrope]">
         <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px] font-semibold leading-snug">
-          Why drive with Yeedha?
+          {title}
         </p>
         <p className="text-base sm:text-lg md:text-xl font-medium mt-2">
-          Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh
-          neque et nullam. Ut maecenas consequat habitasse.
+          {description}
         </p>
       </div>
 

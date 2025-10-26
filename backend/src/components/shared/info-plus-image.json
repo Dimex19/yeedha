@@ -18,6 +18,9 @@
       "type": "component",
       "component": "shared.image",
       "repeatable": false
+    },
+    "bgColor": {
+      "type": "string"
     }
   },
   "config": {}

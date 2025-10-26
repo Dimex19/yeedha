@@ -7,8 +7,26 @@ import Instagram from '../assets/icons/instagram-logo.png'
 import Youtube from '../assets/icons/youtube-logo.png'
 import Twitter from '../assets/icons/twitter.png'
 import Emergency from '../assets/icons/emergency.png'
+import type { LinkProps, ImageWithAltProps } from '../utils/types'
 
-const Footer = () => {
+interface FooterProps {
+  data?: {
+    contactEmail: string;
+    emergency: string;
+    yeedhaDescription: string;
+    quickLinks: LinkProps[];
+    newsLinks: LinkProps[];
+    productsLinks: LinkProps[];
+    logo: ImageWithAltProps;
+    socialIcons: ImageWithAltProps[];
+    downloadStore: ImageWithAltProps[];
+  }
+}
+
+const Footer = ({data}: FooterProps) => {
+  if (!data) return null;
+  const { contactEmail, emergency, yeedhaDescription, quickLinks, newsLinks, productsLinks } = data;
+
   return (
     <>
       {/* TOP SECTION */}
@@ -17,7 +35,7 @@ const Footer = () => {
         <div className="flex-1">
           <img src={Logo} alt="Yeedha logo" className="w-[150px] sm:w-[180px]" />
           <p className="text-[14px] sm:text-[15px] lg:text-[16px] text-[#6C737F] mt-[15px] mb-[30px] max-w-[333px]">
-            Lorem ipsum dolor sit amet nibh consectetur. Nisi lectus phasellus neque, Lorem ipsum dolor sit amet nibh consectetur.
+            {yeedhaDescription}
           </p>
 
           <div>
@@ -58,29 +76,38 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="flex flex-col gap-y-[12px]">
             <p className="text-[#2563EB] text-[16px]">Quick Links</p>
-            <a href="#">Rider</a>
+            {quickLinks.map((link, index) => (
+              <a href={link.href} key={index}>{link.label}</a>
+            ))}
+            {/* <a href="#">Rider</a>
             <a href="#">Driver</a>
             <a href="#">Business</a>
             <a href="#">Benefits</a>
-            <a href="#">CNG</a>
+            <a href="#">CNG</a> */}
           </div>
 
           {/* News & Contact */}
           <div className="flex flex-col gap-y-[12px]">
             <p className="text-[#2563EB] text-[16px]">News</p>
-            <a href="#">Blog</a>
+            {newsLinks.map((link, index) => (
+              <a href={link.href} key={index}>{link.label}</a>
+            ))}
+            {/* <a href="#">Blog</a>
             <a href="#">FAQ</a>
-            <a href="#">Yeedha Media</a>
+            <a href="#">Yeedha Media</a> */}
             <p className="text-[#2563EB] text-[16px] mt-2">Contact</p>
-            <a href="#">hello@yeedha.com</a>
+            <a href="#">{contactEmail}</a>
           </div>
 
           {/* Products & Social */}
           <div className="flex flex-col gap-y-[12px]">
             <p className="text-[#2563EB] text-[16px]">Products</p>
-            <a href="#">Drivers App</a>
+            {productsLinks.map((link, index) => (
+              <a href={link.href} key={index}>{link.label}</a>
+            ))}
+            {/* <a href="#">Drivers App</a>
             <a href="#">Passengers App</a>
-            <a href="#">Business Owners App</a>
+            <a href="#">Business Owners App</a> */}
             <p className="text-[#2563EB] text-[16px] mt-2">Social</p>
             <div className="flex gap-x-[20px] mt-2">
               <img src={Facebook} alt="Facebook" className="w-5 h-5" />
@@ -104,7 +131,7 @@ const Footer = () => {
             <p className="text-[12px]">Emergency Contact</p>
             <div className="flex justify-center md:justify-start items-center gap-x-[8px]">
               <img src={Emergency} alt="Emergency icon" className="w-[20px]" />
-              <p className="text-[15px] sm:text-[16px]">0900 000 0000</p>
+              <p className="text-[15px] sm:text-[16px]">{emergency}</p>
             </div>
           </div>
 

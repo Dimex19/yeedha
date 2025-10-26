@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_contact_talk_to_us",
+  "info": {
+    "displayName": "talkToUs"
+  },
+  "options": {},
+  "attributes": {
+    "subTitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "emailAddress1": {
+      "type": "string"
+    },
+    "emailAddress2": {
+      "type": "string"
+    },
+    "phoneNumber1": {
+      "type": "string"
+    },
+    "phoneNumber2": {
+      "type": "string"
+    },
+    "assistanceHours": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_health_insurance_how_it_works",
+  "info": {
+    "displayName": "howItWorks"
+  },
+  "options": {},
+  "attributes": {
+    "howItWorks": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "cardWithIcon": {
+      "type": "component",
+      "component": "about.card-with-icon",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

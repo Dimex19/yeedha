@@ -12,6 +12,9 @@
         "images",
         "files"
       ]
+    },
+    "alt": {
+      "type": "text"
     }
   },
   "config": {}

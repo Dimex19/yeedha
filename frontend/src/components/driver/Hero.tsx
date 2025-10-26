@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Rectangle41 from "../../assets/images/Rectangle41.png";
+import type { BusinessHeroBlock } from "../../utils/types/drivers";
 
-const Hero = () => {
+const Hero = ({heading, description, cta}: BusinessHeroBlock) => {
   const [activeButton, setActiveButton] = useState<string>("e-hailing");
 
   const handleButtonClick = (buttonName: string) => {
@@ -27,13 +28,13 @@ const Hero = () => {
           {/* Left Text Section */}
           <div className="max-w-full lg:max-w-[50%] text-center lg:text-left">
             <h1 className="text-[30px] sm:text-[36px] md:text-[44px] lg:text-[48px] font-bold leading-tight mb-4">
-              Earn a living, drive at your time, drive for comfort
+              {heading}
             </h1>
             <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-200">
-              Drive your car, rent a car, drive a rider’s car and earn money while doing it
+              {description}
             </p>
             <button className="w-[180px] sm:w-[210px] h-[50px] sm:h-[55px] bg-[#2563EB] text-[16px] sm:text-[18px] rounded-[12px] hover:bg-[#1e4fd8] transition">
-              Join Waitlist
+              {cta.label}
             </button>
           </div>
 

@@ -9,6 +9,11 @@
       "type": "component",
       "component": "homepage.start-subsection",
       "repeatable": false
+    },
+    "newsletterSubsection": {
+      "type": "component",
+      "component": "homepage.newsletter-subsection",
+      "repeatable": false
     }
   },
   "config": {}

@@ -13,6 +13,11 @@
     },
     "text1": {
       "type": "string"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
     }
   },
   "config": {}

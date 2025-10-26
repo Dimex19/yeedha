@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "health_insurances",
+  "info": {
+    "singularName": "health-insurance",
+    "pluralName": "health-insurances",
+    "displayName": "healthInsurance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "health-insurance.hero",
+        "health-insurance.how-it-works",
+        "health-insurance.yeedha-health-coverage",
+        "health-insurance.eligibility",
+        "shared.faq",
+        "health-insurance.car-ready"
+      ]
+    }
+  }
+}

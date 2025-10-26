@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_business_option_plus_images",
+  "info": {
+    "displayName": "optionPlusImage"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "style": {
+      "type": "enumeration",
+      "enum": [
+        "PRIMARY",
+        "SECONDARY"
+      ]
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,27 +1,43 @@
-// import React from 'react'
-import Frame5 from '../../assets/images/Rectangle5.png'
-import Frame29 from '../../assets/images/Rectangle29.png'
-import Frame31 from '../../assets/images/Rectangle31.png'
-import Frame33 from '../../assets/images/Rectangle33.png'
-import DoMoreCardProps from './DoMoreCardProps'
+import { getStrapiMedia } from '../../utils/StrapiImage';
+import DoMoreCardProps from './DoMoreCardProps';
+import type { DoMoreBlock } from '../../utils/types';
 
-const DoMore = () => {
+const DoMore = ({ text, description, actions }: DoMoreBlock) => {
   return (
-    <>
-        <div className="px-[30px] md:px-[47px] lg:px-[77px] xl:px-[97px] pt-10 md:pt-[120px]">
-            <div className="">
-                <p className="text-3xl lg:text-[45px] text-[#2563EB] font-bold font-[Manrope] text-center md:text-left">Do more with Yeedha</p>
-                <p className="md:max-w-[450px] lg:max-w-[617px] text-[#828282] font-medium text-[12px] md:text-[16px] lg:text-[20px] text-center md:text-left">Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam. Ut maecenas consequat habitasse.</p>
-            </div>
-            <div className="mt-10 md:mt-[86px] grid grid-cols-1 md:grid-cols-2 ">
-                <DoMoreCardProps image={Frame5} title="Hail Rides" description="Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam. Ut maecenas consequat habitasse." BtnText="Find Ride"/>
-                <DoMoreCardProps image={Frame29} title="Share Rides" description="Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam. Ut maecenas consequat habitasse." BtnText="Join Rides"/>
-                <DoMoreCardProps image={Frame31} title="Rent Cars" description="Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam. Ut maecenas consequat habitasse." BtnText="Find Ride"/>
-                <DoMoreCardProps image={Frame33} title="Hire Driver" description="Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam. Ut maecenas consequat habitasse." BtnText="Find Ride"/>
-            </div>
-        </div>
-    </>
-  )
-}
+    <div className="px-[30px] md:px-[47px] lg:px-[77px] xl:px-[97px] pt-10 md:pt-[120px]">
+      {/* Section title and description */}
+      <div>
+        <p className="text-3xl lg:text-[45px] text-[#2563EB] font-bold font-[Manrope] text-center md:text-left">
+          {text}
+        </p>
+        <p className="md:max-w-[450px] lg:max-w-[617px] text-[#828282] font-medium text-[12px] md:text-[16px] lg:text-[20px] text-center md:text-left">
+          {description}
+        </p>
+      </div>
 
-export default DoMore
+      {/* ✅ Map through the actions dynamically */}
+      <div className="mt-10 md:mt-[86px] grid grid-cols-1 md:grid-cols-2 gap-6">
+        {actions?.map((action, index) => {
+          const imageUrl =
+            action?.backgroundImage?.image?.url ||
+            action?.backgroundImage?.url ||
+            null;
+
+          const imageSrc = getStrapiMedia(imageUrl);
+
+          return (
+            <DoMoreCardProps
+              key={index}
+              image={imageSrc || '/placeholder.png'}
+              title={action.text}
+              description={action.description}
+              BtnText={action.cta?.label || 'Learn More'}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default DoMore;

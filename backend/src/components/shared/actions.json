@@ -16,11 +16,6 @@
       "component": "shared.link",
       "repeatable": false
     },
-    "images": {
-      "type": "component",
-      "component": "shared.image",
-      "repeatable": true
-    },
     "backgroundImage": {
       "type": "component",
       "component": "shared.image",

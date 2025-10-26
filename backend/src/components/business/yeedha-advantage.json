@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_business_yeedha_advantages",
+  "info": {
+    "displayName": "yeedhaAdvantage"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

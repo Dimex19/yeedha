@@ -9,18 +9,18 @@
     "label": {
       "type": "string"
     },
-    "href": {
-      "type": "string"
-    },
-    "isExternal": {
-      "type": "boolean"
-    },
     "style": {
       "type": "enumeration",
       "enum": [
         "PRIMARY",
         "SECONDARY"
       ]
+    },
+    "href": {
+      "type": "text"
+    },
+    "isExternal": {
+      "type": "boolean"
     }
   },
   "config": {}

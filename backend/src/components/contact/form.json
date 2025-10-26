@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_contact_forms",
+  "info": {
+    "displayName": "form"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "options": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "Fullname": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

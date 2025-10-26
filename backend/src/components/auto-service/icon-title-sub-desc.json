@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_auto_service_icon_title_sub_descs",
+  "info": {
+    "displayName": "iconTitleSubDesc"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "titleDesc": {
+      "type": "component",
+      "component": "business.title-desc",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

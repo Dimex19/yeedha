@@ -3,8 +3,16 @@ import image7 from '../../assets/images/image7.png'
 import image5 from '../../assets/images/image5.png'
 import image8 from '../../assets/images/image8.png'
 import image9 from '../../assets/images/image9.png'
+import type { StartAndNewsletterBlock } from '../../utils/types'
 
-const StartAndNewsletter = () => {
+interface StartAndNewsletterProps {
+  data: {
+    startSubsection: StartAndNewsletterBlock["startSubsection"];
+    newsletterSubsection: StartAndNewsletterBlock["newsletterSubsection"];
+  }
+}
+
+const StartAndNewsletter = ({data}: StartAndNewsletterProps) => {
   const location = useLocation()
 
   // Logic: choose images based on route
@@ -13,6 +21,9 @@ const StartAndNewsletter = () => {
 
   const leftImage = isAlternateRoute ? image8 : image7
   const rightImage = isAlternateRoute ? image9 : image5
+
+  if (!data) return null;
+  const { startSubsection, newsletterSubsection} = data
 
   return (
     <>
@@ -34,10 +45,10 @@ const StartAndNewsletter = () => {
         {isAlternateRoute ? (
           <div className="relative z-10 mt-10 lg:mt-[131px] px-4 md:w-[500px] lg:w-[680px] mx-auto">
             <p className="font-semibold text-[16px] sm:text-[24px] lg:text-[28px] text-[#2563EB] mb-3 leading-snug">
-              Whether you're stuck on the road or need a repair you can trust — Yeedha's got your back.
+              {startSubsection.getStarted?.text}
             </p>
             <p className="text-[14px] sm:text-[15px] md:text-[16px] text-[#333] mx-auto max-2-[80%] md:max-w-[60%] lg:w-[584px]">
-              Don't let car troubles ruin your day. Join thousands of drivers who trust Yeedha for reliable roadside assistance and quality repairs.
+              {startSubsection.getStarted?.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6 md:mt-[55px]">
@@ -52,13 +63,13 @@ const StartAndNewsletter = () => {
         ) : (
           <div className="relative z-10 mt-10 md:mt-[131px] px-4">
             <p className="font-semibold text-[24px] sm:text-[28px] md:text-[32px] text-[#2563EB]">
-              Start Your Journey with Us
+              {startSubsection.getStarted?.text}
             </p>
             <p className="text-[14px] sm:text-[15px] md:text-[16px] text-[#333] mx-auto max-w-[60%] lg:w-[584px] mt-2">
-              Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam.
+              {startSubsection.getStarted?.description}
             </p>
             <button className="bg-[#2563EB] w-[160px] sm:w-[180px] h-[45px] md:h-[50px] rounded-[12px] font-[Manrope] text-white mt-5">
-              Get Started
+              {startSubsection.getStarted?.cta.label}
             </button>
           </div>
         )}
@@ -74,13 +85,13 @@ const StartAndNewsletter = () => {
       {/* === NEWSLETTER SECTION === */}
       <div className="px-4 sm:px-6 md:px-[47px] lg:px-[77px] xl:px-[127px] pt-10 md:pt-[104.03px] pb-10 md:pb-[120px] text-center">
         <p className="text-[20px] sm:text-[24px] text-[#2563EB] font-bold font-[Manrope]">
-          Newsletter
+          {newsletterSubsection.title}
         </p>
         <p className="text-[#252B42] font-bold text-[14px] sm:text-[18px] md:text-[20px] lg:text-[24px] max-w-[90%] md:max-w-[617px] mx-auto">
-          There’s something for everyone.
+          {newsletterSubsection.shortDescription}
         </p>
         <p className="text-[#737373] font-medium text-[12px] sm:text-[14px] md:text-[16px] max-w-[90%] md:max-w-[452px] mx-auto mt-2.5">
-          Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam.
+          {newsletterSubsection.description}
         </p>
 
         <div className="mt-6 md:mt-[30px] flex flex-col md:flex-row items-center justify-center w-full">

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_health_insurance_icon_title_lists",
+  "info": {
+    "displayName": "iconTitleList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "itemsList": {
+      "type": "component",
+      "component": "shared.list",
+      "repeatable": true
+    },
+    "icon": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

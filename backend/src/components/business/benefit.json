@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_business_benefits",
+  "info": {
+    "displayName": "benefit"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "optionPlusImage": {
+      "type": "component",
+      "component": "business.option-plus-image",
+      "repeatable": true
+    },
+    "imageTitleDesc": {
+      "type": "component",
+      "component": "business.image-title-desc",
+      "repeatable": true
+    },
+    "title2": {
+      "type": "string"
+    },
+    "description2": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

@@ -5,7 +5,7 @@ import HowItWorks from '../components/healthInsurance/HowItWorks'
 import HealthCoverage from '../components/healthInsurance/HealthCoverage'
 import Eligibility from '../components/healthInsurance/Eligibility'
 import Faq from '../components/healthInsurance/Faq'
-import StartAndNewsletter from '../components/home/StartAndNewsletter'
+// import StartAndNewsletter from '../components/home/StartAndNewsletter'
 
 const HealthInsurance = () => {
   return (
@@ -16,7 +16,7 @@ const HealthInsurance = () => {
             <HealthCoverage/>
             <Eligibility/>
             <Faq/>
-            <StartAndNewsletter/>
+            {/* <StartAndNewsletter/> */}
         </Layout>
     </div>
   )

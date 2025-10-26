@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_auto_service_how_it_works",
+  "info": {
+    "displayName": "howItWorks"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "component": "auto-service.icon-title-sub-desc",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

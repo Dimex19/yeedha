@@ -1,11 +1,11 @@
 {
   "collectionName": "components_homepage_heroes",
   "info": {
-    "displayName": "Hero"
+    "displayName": "hero"
   },
   "options": {},
   "attributes": {
-    "text": {
+    "title": {
       "type": "text"
     },
     "cta": {
@@ -17,6 +17,12 @@
       "type": "component",
       "component": "shared.video",
       "repeatable": false
+    },
+    "subTitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
     }
   },
   "config": {}

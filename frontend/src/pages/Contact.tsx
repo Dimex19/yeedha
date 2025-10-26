@@ -2,7 +2,7 @@
 import Layout from '../components/Layout'
 import Hero from '../components/contact/Hero'
 import Form from '../components/contact/Form'
-import StartAndNewsletter from '../components/home/StartAndNewsletter'
+// import StartAndNewsletter from '../components/home/StartAndNewsletter'
 import TalkToUs from '../components/contact/TalkToUs'
 
 const Contact = () => {
@@ -12,7 +12,7 @@ const Contact = () => {
             <Hero/>
             <Form/>
             <TalkToUs/>
-            <StartAndNewsletter/>
+            {/* <StartAndNewsletter/> */}
         </Layout>
     </div>
   )

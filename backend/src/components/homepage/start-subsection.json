@@ -9,11 +9,6 @@
       "type": "component",
       "component": "shared.actions",
       "repeatable": false
-    },
-    "newsletterSubsection": {
-      "type": "component",
-      "component": "homepage.newsletter-subsection",
-      "repeatable": false
     }
   },
   "config": {}

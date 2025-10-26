@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_business_heroes",
+  "info": {
+    "displayName": "Hero"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    },
+    "form": {
+      "type": "component",
+      "component": "business.form",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

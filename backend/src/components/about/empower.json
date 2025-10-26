@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_empowers",
+  "info": {
+    "displayName": "Empower"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

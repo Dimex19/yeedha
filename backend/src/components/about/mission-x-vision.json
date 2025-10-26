@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_mission_x_visions",
+  "info": {
+    "displayName": "missionXVision"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "images": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_faq_options",
+  "info": {
+    "displayName": "options"
+  },
+  "options": {},
+  "attributes": {
+    "option": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "component",
+      "component": "business.title-desc",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

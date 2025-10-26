@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "auto_services",
+  "info": {
+    "singularName": "auto-service",
+    "pluralName": "auto-services",
+    "displayName": "Auto-service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "health-insurance.hero",
+        "health-insurance.yeedha-health-coverage",
+        "auto-service.how-it-works"
+      ]
+    }
+  }
+}

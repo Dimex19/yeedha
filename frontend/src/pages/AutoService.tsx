@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import Hero from '../components/autoServices/Hero'
 import HowItWorks from '../components/autoServices/HowItWorks'
 import HealthCoverage from '../components/autoServices/HealthCoverage'
-import StartAndNewsletter from '../components/home/StartAndNewsletter'
+// import StartAndNewsletter from '../components/home/StartAndNewsletter'
 import FindMechanic from '../components/autoServices/FindMechanic'
 
 const HealthInsurance = () => {
@@ -14,7 +14,7 @@ const HealthInsurance = () => {
             <HowItWorks/>
             <HealthCoverage/>
             <FindMechanic/>
-            <StartAndNewsletter/>
+            {/* <StartAndNewsletter/> */}
         </Layout>
     </div>
   )

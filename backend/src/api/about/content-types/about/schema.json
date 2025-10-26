@@ -12,15 +12,22 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "text1": {
+      "type": "string"
+    },
     "title": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
     },
     "blocks": {
       "type": "dynamiczone",
       "components": [
         "shared.quote",
-        "shared.rich-text",
-        "shared.slider"
+        "about.empower",
+        "about.mission-x-vision",
+        "shared.cards-with-icon"
       ]
     }
   }

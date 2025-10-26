@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_health_insurance_eligibilities",
+  "info": {
+    "displayName": "eligibility"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

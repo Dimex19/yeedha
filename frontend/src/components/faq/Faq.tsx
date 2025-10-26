@@ -1,82 +1,74 @@
 import { useState } from "react";
 import Group5 from "../../assets/icons/group5.png";
+import type { FAQOptionsBlock } from "../../utils/types/faq";
 
-const Faq = () => {
+const Faq = ({options}: FAQOptionsBlock) => {
+  console.log("FAQ Options:", options);
   const [activeFaq, setActiveFaq] = useState<string | null>(null);
-
+  const [activeButton, setActiveButton] = useState<string>("All"); // default active
+  
+  const handleButtonClick = (buttonName: string) => {
+    setActiveButton(buttonName);
+  };
   const toggleFaq = (faqName: string) => {
     setActiveFaq((prev) => (prev === faqName ? null : faqName));
   };
 
-  const faqs = [
-    {
-      id: "faq1",
-      question: "Lorem ipsum dolor sit amet nibh consectetur?",
-      answer:
-        "Lorem ipsum dolor sit amet nibh consectetur. Nisi lectus phasellus neque, Lorem ipsum dolor sit amet nibh consectetur. Nisi lectus phasellus.",
-    },
-    {
-      id: "faq2",
-      question: "How can I use this component properly?",
-      answer:
-        "You can toggle each FAQ independently. Clicking the + expands it, clicking again closes it.",
-    },
-    {
-      id: "faq3",
-      question: "Is it possible to open multiple FAQs?",
-      answer:
-        "In this setup, only one FAQ can be opened at a time. You can adjust the logic if you want multiple to stay open.",
-    },
-    {
-      id: "faq4",
-      question: "Can I add more FAQs easily?",
-      answer:
-        "Yes, just extend the array. The component will auto-render them dynamically.",
-    },
-    {
-      id: "faq5",
-      question: "Is the height synced dynamically?",
-      answer:
-        "Yes! The right column will now stretch to match the height of the left column.",
-    },
-  ];
-
   return (
     <div className="font-[Manrope] mt-[60px] px-10 lg:px-[104px] mb-[120px]">
+      <div className="md:w-[564px] h-[50px] bg-[#F5F9FE] border border-[#D4E1FF] flex items-center justify-center rounded-[10px] mx-auto mt-[68px]">
+        {options?.map((opt) => (
+          <button
+            key={opt.id}
+            onClick={() => handleButtonClick(opt.option)}
+            className={`px-[20.5px] py-[8px] rounded-[5px] text-[14px] ${
+              activeButton === opt.option
+                ? "bg-[#2563EB] text-white"
+                : "bg-transparent text-[#2563EB]"
+            }`}
+          >
+            {opt.option}
+          </button>
+        ))}
+      </div>
 
       {/* Flex container with equal height children */}
-      <div className="flex flex-col gap-x-[66px] items-stretch">
+      <div className="flex flex-col gap-x-[66px] items-stretch mt-10">
         {/* Left Side: FAQs */}
         <div className="flex-1">
-          {faqs.map((faq) => (
+          {options.map((opt) => {
+            if (activeButton !== opt.option) return null;
+            return opt.questions.map((faq) => (
             <div
               key={faq.id}
               className="w-full rounded-[15px] border border-[#E8E8E8] px-[23px] mb-[16px] overflow-hidden transition-all duration-500 ease-in-out"
             >
               {/* Header Row */}
               <div className="flex items-center justify-between min-h-[74px]">
-                <p className="text-[20px] font-medium">{faq.question}</p>
+                <p className="text-[20px] font-medium">{faq.title}</p>
                 <span
                   className="text-[26px] font-bold cursor-pointer select-none"
-                  onClick={() => toggleFaq(faq.id)}
+                  onClick={() => toggleFaq(String(faq.id))}
                 >
-                  {activeFaq === faq.id ? "−" : "+"}
+                  {activeFaq === String(faq.id) ? "−" : "+"}
                 </span>
               </div>
               {/* Animated Answer Section */}
               <div
                 className={`transition-all duration-500 ease-in-out ${
-                  activeFaq === faq.id
+                  activeFaq === String(faq.id)
                     ? "max-h-[300px] opacity-100"
                     : "max-h-0 opacity-0"
                 } overflow-hidden`}
               >
                 <p className="w-[664px] font-medium text-[16px] text-[#6C737F] pb-4">
-                  {faq.answer}
+                  {faq.description}
                 </p>
               </div>
             </div>
-          ))}
+            ));
+          })}
+            
         </div>
 
         {/* Right Side: Got More Questions */}

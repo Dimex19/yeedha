@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_about_discovers",
+  "info": {
+    "displayName": "discover"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "cardWithIcon": {
+      "type": "component",
+      "component": "about.card-with-icon",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

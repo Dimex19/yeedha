@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_health_insurance_car_readies",
+  "info": {
+    "displayName": "carReady"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "iconTitleList": {
+      "type": "component",
+      "component": "health-insurance.icon-title-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
