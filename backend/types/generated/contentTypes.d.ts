@@ -740,9 +740,7 @@ export interface ApiFaqFaq extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<
-      ['homepage.start-and-newsletter', 'faq.options2']
-    >;
+    blocks: Schema.Attribute.DynamicZone<['homepage.start-and-newsletter']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

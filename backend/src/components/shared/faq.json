@@ -20,6 +20,11 @@
       "type": "component",
       "component": "business.image-title-desc",
       "repeatable": false
+    },
+    "faqOptionData": {
+      "type": "component",
+      "component": "faq.faq-option-data",
+      "repeatable": true
     }
   },
   "config": {}

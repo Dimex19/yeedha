@@ -3,6 +3,7 @@
  */
 
 import type { Core } from '@strapi/strapi';
+import { title } from 'process';
 
 const populate = {
     blocks: {
@@ -28,21 +29,22 @@ const populate = {
                       fields: ["alternativeText", "url"]
                     }
                   }
-                }
-              }
-            },
-            imageTitleDesc: {
-              populate: {
-                image: {
+                },
+                imageTitleDesc: {
                   populate: {
                     image: {
-                      fields: ["alternativeText", "url"]
-                    }
+                      populate: {
+                        image: {
+                          fields: ["alternativeText", "url"]
+                        }
+                      }
+                    },
+                    cta: true
                   }
                 },
-                cta: true
               }
-            }
+            },
+            
           }
         },
         "business.how-yeedha-works": {
@@ -55,7 +57,27 @@ const populate = {
               }
             },
             cta: true,
-            titleDesc : true
+            titleDesc : true,
+            optionData: {
+              populate: {
+                image: {
+                  populate: {
+                    image: {
+                      fields: ["alternativeText", "url"]
+                    }
+                  }
+                },
+                overlayImage: {
+                  populate: {
+                    image: {
+                      fields: ["alternativeText", "url"]
+                    }
+                  }
+                },
+                cta: true,
+                titleDesc : true,
+              }
+            }
           }
         },
         "business.yeedha-advantage": {
@@ -84,6 +106,11 @@ const populate = {
                 cta: true
               }
             },
+            faqOptionData: {
+              populate: {
+                faqs: true
+              }
+            }
           }
         },
       }

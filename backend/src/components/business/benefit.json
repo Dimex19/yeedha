@@ -16,11 +16,6 @@
       "component": "business.option-plus-image",
       "repeatable": true
     },
-    "imageTitleDesc": {
-      "type": "component",
-      "component": "business.image-title-desc",
-      "repeatable": true
-    },
     "title2": {
       "type": "string"
     },

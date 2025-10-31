@@ -1,10 +1,13 @@
 {
-  "collectionName": "components_business_how_yeedha_works",
+  "collectionName": "components_driver_option_data",
   "info": {
-    "displayName": "howYeedhaWorks"
+    "displayName": "optionData"
   },
   "options": {},
   "attributes": {
+    "label": {
+      "type": "string"
+    },
     "title": {
       "type": "string"
     },
@@ -14,7 +17,12 @@
     "image": {
       "type": "component",
       "component": "shared.image",
-      "repeatable": true
+      "repeatable": false
+    },
+    "overlayImage": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
     },
     "titleDesc": {
       "type": "component",
@@ -25,11 +33,6 @@
       "type": "component",
       "component": "shared.link",
       "repeatable": false
-    },
-    "optionData": {
-      "type": "component",
-      "component": "driver.option-data",
-      "repeatable": true
     }
   },
   "config": {}

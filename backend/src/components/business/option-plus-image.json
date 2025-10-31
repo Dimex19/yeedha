@@ -19,6 +19,11 @@
       "type": "component",
       "component": "shared.image",
       "repeatable": false
+    },
+    "imageTitleDesc": {
+      "type": "component",
+      "component": "business.image-title-desc",
+      "repeatable": true
     }
   },
   "config": {}

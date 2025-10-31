@@ -1,13 +1,13 @@
 {
-  "collectionName": "components_faq_options2s",
+  "collectionName": "components_driver_faqs",
   "info": {
     "displayName": "faqs"
   },
   "options": {},
   "attributes": {
-    "options": {
+    "faqs": {
       "type": "component",
-      "component": "faq.options",
+      "component": "driver.question-answer",
       "repeatable": true
     }
   },

@@ -70,7 +70,13 @@ const populate = {
             apps: {
               populate: {
                 downloadLinks: true,
-                images: true
+                images: {
+                  populate: {
+                    image: {
+                      fields: ["alternativeText", "url"]
+                    }
+                  }
+                }
               }
             },
             backgroundImage: true

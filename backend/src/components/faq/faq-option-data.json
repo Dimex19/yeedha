@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_faq_faq_option_data_s",
+  "info": {
+    "displayName": "faqOptionData "
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "faqs": {
+      "type": "component",
+      "component": "driver.question-answer",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

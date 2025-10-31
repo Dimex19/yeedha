@@ -92,10 +92,6 @@ export interface BusinessBenefit extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     description2: Schema.Attribute.Text;
-    imageTitleDesc: Schema.Attribute.Component<
-      'business.image-title-desc',
-      true
-    >;
     optionPlusImage: Schema.Attribute.Component<
       'business.option-plus-image',
       true
@@ -140,6 +136,7 @@ export interface BusinessHowYeedhaWorks extends Struct.ComponentSchema {
     cta: Schema.Attribute.Component<'shared.link', false>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Component<'shared.image', true>;
+    optionData: Schema.Attribute.Component<'driver.option-data', true>;
     title: Schema.Attribute.String;
     titleDesc: Schema.Attribute.Component<'business.title-desc', true>;
   };
@@ -165,6 +162,10 @@ export interface BusinessOptionPlusImage extends Struct.ComponentSchema {
   };
   attributes: {
     image: Schema.Attribute.Component<'shared.image', false>;
+    imageTitleDesc: Schema.Attribute.Component<
+      'business.image-title-desc',
+      true
+    >;
     label: Schema.Attribute.String;
     style: Schema.Attribute.Enumeration<['PRIMARY', 'SECONDARY']>;
   };
@@ -225,6 +226,54 @@ export interface ContactTalkToUs extends Struct.ComponentSchema {
   };
 }
 
+export interface DriverFaqs extends Struct.ComponentSchema {
+  collectionName: 'components_driver_faqs';
+  info: {
+    displayName: 'faqs';
+  };
+  attributes: {
+    faqs: Schema.Attribute.Component<'driver.question-answer', true>;
+  };
+}
+
+export interface DriverOptionData extends Struct.ComponentSchema {
+  collectionName: 'components_driver_option_data';
+  info: {
+    displayName: 'optionData';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.link', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Component<'shared.image', false>;
+    label: Schema.Attribute.String;
+    overlayImage: Schema.Attribute.Component<'shared.image', false>;
+    title: Schema.Attribute.String;
+    titleDesc: Schema.Attribute.Component<'business.title-desc', true>;
+  };
+}
+
+export interface DriverQuestionAnswer extends Struct.ComponentSchema {
+  collectionName: 'components_driver_question_answers';
+  info: {
+    displayName: 'questionAnswer';
+  };
+  attributes: {
+    answer: Schema.Attribute.Text;
+    question: Schema.Attribute.String;
+  };
+}
+
+export interface FaqFaqOptionData extends Struct.ComponentSchema {
+  collectionName: 'components_faq_faq_option_data_s';
+  info: {
+    displayName: 'faqOptionData ';
+  };
+  attributes: {
+    faqs: Schema.Attribute.Component<'driver.question-answer', true>;
+    label: Schema.Attribute.String;
+  };
+}
+
 export interface FaqOptions extends Struct.ComponentSchema {
   collectionName: 'components_faq_options';
   info: {
@@ -233,16 +282,6 @@ export interface FaqOptions extends Struct.ComponentSchema {
   attributes: {
     option: Schema.Attribute.String;
     questions: Schema.Attribute.Component<'business.title-desc', true>;
-  };
-}
-
-export interface FaqOptions2 extends Struct.ComponentSchema {
-  collectionName: 'components_faq_options2s';
-  info: {
-    displayName: 'faqs';
-  };
-  attributes: {
-    options: Schema.Attribute.Component<'faq.options', true>;
   };
 }
 
@@ -532,6 +571,7 @@ export interface SharedFaq extends Struct.ComponentSchema {
       false
     >;
     description: Schema.Attribute.Text;
+    faqOptionData: Schema.Attribute.Component<'faq.faq-option-data', true>;
     questions: Schema.Attribute.Component<'business.title-desc', true>;
     title: Schema.Attribute.String;
   };
@@ -692,8 +732,11 @@ declare module '@strapi/strapi' {
       'business.yeedha-advantage': BusinessYeedhaAdvantage;
       'contact.form': ContactForm;
       'contact.talk-to-us': ContactTalkToUs;
+      'driver.faqs': DriverFaqs;
+      'driver.option-data': DriverOptionData;
+      'driver.question-answer': DriverQuestionAnswer;
+      'faq.faq-option-data': FaqFaqOptionData;
       'faq.options': FaqOptions;
-      'faq.options2': FaqOptions2;
       'health-insurance.car-ready': HealthInsuranceCarReady;
       'health-insurance.eligibility': HealthInsuranceEligibility;
       'health-insurance.hero': HealthInsuranceHero;
