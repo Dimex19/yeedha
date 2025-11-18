@@ -1,89 +1,142 @@
 import { useState } from "react";
-import Yeedha11 from "../../assets/images/yeedha11.png";
-import Yeedha12 from "../../assets/images/yeedha12.png";
-import Yeedha13 from "../../assets/images/yeedha13.png";
-import GooglePlay from '../../assets/icons/playstore.png'
-import Huawei from '../../assets/icons/huawei.png'
 import { IoLogoApple } from "react-icons/io5";
+import { getStrapiMedia } from "../../utils/StrapiImage";
+import type { DownloadSectionBlock } from "../../utils/types/types";
+import GooglePlay from "../../assets/icons/playstore.png";
+import Huawei from "../../assets/icons/huawei.png";
 
-const Download = () => {
-  const [activeButton, setActiveButton] = useState<string>("rider"); // default active
+const Download = ({ title, description, apps }: DownloadSectionBlock) => {
+  // Default to the first app
+  const [activeApp, setActiveApp] = useState(apps?.[0]?.title || "");
 
-  const handleButtonClick = (buttonName: string) => {
-    setActiveButton(buttonName);
-  };
+  // Find the active app object
+  const selectedApp = apps?.find((app) => app.title === activeApp);
+
+  console.log("Selected App:", selectedApp?.images);
+  // Extract image URLs for the selected app
+  const appImages =
+    selectedApp?.images || [];
+  console.log("App Images:", appImages);
+
+  // Extract download links
+  const downloadLinks = selectedApp?.downloadLinks || [];
 
   return (
     <div className="font-[Manrope] px-5 md:px-0 bg-[#2563EB] text-white mb-[131px] text-center pt-[66px] pb-[85px]">
-      <p className="text-4xl md:text-[65px] font-bold">Download Yeedha</p>
-      <p className="text-[14px] md:text-[22px] font-medium">
-        Lorem ipsum Lorem ipsum dolor sit amet consectetur.
-      </p>
+      {/* Title & Description */}
+      <p className="text-4xl md:text-[65px] font-bold">{title}</p>
+      <p className="text-[14px] md:text-[22px] font-medium">{description}</p>
 
+      {/* Switch Buttons */}
       <div className="md:w-[564px] text-[12px] h-[40px] md:h-[50px] bg-white flex items-center justify-center rounded-[10px] mx-auto mt-[68px]">
-        <button
-          onClick={() => handleButtonClick("rider")}
-          className={`px-[20px] py-[4px] rounded-[5px] ${
-            activeButton === "rider"
-              ? "bg-[#2563EB] text-white"
-              : "bg-transparent text-[#2563EB]"
-          }`}
-        >
-          Rider App
-        </button>
-
-        <button
-          onClick={() => handleButtonClick("driver")}
-          className={`px-[20px] py-[4px] rounded-[5px] ${
-            activeButton === "driver"
-              ? "bg-[#2563EB] text-white"
-              : "bg-transparent text-[#2563EB]"
-          }`}
-        >
-          Driver App
-        </button>
-
-        <button
-          onClick={() => handleButtonClick("business")}
-          className={`px-[20px] py-[4px] rounded-[5px] ${
-            activeButton === "business"
-              ? "bg-[#2563EB] text-white"
-              : "bg-transparent text-[#2563EB]"
-          }`}
-        >
-          Business App
-        </button>
+        {apps?.map((app) => (
+          <button
+            key={app.id}
+            onClick={() => setActiveApp(app.title)}
+            className={`px-[20px] py-[4px] rounded-[5px] ${
+              activeApp === app.title
+                ? "bg-[#2563EB] text-white"
+                : "bg-transparent text-[#2563EB]"
+            }`}
+          >
+            {app.title}
+          </button>
+        ))}
       </div>
-      <div className="flex gap-[10.73px] mt-[35px] mx-auto justify-center">
-              <div className="flex gap-1 font-[Manrope] w-[106px] md:w-[126px] px-[15.02px] py-[8px] md:py-[6.01px] h-[38px] bg-[#5586F0] rounded-[57.25px] items-center">
-                <p className="text-white text-[16px]"><IoLogoApple/></p>
-                
-                <div className="">
-                  <p className="text-[6px] md:text-[8px] text-left">Download on the</p>
-                  <p className="text-[10px] md:text-[14px] font-bold leading-[14px]">App Store</p>
+
+      {/* Download Links */}
+      <div className="flex gap-[10.73px] mt-[35px] mx-auto justify-center flex-wrap">
+        {downloadLinks?.map((link) => {
+          const alt = link.alt?.toLowerCase() || "";
+          if (alt.includes("playstore")) {
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="flex gap-1 w-[120px] md:w-[140px] px-[15px] py-[8px] md:py-[6px] h-[38px] bg-[#5586F0] rounded-[57px] items-center">
+                  <img src={GooglePlay} alt="Google Play" className="w-5" />
+                  <div>
+                    <p className="text-[6px] md:text-[8px] text-left">GET IT ON</p>
+                    <p className="text-[10px] md:text-[14px] font-bold leading-[14px]">
+                      Google Play
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-1 font-[Manrope] w-[120px] md:w-[140px] px-[15.02px] py-[8px] md:py-[6.01px] h-[38px] bg-[#5586F0] rounded-[57.25px]">
-                <img src={GooglePlay} alt="" className="z-10 w-5" />
-                <div className="">
-                  <p className="text-[6px] md:text-[8px] text-left">GET IT ON</p>
-                  <p className="text-[10px] md:text-[14px] font-bold leading-[14px]">Google Play</p>
+              </a>
+            );
+          }
+          if (alt.includes("appstore")) {
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="flex gap-1 w-[106px] md:w-[126px] px-[15px] py-[8px] md:py-[6px] h-[38px] bg-[#5586F0] rounded-[57px] items-center justify-center">
+                  <IoLogoApple className="text-white text-[16px]" />
+                  <div>
+                    <p className="text-[6px] md:text-[8px] text-left">
+                      Download on the
+                    </p>
+                    <p className="text-[10px] md:text-[14px] font-bold leading-[14px]">
+                      App Store
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-1 font-[Manrope] w-[120px] md:w-[140px] px-[15.02px] py-[8px] md:py-[6.01px] h-[38px] bg-[#5586F0] rounded-[57.25px]">
-                <img src={Huawei} alt="" className="z-10 w-5" />
-                <div className="">
-                  <p className="text-[6px] md:text-[8px] text-left">EXPLORE IT ON</p>
-                  <p className="text-[10px] md:text-[14px] font-bold leading-[14px]">App Gallery</p>
+              </a>
+            );
+          }
+          if (alt.includes("huawei")) {
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="flex gap-1 w-[120px] md:w-[140px] px-[15px] py-[8px] md:py-[6px] h-[38px] bg-[#5586F0] rounded-[57px] items-center justify-center">
+                  <img src={Huawei} alt="App Gallery" className="w-5" />
+                  <div>
+                    <p className="text-[6px] md:text-[8px] text-left">
+                      EXPLORE IT ON
+                    </p>
+                    <p className="text-[10px] md:text-[14px] font-bold leading-[14px]">
+                      App Gallery
+                    </p>
+                  </div>
                 </div>
-              </div>
-              {/* <img src={GooglePlay} alt="" className="" />
-              <img src={Huawei} alt="" className="" /> */}
-            </div>
-      <div className="flex mt-[57px] justify-center gap-x-[14.98px] mb-[-85px]">
-        <img src={Yeedha11} alt="" className="w-[120px] md:w-[200px] lg:w-full" />
-        <img src={Yeedha12} alt="" className="w-[120px] md:w-[200px] lg:w-full" />
-        <img src={Yeedha13} alt="" className="w-[120px] md:w-[200px] lg:w-full" />
+              </a>
+            );
+          }
+          return null;
+        })}
+      </div>
+
+      {/* App Preview Images */}
+      <div className="flex mt-[57px] justify-center gap-x-[14.98px] mb-[-85px] flex-wrap">
+        {appImages?.length > 0 ? (
+          appImages.map((item, index) => {
+            const imageUrl =
+            item?.image?.url ||
+            // item?.image?.url ||
+            null;
+
+            const imageSrc = getStrapiMedia(imageUrl);
+            return (
+            <img
+              key={index}
+              src={imageSrc || '/placeholder.png'}
+              alt={selectedApp?.images?.[index]?.alt || "App Preview"}
+              className="w-[120px] md:w-[200px] lg:w-[400px] object-contain"
+            />
+          )})
+        ) : (
+          <p>No images available</p>
+        )}
       </div>
     </div>
   );

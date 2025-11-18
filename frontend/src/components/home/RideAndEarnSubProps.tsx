@@ -15,19 +15,17 @@ const RideAndEarnSubProps: React.FC<RideAndEarnSubPropsType> = ({ image, BtnText
     const navigate = useNavigate();
 
   const handleNavigation = (link?: string) => {
-    if (!link) return;
+  if (!link) return;
 
-    // Check if the link contains query params
-    const [path, query] = link.split("?");
-    const params = new URLSearchParams(query);
-    const tab = params.get("tab");
+  const [path, query] = link.split("?");
+  const params = new URLSearchParams(query);
 
-    if (tab) {
-      navigate(path, { state: { tab } });
-    } else {
-      navigate(path);
-    }
-  };
+  navigate({
+    pathname: path,
+    search: params.toString(),
+  });
+};
+
   
   return (
     <div className="mb-10 md:mb-[86px] grid md:grid-cols-2 gap-15 lg:gap-[120px]">

@@ -1,3 +1,5 @@
+import type { IconTitleListItem } from '../../utils/types/cng'
+
 interface DescObject {
     first: string;
     second: string;
@@ -9,7 +11,7 @@ interface DescObject {
 interface IconTitleDescProps {
     image?: string,
     title?: string,
-    desc?: string | DescObject,
+    desc?: string | DescObject | IconTitleListItem[],
     titleFont?: string,
     descWidth?: string
 }
@@ -24,11 +26,20 @@ const ListIconTitleDesc = ({image, title, desc, titleFont, descWidth}: IconTitle
                 {typeof desc === 'string' && <li>{desc}</li>}
                 {typeof desc === 'object' && desc !== null && (
                     <>
+                        {desc instanceof Array ? (
+                            desc.map((item, index) => (
+                                <li key={index}>
+                                    {item.item}
+                                </li>
+                            ))
+                        ) : (
+                            <>
                         {desc.first && <li>{desc.first}</li>}
                         {desc.second && <li>{desc.second}</li>}
                         {desc.third && <li>{desc.third}</li>}
                         {desc.fourth && <li>{desc.fourth}</li>}
                         {desc.fifth && <li>{desc.fifth}</li>}
+                        </>)}
                     </>
                 )}
             </ul>

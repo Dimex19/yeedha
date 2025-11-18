@@ -24,7 +24,7 @@ const Hero = ({heading, description, cta}: BusinessHeroBlock) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/70" />
 
         {/* Content Section */}
-        <div className="absolute inset-0 flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start text-white px-6 sm:px-10 md:px-16 lg:px-[106px] top-[8%] lg:top-[18%] gap-10">
+        <div className="absolute inset-0 flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start text-white px-6 sm:px-10 md:px-16 lg:px-[106px] top-[8%] lg:top-[28%] gap-10">
           {/* Left Text Section */}
           <div className="max-w-full lg:max-w-[50%] text-center lg:text-left">
             <h1 className="text-[30px] sm:text-[36px] md:text-[44px] lg:text-[48px] font-bold leading-tight mb-4">

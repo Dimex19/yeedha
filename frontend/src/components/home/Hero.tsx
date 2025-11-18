@@ -1,8 +1,9 @@
 import HeroImg from '../../assets/images/Rectangle26.png'
 import PlayBtn from '../../assets/images/video-circle.png'
-import type {HeroBlock} from '../../utils/types'
+import type {HeroBlock} from '../../utils/types/types'
 
-const Hero: React.FC<HeroBlock> = ({title, description, subTitle, heroVideo, cta}) => {
+// const Hero: React.FC<HeroBlock> = ({title, description, subTitle, heroVideo, cta}) => {
+const Hero: React.FC<HeroBlock> = ({title, description, subTitle, cta}) => {
   return (
     <>
         <div className="relative">

@@ -3,8 +3,10 @@ import Group6 from "../../assets/icons/group6.png";
 import Group7 from "../../assets/icons/group7.png";
 // import Group8 from "../../assets/icons/Group8.png";
 import ListIconTitleDesc from "../cng/ListIconTitleDesc";
+import type { CarReadyBlock } from '../../utils/types/cng'
+import { getStrapiMedia } from "../../utils/StrapiImage";
 
-const CarReady = () => {
+const CarReady = ({title, description, iconTitleList}: CarReadyBlock) => {
   const cards = [
     {
       image: Group6,
@@ -34,25 +36,31 @@ const CarReady = () => {
       {/* Heading */}
       <div className="md:w-[647px] sm:px-8 mx-auto text-center">
         <p className="text-[#2563EB] text-[26px] md:text-[35px] font-semibold">
-          Is Your Car Ready for CNG?
+          {title}
         </p>
         <p className="text-[16px] md:text-[20px] font-medium text-[#828282]">
-          CNG works best with petrol-powered cars in good condition.  Here's how to know if you qualify.
+          {description}
         </p>
       </div>
 
       {/* Cards Section */}
       <div className="md:px-[108px] mt-[60px] gap-y-5 sm:mt-[50px] lg:mt-[60px] flex flex-col sm:flex-row flex-wrap justify-center gap-x-[30px] text-center">
-        {cards.map((card, index) => (
+        {iconTitleList.map((card, index) => {
+        const imageUrl = (card?.icon as any)?.image?.url ??
+          (card?.icon as any)?.url ??
+          null;
+        const imageSrc = getStrapiMedia(imageUrl);
+
+        return (
           <ListIconTitleDesc
             key={index}
-            image={card.image}
+            image={imageSrc || undefined}
             title={card.title}
-            desc={card.desc}
+            desc={card.itemsList}
             titleFont="20px"
             descWidth="292px"
           />
-        ))}
+        )})}
       </div>
     </div>
   );

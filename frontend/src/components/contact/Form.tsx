@@ -26,7 +26,7 @@ const Form = () => {
     return (
         <>
             {/* Added responsiveness: px-4 for mobile, md:px-12 for tablets, lg:px-[125px] for large screens. mt-10 for mobile, lg:mt-[95px] for large screens. */}
-            <div className="font-[Manrope] mt-10 px-4 md:px-12 lg:px-[125px]">
+            <div className="font-[Manrope] mt-10 px-4 md:px-12 xl:px-[125px]">
                 <p className="mb-4 text-lg md:text-[18px]">What type of user are you?</p>
                 {/* Changed from 'flex justify-between' to a responsive grid/flex layout */}
                 {/* On small screens, the image will stack below the form. On md screens and up, they are side-by-side. */}

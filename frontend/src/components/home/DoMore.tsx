@@ -1,6 +1,6 @@
 import { getStrapiMedia } from '../../utils/StrapiImage';
 import DoMoreCardProps from './DoMoreCardProps';
-import type { DoMoreBlock } from '../../utils/types';
+import type { DoMoreBlock } from '../../utils/types/types';
 
 const DoMore = ({ text, description, actions }: DoMoreBlock) => {
   return (

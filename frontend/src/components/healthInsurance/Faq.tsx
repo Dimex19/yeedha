@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Group5 from "../../assets/icons/group5.png";
+import type { FAQBlock } from "../../utils/types/healthInsurance";
+import { getStrapiMedia } from "../../utils/StrapiImage";
 
-const Faq = () => {
+const Faq = ({title, description, questions, CallToAction}: FAQBlock) => {
   const [activeFaq, setActiveFaq] = useState<string | null>(null);
 
   const toggleFaq = (faqName: string) => {
@@ -42,45 +44,45 @@ const Faq = () => {
   ];
 
   return (
-    <div className="font-[Manrope] p-1.5 md:px-[104px]">
-      <div className="text-center lg:w-[789px] mx-auto mb-[65px]">
+    <div className="font-[Manrope] lg:px-[64px] mt-[100px] mb-[92px]">
+      <div className="text-center p-5 md:w-[789px] mx-auto mb-[65px]">
         <p className="text-[24px] md:text-[35px] text-[#2563EB] font-bold">
-          Frequently Asked Questions
+          {title}
         </p>
         <p className="text-[16px] md:text-[20px] text-[#828282] font-medium">
-          Get answers to common questions about Yeedha Health Coverage
+          {description}
         </p>
       </div>
 
       {/* Flex container with equal height children */}
-      <div className="lg:flex gap-x-[66px] items-stretch">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-[66px] items-stretch px-4 sm:px-8 lg:px-0">
         {/* Left Side: FAQs */}
         <div className="flex-1">
-          {faqs.map((faq) => (
+          {questions.map((faq) => (
             <div
               key={faq.id}
-              className="md:w-[751px] rounded-[15px] border border-[#E8E8E8] px-[23px] mb-[16px] overflow-hidden transition-all duration-500 ease-in-out"
+              className="w-full rounded-[15px] border border-[#E8E8E8] px-[23px] mb-[16px] overflow-hidden transition-all duration-500 ease-in-out"
             >
               {/* Header Row */}
-              <div className="flex items-center justify-between min-h-[74px]">
-                <p className="text-[20px] font-medium">{faq.question}</p>
+              <div className="flex items-center justify-between min-h-[60px] sm:min-h-[70px]">
+                <p className="text-[16px] sm:text-[18px] md:text-[20px] font-medium leading-snug">{faq.title}</p>
                 <span
-                  className="text-[26px] font-bold cursor-pointer select-none"
-                  onClick={() => toggleFaq(faq.id)}
+                  className="text-[22px] sm:text-[26px] font-bold cursor-pointer select-none"
+                  onClick={() => toggleFaq(String(faq.id))}
                 >
-                  {activeFaq === faq.id ? "−" : "+"}
+                  {activeFaq === String(faq.id) ? "−" : "+"}
                 </span>
               </div>
               {/* Animated Answer Section */}
               <div
                 className={`transition-all duration-500 ease-in-out ${
-                  activeFaq === faq.id
+                  activeFaq === String(faq.id)
                     ? "max-h-[300px] opacity-100"
                     : "max-h-0 opacity-0"
                 } overflow-hidden`}
               >
-                <p className="w-[664px] font-medium text-[16px] text-[#6C737F] pb-4">
-                  {faq.answer}
+                <p className="font-medium text-[14px] sm:text-[15px] md:text-[16px] text-[#6C737F] pb-4 leading-relaxed">
+                  {faq.description}
                 </p>
               </div>
             </div>
@@ -88,19 +90,21 @@ const Faq = () => {
         </div>
 
         {/* Right Side: Got More Questions */}
-        <div className="flex-1 border border-[#E8E8E8] rounded-[20px] pt-[61px] px-[41px] flex flex-col justify-between">
-          <div className="w-[333px] text-center mx-auto">
-            <img src={Group5} alt="" className="mx-auto mb-[35px]" />
+        <div className="flex-1 border border-[#E8E8E8] rounded-[20px] pt-[40px] sm:pt-[50px] lg:pt-[61px] px-6 sm:px-8 lg:px-[41px] flex flex-col justify-between">
+          <div className="max-w-[350px] text-center mx-auto">
+            <img src={getStrapiMedia(
+              (CallToAction.image?.image as any)?.url ||
+                (CallToAction.image?.image as any)?.data?.attributes?.url
+            ) ?? Group5} alt="" className="mx-auto mb-[35px] w-[90px] sm:w-[100px]" />
             <p className="font-bold text-[22px] text-[#2563EB]">
-              Got more questions?
+              {CallToAction?.title}
             </p>
             <p className="text-[16px] mb-2.5">
-              Lorem ipsum dolor sit amet nibh consectetur. Nisi lectus phasellus
-              neque, Lorem ipsum dolor sit amet nibh consectetur.
+              {CallToAction?.description}
             </p>
           </div>
           <button className="text-white w-[338px] h-[60px] bg-[#2563EB] rounded-[14px] mb-[40.93px] mx-auto">
-            Talk to Us
+            {CallToAction?.cta.label}
           </button>
         </div>
       </div>

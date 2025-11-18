@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import { HashLink } from "react-router-hash-link";
 import Logo from "../assets/images/yeedha_logo.png";
-import type { ImageWithAltProps, LinkProps } from '../utils/types';
+import type { ImageWithAltProps, LinkProps } from '../utils/types/types';
 
 
 interface HeaderProps {
@@ -39,10 +39,15 @@ const Header = ({
   // const navLinkColor = isScrolled ? "text-black" : `text-[${linkColor}]`;
   const logoFilter = isScrolled || logoColor === "blue" ? "none" : "brightness(0) invert(1)";
   const hamburgerColor = isScrolled ? "#2563EB" : linkColor;
-
+  const buttonBgColor = isScrolled ? "#2563EB" : buttonBg;
+  const buttonTextColor = isScrolled ? "white" : buttonText;
   if (!data) return null;
 
-  const { logo, links, cta } = data;
+  const { 
+    // logo, 
+    links,
+    //  cta 
+    } = data;
 
   return (
     <>
@@ -99,8 +104,8 @@ const Header = ({
         <button
           className="w-[100px] h-[42px] rounded-[7px] text-[16px] font-medium transition-transform hover:scale-105"
           style={{
-            backgroundColor: buttonBg,
-            color: buttonText,
+            backgroundColor: buttonBgColor,
+            color: buttonTextColor,
           }}
         >
           Join Us

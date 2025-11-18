@@ -1,5 +1,5 @@
 import ExtrasProp from "./ExtrasProp"
-import type { ExtraSectionBlock } from "../../utils/types"
+import type { ExtraSectionBlock } from "../../utils/types/types"
 import { getStrapiMedia } from '../../utils/StrapiImage';
 
 

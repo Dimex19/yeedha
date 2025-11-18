@@ -7,7 +7,7 @@ import Instagram from '../assets/icons/instagram-logo.png'
 import Youtube from '../assets/icons/youtube-logo.png'
 import Twitter from '../assets/icons/twitter.png'
 import Emergency from '../assets/icons/emergency.png'
-import type { LinkProps, ImageWithAltProps } from '../utils/types'
+import type { LinkProps, ImageWithAltProps } from '../utils/types/types'
 
 interface FooterProps {
   data?: {

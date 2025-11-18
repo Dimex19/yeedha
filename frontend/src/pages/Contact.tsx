@@ -1,17 +1,42 @@
-// import React from 'react'
+import { useState, useEffect } from 'react';
 import Layout from '../components/Layout'
 import Hero from '../components/contact/Hero'
 import Form from '../components/contact/Form'
 // import StartAndNewsletter from '../components/home/StartAndNewsletter'
 import TalkToUs from '../components/contact/TalkToUs'
+import { getContactPageSettings } from "../utils/loaders";
 
 const Contact = () => {
+  const [contactPageData, setContactPageData] = useState<any>(null);
+          
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const { data } = await getContactPageSettings();
+        if (data) {
+          setContactPageData(data);
+          console.log("Contact Page Data:", data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch Contact page settings:", error);
+      }
+    };
+
+    fetchSettings();
+  }, []);
+
+  const blocks = contactPageData?.blocks || [];
+
+  // const heroBlock = blocks.find((b: any) => b.__component === "health-insurance.hero");
+  const talkToUsBlock = blocks.find((b: any) => b.__component === "contact.talk-to-us");
+  // const howItWorksBlock = blocks.find((b: any) => b.__component === "health-insurance.how-it-works");
+
   return (
     <div>
         <Layout>
-            <Hero/>
+            {contactPageData && <Hero {...contactPageData}/>}
             <Form/>
-            <TalkToUs/>
+            {talkToUsBlock && <TalkToUs {...talkToUsBlock}/>}
             {/* <StartAndNewsletter/> */}
         </Layout>
     </div>

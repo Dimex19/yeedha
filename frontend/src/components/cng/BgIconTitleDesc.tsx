@@ -1,7 +1,7 @@
 interface IconTitleDescProps {
     image?: string,
     title?: string,
-    desc?: string,
+    desc?: string, 
     titleFont?: string,
     descWidth?: string
 }

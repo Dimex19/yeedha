@@ -1,5 +1,5 @@
 import RideAndEarnSubProps from "./RideAndEarnSubProps";
-import type { RideAndEarnBlock } from "../../utils/types";
+import type { RideAndEarnBlock } from "../../utils/types/types";
 import { getStrapiMedia } from '../../utils/StrapiImage';
 
 const RideAndEarn = ({ title, description, rideAndEarnSubsection }: RideAndEarnBlock) => {

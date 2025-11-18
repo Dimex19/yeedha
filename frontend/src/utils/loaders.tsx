@@ -39,3 +39,33 @@ export async function getFaqPageSettings() {
 //   url.search = globalSettingQuery;
   return fetchAPI(url.href, { method: "GET" });
 }
+export async function getAutoServicePageSettings() {
+  const path = "/api/auto-service";
+  const url = new URL(path, BASE_URL);
+//   url.search = globalSettingQuery;
+  return fetchAPI(url.href, { method: "GET" });
+}
+export async function getCNGPageSettings() {
+  const path = "/api/cng-conversion";
+  const url = new URL(path, BASE_URL);
+//   url.search = globalSettingQuery;
+  return fetchAPI(url.href, { method: "GET" });
+}
+export async function getHealthInsurancePageSettings() {
+  const path = "/api/health-insurance";
+  const url = new URL(path, BASE_URL);
+//   url.search = globalSettingQuery;
+  return fetchAPI(url.href, { method: "GET" });
+}
+export async function getContactPageSettings() {
+  const path = "/api/contact";
+  const url = new URL(path, BASE_URL);
+//   url.search = globalSettingQuery;
+  return fetchAPI(url.href, { method: "GET" });
+}
+export async function getMechanicDataSettings() {
+  const path = "/api/mechanics?populate=*";
+  const url = new URL(path, BASE_URL);
+//   url.search = globalSettingQuery;
+  return fetchAPI(url.href, { method: "GET" });
+}

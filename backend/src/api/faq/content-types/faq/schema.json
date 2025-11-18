@@ -20,7 +20,8 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "homepage.start-and-newsletter"
+        "homepage.start-and-newsletter",
+        "faq.options2"
       ]
     }
   }

@@ -1,162 +1,170 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import HeroImg from "../../assets/images/Rectangle44.png";
-import HeroImg2 from "../../assets/images/Rectangle45.png";
-import HeroImg3 from "../../assets/images/Rectangle46.png";
-import HeroImg4 from "../../assets/images/Rectangle47.png";
-import PlayBtn from "../../assets/images/video-circle.png";
-import IconTitleDesc from "./IconTitleDesc";
+import HeroImg from '../../assets/images/Rectangle44.png'
+import PlayBtn from '../../assets/images/video-circle.png'
 import Group1 from "../../assets/icons/group1.png";
-import Group2 from "../../assets/icons/group2.png";
-import Group3 from "../../assets/icons/group3.png";
-import Group4 from "../../assets/icons/group4.png";
+import { getStrapiMedia } from "../../utils/StrapiImage";
 import type { BusinessBenefitBlock } from "../../utils/types/drivers";
 
+type DriveWithYeedhaProps = BusinessBenefitBlock & {
+  activeButton: string;
+  setActiveButton: (label: string) => void;
+};
 
-const DriveWithYeedha = ({title, description, imageTitleDesc }: BusinessBenefitBlock) => {
-  const location = useLocation();
-  const [activeButton, setActiveButton] = useState<string>("e-hailing");
+const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, setActiveButton }: DriveWithYeedhaProps) => {
 
-  const handleButtonClick = (buttonName: string) => {
-    setActiveButton(buttonName);
+  const handleButtonClick = (label: string) => {
+    setActiveButton(label);
   };
 
-  useEffect(() => {
-    if (location.state?.tab) {
-      setActiveButton(location.state.tab);
-      console.log(location.state.tab);
-      
-    }
-  }, [location.state]);
+  const activeOption = optionPlusImage.find(
+    (item) => item.label === activeButton
+  );
+
+  console.log('Active option', activeOption)
+
+  const imageTitleDesc = activeOption?.imageTitleDesc || [];
+
+  // Split into two sections
+  const topFeatures = imageTitleDesc.slice(0, 3);
+  const bottomSteps = imageTitleDesc.slice(3);
 
   return (
-    <div className="py-10 px-6 mt-[80px] md:mt-20 md:px-12 lg:px-20 xl:px-[97px]">
-      {/* HEADER TEXT */}
-      <div className="max-w-[617px] font-[Manrope]">
-        <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px] font-semibold leading-snug">
+    <div className="py-10 px-6 mt-[80px] md:mt-20 md:px-12 lg:px-20 xl:px-[97px] font-[Manrope]">
+      {/* Header */}
+      <div className="max-w-[617px] mb-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px] font-semibold leading-snug">
           {title}
-        </p>
-        <p className="text-base sm:text-lg md:text-xl font-medium mt-2">
+        </h2>
+        <p className="text-base sm:text-lg md:text-xl font-medium mt-2 text-[#828282]">
           {description}
         </p>
       </div>
 
-      {/* BUTTONS SECTION */}
-      <div className="mt-6 flex flex-wrap gap-3 sm:gap-4 text-sm sm:text-base font-medium text-[#2563EB]">
-        {["e-hailing", "car-pool", "shuttle", "freelance"].map((type) => (
+      {/* Option Buttons */}
+      <div className="flex flex-wrap gap-3 sm:gap-4 text-sm sm:text-base font-medium text-[#2563EB]">
+        {optionPlusImage.map((item, index) => (
           <button
-            key={type}
-            className={`w-full sm:w-[180px] md:w-[190px] h-[50px] sm:h-[55px] md:h-[60.64px] rounded-[10px] transition-all duration-200 ${
-              activeButton === type
+            key={index}
+            onClick={() => handleButtonClick(item.label)}
+            className={`w-full sm:w-[180px] md:w-[190px] h-[50px] sm:h-[55px] md:h-[60px] rounded-[10px] transition-all duration-200 ${
+              activeButton === item.label
                 ? "bg-[#2563EB] text-white"
                 : "bg-[#F5F9FE] text-[#2563EB]"
             }`}
-            onClick={() => handleButtonClick(type)}
           >
-            {type === "e-hailing"
-              ? "E-Hailing Driver"
-              : type === "car-pool"
-              ? "Car Pool Driver"
-              : type === "shuttle"
-              ? "Shuttle Driver"
-              : "Freelance Driver"}
+            {item.label} Driver
           </button>
         ))}
       </div>
 
-      <hr className="border border-[#EDEDED] mt-6 mb-8" />
+      <hr className="border border-[#EDEDED] mt-8 mb-12" />
 
-      {/* FEATURES SECTION */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-        <IconTitleDesc
-          image={Group1}
-          title="Drive and Earn"
-          desc="Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam. Ut maecenas consequat habitasse."
-          titleFont="26px"
-          descWidth="345px"
-        />
-        <IconTitleDesc
-          image={Group2}
-          title="Subscription Option"
-          desc="Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam. Ut maecenas consequat habitasse."
-          titleFont="26px"
-          descWidth="345px"
-        />
-        <IconTitleDesc
-          image={Group3}
-          title="Health Insurance"
-          desc="Lorem ipsum dolor sit amet consectetur. Nisi lectus phasellus nibh neque et nullam. Ut maecenas consequat habitasse."
-          titleFont="26px"
-          descWidth="345px"
-        />
+      {/* === Top Features (first 3 items) === */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-8">
+        {topFeatures.map((feature) => {
+          const imageUrl =
+            (feature?.image as any)?.image?.url ??
+            (feature?.image as any)?.url ??
+            null;
+          const imageSrc = getStrapiMedia(imageUrl);
+          return (
+            <div key={feature.id} className="flex flex-col  max-w-[345px]">
+              <img
+                src={imageSrc || Group1}
+                alt={feature.title}
+                className="w-[60px] h-[60px] mb-4"
+              />
+              <h3 className="text-[26px] font-semibold mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-[16px] text-[#6C737F] leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          );
+        })}
       </div>
-
-      {/* HERO IMAGE SECTION */}
-      <div className="mt-10 relative text-center">
-        <img
-          src={HeroImg}
-          alt=""
-          className={`w-full ${
-            activeButton === "e-hailing" ? "block" : "hidden"
-          }`}
-        />
-        <img
-          src={HeroImg2}
-          alt=""
-          className={`w-full ${
-            activeButton === "car-pool" ? "block" : "hidden"
-          }`}
-        />
-        <img
-          src={HeroImg3}
-          alt=""
-          className={`w-full ${
-            activeButton === "shuttle" ? "block" : "hidden"
-          }`}
-        />
-        <img
-          src={HeroImg4}
-          alt=""
-          className={`w-full ${
-            activeButton === "freelance" ? "block" : "hidden"
-          }`}
-        />
-
-        {/* TEXT OVERLAY */}
-        <p className="absolute top-[15%] left-[8%] sm:left-[15%] md:left-[20%] lg:left-[25%] xl:left-[30%] text-white text-sm sm:text-lg md:text-2xl lg:text-[32px] font-['Manrope'] font-normal z-10 max-w-[500px]">
-          Watch the video to see the difference we make
-        </p>
-
-        {/* PLAY BUTTON */}
-        <img
-          src={PlayBtn}
-          alt="play"
-          className="absolute top-[25%] left-[35%] sm:left-[42%] md:left-[45%] lg:left-[47%] xl:left-[48%] w-[60px] sm:w-[80px] md:w-[100px]"
-        />
-      </div>
-
-      {/* START DRIVING SECTION */}
-      <div className="mt-16">
-        <p className="font-bold text-2xl sm:text-3xl md:text-[35px] mb-2.5">
-          Start driving
-        </p>
-        <p className="font-medium text-base sm:text-lg md:text-[20px]">
-          Here are your requirements to become a driver
-        </p>
-
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
-          {[1, 2, 3, 4].map((_, i) => (
-            <IconTitleDesc
-              key={i}
-              image={Group4}
-              title="Lorem ipsum dolor"
-              desc="Lorem ipsum dolor sit amet consecte Nisi lectus phasellus nibh neque et nullam. Ut maecenas consequat."
-              titleFont="24px"
-              descWidth="263px"
-            />
-          ))}
+      <div className="relative text-center">
+          {activeOption?.image ? (
+            <>
+              <img
+                src={getStrapiMedia(
+                  (activeOption.image.image as any)?.url ||
+                    (activeOption.image.image as any)?.data?.attributes?.url
+                ) ?? undefined}
+                alt={activeOption.label}
+                className="mt-6 w-full rounded-[10px] object-cover"
+              />
+              <p className="absolute top-[40px] md:top-[70px] lg:top-[140px] xl:top-[129px] left-[70px] md:left-[140px] lg:left-[200px] xl:left-[306px] font-normal z-10 font-['Manrope'] text-[16px] md:text-[26px] lg:text-[32px] text-white">
+                Watch the video to see the difference we make
+              </p>
+              <img
+                src={PlayBtn}
+                alt="play button"
+                className="absolute top-[60px] md:top-[120px] lg:top-[197px] xl:top-[186px] left-[160px] md:left-[330px] lg:left-[440px] xl:left-[563px] scale-[0.5] lg:scale-100"
+              />
+            </>
+          ) : (
+            <>
+              {/* fallback to local images if Strapi image missing */}
+              <img
+                src={HeroImg}
+                alt="Default visual"
+                className="mt-6 w-full rounded-[10px] object-cover"
+              />
+              <p className="absolute top-[40px] md:top-[70px] lg:top-[140px] xl:top-[129px] left-[70px] md:left-[140px] lg:left-[200px] xl:left-[306px] font-normal z-10 font-['Manrope'] text-[16px] md:text-[26px] lg:text-[32px] text-white">
+                Watch the video to see the difference we make
+              </p>
+              <img
+                src={PlayBtn}
+                alt="play button"
+                className="absolute top-[60px] md:top-[120px] lg:top-[197px] xl:top-[186px] left-[160px] md:left-[330px] lg:left-[440px] xl:left-[563px] scale-[0.5] lg:scale-100"
+              />
+            </>
+          )}
         </div>
-      </div>
+      {/* === Bottom Section (remaining items as steps) === */}
+      {bottomSteps.length > 0 && (
+        <div className="mt-20 ">
+          <h3 className="font-bold text-2xl sm:text-3xl md:text-[30px] mb-2">
+            Set up your business in these easy steps:
+          </h3>
+          <p className="font-medium text-[16px] text-[#828282] mb-12">
+            Follow these simple steps to start earning.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 justify-items-between ">
+            {bottomSteps.map((step) => {
+              const imageUrl =
+                (step?.image as any)?.image?.url ??
+                (step?.image as any)?.url ??
+                null;
+              const imageSrc = getStrapiMedia(imageUrl);
+              return (
+                <div
+                  key={step.id}
+                  className="flex flex-col max-w-[263px]"
+                >
+                  <img
+                    src={imageSrc || Group1}
+                    alt={step.title}
+                    className="w-[60px] h-[60px] mb-4"
+                  />
+                  <h4 className="font-semibold text-[24px] mb-2">
+                    {step.title}
+                  </h4>
+                  <p className="text-[15px] text-[#6C737F] leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+      <div className="mt-[45px]">
+  
+</div>
+
     </div>
   );
 };

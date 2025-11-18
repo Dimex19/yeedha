@@ -285,6 +285,16 @@ export interface FaqOptions extends Struct.ComponentSchema {
   };
 }
 
+export interface FaqOptions2 extends Struct.ComponentSchema {
+  collectionName: 'components_faq_options2s';
+  info: {
+    displayName: 'options2';
+  };
+  attributes: {
+    options: Schema.Attribute.Component<'faq.options', true>;
+  };
+}
+
 export interface HealthInsuranceCarReady extends Struct.ComponentSchema {
   collectionName: 'components_health_insurance_car_readies';
   info: {
@@ -737,6 +747,7 @@ declare module '@strapi/strapi' {
       'driver.question-answer': DriverQuestionAnswer;
       'faq.faq-option-data': FaqFaqOptionData;
       'faq.options': FaqOptions;
+      'faq.options2': FaqOptions2;
       'health-insurance.car-ready': HealthInsuranceCarReady;
       'health-insurance.eligibility': HealthInsuranceEligibility;
       'health-insurance.hero': HealthInsuranceHero;

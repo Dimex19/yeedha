@@ -1,8 +1,9 @@
 // import React from 'react'
 import { useState } from 'react';
 import Rectangle41 from '../../assets/images/Rectangle41.png'
+import type { BusinessHeroBlock } from "../../utils/types/drivers";
 
-const Hero = () => {
+const Hero = ({heading, description, cta}: BusinessHeroBlock) => {
    const [activeButton, setActiveButton] = useState<string>("e-hailing"); // default active
    
      const handleButtonClick = (buttonName: string) => {
@@ -18,10 +19,10 @@ const Hero = () => {
                 <div className="absolute inset-0 flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start  px-6 sm:px-10 md:px-16 lg:px-[56px] top-[20%] lg:top-[28%] gap-10">
                     <div className="max-w-full lg:max-w-[50%] text-center lg:text-left">
                         <div className="">
-                            <p className="text-[30px] sm:text-[36px] text-white md:text-[44px] lg:text-[48px] font-bold leading-tight mb-4">Grow your fleets, earn money, make each ride count</p>
-                            <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-200">Manage your fleets, onboard drivers, choose how you want to paid for every ride.</p>
+                            <p className="text-[30px] sm:text-[36px] text-white md:text-[44px] lg:text-[48px] font-bold leading-tight mb-4">{heading}</p>
+                            <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-200">{description}</p>
                         </div>
-                        <button className="w-[180px] sm:w-[210px] text-white h-[50px] sm:h-[55px] bg-[#2563EB] text-[16px] sm:text-[18px] rounded-[12px] hover:bg-[#1e4fd8] transition">Join Waitlist</button>
+                        <button className="w-[180px] sm:w-[210px] text-white h-[50px] sm:h-[55px] bg-[#2563EB] text-[16px] sm:text-[18px] rounded-[12px] hover:bg-[#1e4fd8] transition">{cta.label}</button>
                     </div>
                     <div className="bg-white text-black rounded-[20px] p-5 sm:p-8 xl:p-10 w-full max-w-[400px] sm:max-w-[450px] md:max-w-[480px] font-semibold text-center border border-[#DEE8FF] shadow-md">
                         <p className="text-[20px] sm:text-[22px] md:text-[25px] mb-4 sm:mb-6">Join our community of drivers</p>

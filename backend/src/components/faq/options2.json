@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_faq_options2s",
+  "info": {
+    "displayName": "options2"
+  },
+  "options": {},
+  "attributes": {
+    "options": {
+      "type": "component",
+      "component": "faq.options",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

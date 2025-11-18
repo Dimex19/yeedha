@@ -40,6 +40,7 @@ export interface DownloadLinkProps {
 export interface AppImageProps {
   id: number;
   alt?: string | null;
+  image?: MediaProps;
 }
 
 export interface AppProps {

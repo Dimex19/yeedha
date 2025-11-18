@@ -1,5 +1,5 @@
 import type { AboutData } from "../../utils/types/about";
-import Cards from "./Cards";
+// import Cards from "./Cards";
 const Hero = ({text1, title, description}: AboutData) => {
     
   return (

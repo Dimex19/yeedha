@@ -5,13 +5,12 @@ import Faq from "../components/business/Faq"
 import Hero from "../components/business/Hero"
 import HowYeedhaWorks from "../components/business/HowYeedhaWorks"
 import YeedhaAdvantage from "../components/business/YeedhaAdvantage"
-// import StartAndNewsletter from "../components/home/StartAndNewsletter"
 import Layout from "../components/Layout"
 import { getBusinessPageSettings } from "../utils/loaders";
 
-
 const Driver = () => {
   const [businessPageData, setBusinessPageData] = useState<any>(null);
+    const [activeDriverType, setActiveDriverType] = useState<string>("Fleet Business"); // 👈 shared state
     
       useEffect(() => {
         const fetchSettings = async () => {
@@ -41,10 +40,16 @@ const Driver = () => {
     <>
         <Layout>
             {heroBlock && <Hero {...heroBlock}/>}
-            {benfitBlock &&  <DriveWithYeedha {...benfitBlock}/>}
-            {howYeedhaWorksBlock && <HowYeedhaWorks {...howYeedhaWorksBlock}/>}
+            {benfitBlock &&  <DriveWithYeedha {...benfitBlock} activeButton={activeDriverType} // 👈 controlled state
+          setActiveButton={setActiveDriverType}/>}
+            {howYeedhaWorksBlock && (
+              <HowYeedhaWorks
+                {...howYeedhaWorksBlock}
+                activeButton={activeDriverType} // 👈 synced with DriveWithYeedha
+              />
+            )}
             {yeedhaAdvantageBlock && <YeedhaAdvantage {...yeedhaAdvantageBlock} />}
-            {faqBlock && <Faq {...faqBlock}/>}
+            {faqBlock && (<Faq activeButton={activeDriverType} {...faqBlock}/>)}
             {downloadBlock && <Download {...downloadBlock}/>}
             {/* <StartAndNewsletter/> */}
         </Layout>

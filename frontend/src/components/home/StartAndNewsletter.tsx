@@ -3,7 +3,7 @@ import image7 from '../../assets/images/image7.png'
 import image5 from '../../assets/images/image5.png'
 import image8 from '../../assets/images/image8.png'
 import image9 from '../../assets/images/image9.png'
-import type { StartAndNewsletterBlock } from '../../utils/types'
+import type { StartAndNewsletterBlock } from '../../utils/types/types'
 
 interface StartAndNewsletterProps {
   data: {
