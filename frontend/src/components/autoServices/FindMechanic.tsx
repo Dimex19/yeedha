@@ -3,7 +3,7 @@ import { Phone } from "lucide-react";
 import { FaWhatsapp as MessageCircle } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { getMechanicDataSettings } from "../../utils/loaders";
-import { getStrapiMedia } from "../../utils/StrapiImage";
+// import { getStrapiMedia } from "../../utils/StrapiImage";
 
 interface Mechanic {
   id: number;

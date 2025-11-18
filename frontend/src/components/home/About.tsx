@@ -3,7 +3,8 @@ import Yeedha9 from "../../assets/images/yeedha9.png";
 import Yeedha10 from "../../assets/images/yeedha10.png";
 import type { AboutBlock } from "../../utils/types/types";
 
-const Download = ({text1, text2, title, images, description, cta}: AboutBlock) => {
+// const Download = ({text1, text2, title, images, description, cta}: AboutBlock) => {
+const Download = ({text1, text2, title, description, cta}: AboutBlock) => {
 
   return (
     <div className="font-[Manrope] bg-[#2563EB] text-white text-center pt-[66px] pb-[85px]">

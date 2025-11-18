@@ -7,29 +7,29 @@ import type { CarReadyBlock } from '../../utils/types/cng'
 import { getStrapiMedia } from "../../utils/StrapiImage";
 
 const CarReady = ({title, description, iconTitleList}: CarReadyBlock) => {
-  const cards = [
-    {
-      image: Group6,
-      title: "Eligible",
-      desc: {
-        first: "Petrol Cars",
-        second: "Cars older than 2010",
-        third: "Cars in good condition",
-        fourth: "Cars with no major accidents",
-      },
-    },
-    {
-      image: Group7,
-      title: "Non Eligible",
-      desc: {
-        first: "Diesel Cars",
-        second: "Cars older than 2010",
-        third: "Cars with engine issues",
-        fourth: "Cars with major accidents",
-        fifth: "Cars with modified engines",
-      },
-    },
-  ];
+  // const cards = [
+  //   {
+  //     image: Group6,
+  //     title: "Eligible",
+  //     desc: {
+  //       first: "Petrol Cars",
+  //       second: "Cars older than 2010",
+  //       third: "Cars in good condition",
+  //       fourth: "Cars with no major accidents",
+  //     },
+  //   },
+  //   {
+  //     image: Group7,
+  //     title: "Non Eligible",
+  //     desc: {
+  //       first: "Diesel Cars",
+  //       second: "Cars older than 2010",
+  //       third: "Cars with engine issues",
+  //       fourth: "Cars with major accidents",
+  //       fifth: "Cars with modified engines",
+  //     },
+  //   },
+  // ];
 
   return (
     <div className="font-[Manrope] px-6 mt-[91.93px]">

@@ -10,38 +10,38 @@ const Faq = ({title, description, questions, CallToAction}: FAQBlock) => {
     setActiveFaq((prev) => (prev === faqName ? null : faqName));
   };
 
-  const faqs = [
-    {
-      id: "faq1",
-      question: "Lorem ipsum dolor sit amet nibh consectetur?",
-      answer:
-        "Lorem ipsum dolor sit amet nibh consectetur. Nisi lectus phasellus neque, Lorem ipsum dolor sit amet nibh consectetur. Nisi lectus phasellus.",
-    },
-    {
-      id: "faq2",
-      question: "How can I use this component properly?",
-      answer:
-        "You can toggle each FAQ independently. Clicking the + expands it, clicking again closes it.",
-    },
-    {
-      id: "faq3",
-      question: "Is it possible to open multiple FAQs?",
-      answer:
-        "In this setup, only one FAQ can be opened at a time. You can adjust the logic if you want multiple to stay open.",
-    },
-    {
-      id: "faq4",
-      question: "Can I add more FAQs easily?",
-      answer:
-        "Yes, just extend the array. The component will auto-render them dynamically.",
-    },
-    {
-      id: "faq5",
-      question: "Is the height synced dynamically?",
-      answer:
-        "Yes! The right column will now stretch to match the height of the left column.",
-    },
-  ];
+  // const faqs = [
+  //   {
+  //     id: "faq1",
+  //     question: "Lorem ipsum dolor sit amet nibh consectetur?",
+  //     answer:
+  //       "Lorem ipsum dolor sit amet nibh consectetur. Nisi lectus phasellus neque, Lorem ipsum dolor sit amet nibh consectetur. Nisi lectus phasellus.",
+  //   },
+  //   {
+  //     id: "faq2",
+  //     question: "How can I use this component properly?",
+  //     answer:
+  //       "You can toggle each FAQ independently. Clicking the + expands it, clicking again closes it.",
+  //   },
+  //   {
+  //     id: "faq3",
+  //     question: "Is it possible to open multiple FAQs?",
+  //     answer:
+  //       "In this setup, only one FAQ can be opened at a time. You can adjust the logic if you want multiple to stay open.",
+  //   },
+  //   {
+  //     id: "faq4",
+  //     question: "Can I add more FAQs easily?",
+  //     answer:
+  //       "Yes, just extend the array. The component will auto-render them dynamically.",
+  //   },
+  //   {
+  //     id: "faq5",
+  //     question: "Is the height synced dynamically?",
+  //     answer:
+  //       "Yes! The right column will now stretch to match the height of the left column.",
+  //   },
+  // ];
 
   return (
     <div className="font-[Manrope] lg:px-[64px] mt-[100px] mb-[92px]">

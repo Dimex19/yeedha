@@ -1,7 +1,7 @@
 import BgIconTitleDesc from "./BgIconTitleDesc"
-import Group6 from '../../assets/icons/group6.png'
-import Group7 from '../../assets/icons/group7.png'
-import Group8 from '../../assets/icons/group8.png'
+// import Group6 from '../../assets/icons/group6.png'
+// import Group7 from '../../assets/icons/group7.png'
+// import Group8 from '../../assets/icons/group8.png'
 import type { YeedhaHealthCoverageBlock } from "../../utils/types/healthInsurance";
 import { getStrapiMedia } from "../../utils/StrapiImage";
 
