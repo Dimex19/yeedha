@@ -10,14 +10,14 @@ import { getStrapiMedia } from "../../utils/StrapiImage";
 
 const Hero = ({title, description, cta, image, imageText}: HeroBlock) => {
   return (
-    <div className="relative mt-20 sm:mt-28 md:mt-36 lg:mt-44 mb-16 md:mb-24 lg:mb-36 font-[Manrope]">
+    <div className="relative mt-25 sm:mt-28 md:mt-36 lg:mt-44 mb-16 md:mb-24 lg:mb-36 font-[Manrope]">
       {/* Hero Section */}
       <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 xl:gap-0 px-5 sm:px-10 md:px-16 xl:px-[106px]">
         
         {/* Left Section */}
         <div className="text-center lg:text-left w-full lg:w-[864px] text-white">
           <div>
-            <p className="text-[26px] sm:text-[32px] lg:text-[42px] text-[#2563EB] font-bold leading-tight">
+            <p className="text-[24px] sm:text-[32px] lg:text-[42px] text-[#2563EB] font-bold leading-tight">
               {title}
             </p>
             <p className="text-[16px] sm:text-[18px] lg:text-[20px] text-black mt-3 mb-6 lg:mt-[10px] lg:mb-[46px] max-w-[504px] mx-auto lg:mx-0">

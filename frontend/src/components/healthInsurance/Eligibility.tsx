@@ -34,7 +34,7 @@ const HowItWorks = () => {
       <div className="font-[Manrope] mt-20 md:mt-[121px] bg-[#FBFBFB] px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[314px] pt-10 md:pt-[68px] pb-10 md:pb-[77px] mb-20 md:mb-[96px]">
         {/* Header */}
         <div className="max-w-[650px] mx-auto text-center">
-          <p className="text-[#2563EB] text-[26px] sm:text-[30px] md:text-[35px] font-semibold leading-snug">
+          <p className="text-[#2563EB] text-[24px] sm:text-[30px] md:text-[35px] font-semibold leading-snug">
             Check if you're eligible
           </p>
           <p className="text-[14px] sm:text-[16px] md:text-[20px] font-medium text-[#828282] mt-2">

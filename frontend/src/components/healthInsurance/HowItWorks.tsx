@@ -9,8 +9,8 @@ const HowItWorks = ({howItWorks, description, cardWithIcon}: HowItWorksBlock) =>
     <>
       <div className="font-[Manrope]">
         <div className="md:w-[617px] mx-auto text-center">
-          <p className="text-[#2563EB] text-[24px] md:text-[35px] font-semibold">{howItWorks}</p>
-          <p className="text-[16px] md:text-[20px] font-medium text-[#828282]">{description}</p>
+          <p className="text-[#2563EB] text-2xl md:text-[35px] font-semibold">{howItWorks}</p>
+          <p className="text-[16px] px-5 md:text-[20px] font-medium text-[#828282]">{description}</p>
         </div>
         <div className="flex flex-col flex-wrap gap-y-5 lg:flex-row justify-center xl:justify-between mx-[20px] lg:mx-[64px] xl:mx-[128px] mt-[60px]">
           {cardWithIcon.map((card, index) =>  {
@@ -24,7 +24,7 @@ const HowItWorks = ({howItWorks, description, cardWithIcon}: HowItWorksBlock) =>
               image={imageSrc || undefined}
               title={card.title}
               desc={card.description}
-              titleFont="26px"
+              titleFont="20px"
               descWidth="343px"
             />
           )})}

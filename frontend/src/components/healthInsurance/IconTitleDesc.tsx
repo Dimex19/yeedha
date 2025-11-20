@@ -12,7 +12,7 @@ const IconTitleDesc = ({image, title, desc, titleFont, descWidth}: IconTitleDesc
         <div className={`w-[${descWidth}] flex flex-col items-center text-center`}>
             <img src={image} alt="" className="mb-5" />
             <p className={`text-[${titleFont}] mb-2.5 font-semibold`}>{title}</p>
-            <p className="text-[16px] text-[#828282]" style={{ width: descWidth }}>{desc}</p>
+            <p className="text-[14px] md:text-[16px] text-[#828282]" style={{ width: descWidth }}>{desc}</p>
         </div>
     </>
   )
