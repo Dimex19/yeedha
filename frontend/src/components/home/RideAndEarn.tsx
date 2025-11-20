@@ -6,7 +6,7 @@ const RideAndEarn = ({ title, description, rideAndEarnSubsection }: RideAndEarnB
   return (
     <div
       id="rideAndEarn"
-      className="px-[30px] md:px-[47px] lg:px-[77px] xl:px-[127px] pt-10 md:pt-[120px]"
+      className="px-[30px] md:px-[47px] lg:px-[77px] xl:px-[127px] pt-15 md:pt-[120px]"
     >
       {/* Section Header */}
       <div className="text-center">

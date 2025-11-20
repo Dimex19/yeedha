@@ -24,11 +24,11 @@ const Download = ({ title, description, apps }: DownloadSectionBlock) => {
   return (
     <div className="font-[Manrope] px-5 md:px-0 bg-[#2563EB] text-white mb-[131px] text-center pt-[66px] pb-[85px]">
       {/* Title & Description */}
-      <p className="text-4xl md:text-[65px] font-bold">{title}</p>
-      <p className="text-[14px] md:text-[22px] font-medium">{description}</p>
+      <p className="text-3xl md:text-[65px] font-bold">{title}</p>
+      <p className="text-[12px] md:text-[22px] font-medium">{description}</p>
 
       {/* Switch Buttons */}
-      <div className="md:w-[564px] text-[12px] h-[40px] md:h-[50px] bg-white flex items-center justify-center rounded-[10px] mx-auto mt-[68px]">
+      <div className="md:w-[564px] text-[12px] h-[40px] md:h-[50px] bg-white flex items-center justify-center rounded-[10px] mx-auto mt-10 md:mt-[68px]">
         {apps?.map((app) => (
           <button
             key={app.id}
@@ -56,11 +56,11 @@ const Download = ({ title, description, apps }: DownloadSectionBlock) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="flex gap-1 w-[120px] md:w-[140px] px-[15px] py-[8px] md:py-[6px] h-[38px] bg-[#5586F0] rounded-[57px] items-center">
-                  <img src={GooglePlay} alt="Google Play" className="w-5" />
+                <div className="flex gap-1 w-[100px] md:w-[140px] px-[15px] py-[8px] md:py-[6px] h-[34px] bg-[#5586F0] rounded-[57px] items-center">
+                  <img src={GooglePlay} alt="Google Play" className="w-4" />
                   <div>
                     <p className="text-[6px] md:text-[8px] text-left">GET IT ON</p>
-                    <p className="text-[10px] md:text-[14px] font-bold leading-[14px]">
+                    <p className="text-[8px] md:text-[14px] font-bold leading-[14px]">
                       Google Play
                     </p>
                   </div>
@@ -76,13 +76,13 @@ const Download = ({ title, description, apps }: DownloadSectionBlock) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="flex gap-1 w-[106px] md:w-[126px] px-[15px] py-[8px] md:py-[6px] h-[38px] bg-[#5586F0] rounded-[57px] items-center justify-center">
+                <div className="flex gap-1 w-[106px] md:w-[126px] px-[15px] py-[8px] md:py-[6px] h-[34px] bg-[#5586F0] rounded-[57px] items-center justify-center">
                   <IoLogoApple className="text-white text-[16px]" />
                   <div>
                     <p className="text-[6px] md:text-[8px] text-left">
                       Download on the
                     </p>
-                    <p className="text-[10px] md:text-[14px] font-bold leading-[14px]">
+                    <p className="text-[8px] md:text-[14px] text-left font-bold leading-[14px]">
                       App Store
                     </p>
                   </div>
@@ -98,13 +98,13 @@ const Download = ({ title, description, apps }: DownloadSectionBlock) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="flex gap-1 w-[120px] md:w-[140px] px-[15px] py-[8px] md:py-[6px] h-[38px] bg-[#5586F0] rounded-[57px] items-center justify-center">
-                  <img src={Huawei} alt="App Gallery" className="w-5" />
+                <div className="flex gap-1 w-[100px] md:w-[140px] px-[15px] py-[8px] md:py-[6px] h-[34px] bg-[#5586F0] rounded-[57px] items-center justify-center">
+                  <img src={Huawei} alt="App Gallery" className="w-4" />
                   <div>
                     <p className="text-[6px] md:text-[8px] text-left">
                       EXPLORE IT ON
                     </p>
-                    <p className="text-[10px] md:text-[14px] font-bold leading-[14px]">
+                    <p className="text-[8px] md:text-[14px] font-bold leading-[14px]">
                       App Gallery
                     </p>
                   </div>
@@ -117,7 +117,7 @@ const Download = ({ title, description, apps }: DownloadSectionBlock) => {
       </div>
 
       {/* App Preview Images */}
-      <div className="flex mt-[57px] justify-center gap-x-[14.98px] mb-[-85px] flex-wrap">
+      <div className="flex mt-[57px] justify-center md:gap-x-[14.98px] mb-[-85px] flex-wrap">
         {appImages?.length > 0 ? (
           appImages.map((item, index) => {
             const imageUrl =
@@ -131,7 +131,7 @@ const Download = ({ title, description, apps }: DownloadSectionBlock) => {
               key={index}
               src={imageSrc || '/placeholder.png'}
               alt={selectedApp?.images?.[index]?.alt || "App Preview"}
-              className="w-[120px] md:w-[200px] lg:w-[400px] object-contain"
+              className="w-[110px] md:w-[200px] lg:w-[400px] object-contain"
             />
           )})
         ) : (

@@ -114,7 +114,7 @@ const Header = ({
 
       {/* Mobile Navbar */}
       <header
-        className={`fixed top-0 left-0 w-full z-50 px-5 lg:hidden transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 md:px-5 lg:hidden transition-all duration-300 ${
           isScrolled ? "bg-white shadow-md" : "bg-transparent"
         }`}
       >

@@ -42,7 +42,7 @@ const Footer = ({data}: FooterProps) => {
             <p className="text-[18px] sm:text-[20px] font-semibold mb-2">Download Yeedha</p>
             <div className="flex flex-wrap gap-[10px]">
               {/* App Store */}
-              <div className="flex gap-1 font-[Manrope] items-center w-[100px] px-[8px] py-[5px] h-[27px] bg-[#E5E5E5] rounded-[57px]">
+              <div className="flex gap-1 font-[Manrope] items-center md:w-[100px] px-[8px] py-[5px] h-[27px] bg-[#E5E5E5] rounded-[57px]">
                 <img src={AppStore} alt="App Store" />
                 <div>
                   <p className="text-[6px] leading-[6px]">Download on the</p>
@@ -100,34 +100,38 @@ const Footer = ({data}: FooterProps) => {
           </div>
 
           {/* Products & Social */}
-          <div className="flex flex-col gap-y-[12px]">
-            <p className="text-[#2563EB] text-[16px]">Products</p>
-            {productsLinks.map((link, index) => (
-              <a href={link.href} key={index}>{link.label}</a>
-            ))}
+          <div className="flex md:flex-col gap-y-2 gap-x-10 justify-between">
+            <div className="flex flex-col gap-y-[12px]">
+              <p className="text-[#2563EB] text-[16px]">Products</p>
+              {productsLinks.map((link, index) => (
+                <a href={link.href} key={index}>{link.label}</a>
+              ))}
+            </div>
             {/* <a href="#">Drivers App</a>
             <a href="#">Passengers App</a>
             <a href="#">Business Owners App</a> */}
-            <p className="text-[#2563EB] text-[16px] mt-2">Social</p>
-            <div className="flex gap-x-[20px] mt-2">
-              <img src={Facebook} alt="Facebook" className="w-5 h-5" />
-              <img src={Instagram} alt="Instagram" className="w-5 h-5" />
-              <img src={Youtube} alt="YouTube" className="w-5 h-5" />
-              <img src={Twitter} alt="Twitter" className="w-5 h-5" />
+            <div className="">
+              <p className="text-[#2563EB] text-[16px]">Social</p>
+              <div className="flex gap-x-[20px] mt-2">
+                <img src={Facebook} alt="Facebook" className="w-5 h-5" />
+                <img src={Instagram} alt="Instagram" className="w-5 h-5" />
+                <img src={Youtube} alt="YouTube" className="w-5 h-5" />
+                <img src={Twitter} alt="Twitter" className="w-5 h-5" />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* BOTTOM SECTION */}
-      <div className="font-[Manrope] bg-[#F8FAFF] pt-[60px] pb-[60px] px-6 sm:px-10 md:px-[100px] lg:px-[175px] rounded-t-[50%]">
+      <div className="font-[Manrope] bg-[#F8FAFF] pt-[60px] pb-5 px-6 sm:px-10 lg:px-[175px] rounded-t-[50%]">
         <div className="flex flex-col md:flex-row justify-between items-center gap-y-6">
           <p className="text-[#0A142F] text-[13px] sm:text-[14px]">
             © 2025 Yeedha. All rights reserved.
           </p>
 
           {/* Emergency contact */}
-          <div className="text-center md:text-left">
+          <div className="text-center flex flex-col justify-center items-center md:text-left">
             <p className="text-[12px]">Emergency Contact</p>
             <div className="flex justify-center md:justify-start items-center gap-x-[8px]">
               <img src={Emergency} alt="Emergency icon" className="w-[20px]" />

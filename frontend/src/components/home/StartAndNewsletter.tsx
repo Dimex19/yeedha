@@ -62,10 +62,10 @@ const StartAndNewsletter = ({data}: StartAndNewsletterProps) => {
           </div>
         ) : (
           <div className="relative z-10 mt-10 md:mt-[131px] px-4">
-            <p className="font-semibold text-[24px] sm:text-[28px] md:text-[32px] text-[#2563EB]">
+            <p className="font-semibold text-[20px] sm:text-[28px] md:text-[32px] text-[#2563EB]">
               {startSubsection.getStarted?.text}
             </p>
-            <p className="text-[14px] sm:text-[15px] md:text-[16px] text-[#333] mx-auto max-w-[60%] lg:w-[584px] mt-2">
+            <p className="text-[14px] sm:text-[15px] md:text-[16px] text-[#333] mx-auto  md:max-w-[60%] lg:w-[584px] mt-2">
               {startSubsection.getStarted?.description}
             </p>
             <button className="bg-[#2563EB] w-[160px] sm:w-[180px] h-[45px] md:h-[50px] rounded-[12px] font-[Manrope] text-white mt-5">
