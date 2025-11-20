@@ -20,7 +20,7 @@ const Empower = ({ empower, missionXVision }: EmpowerProps) => {
   const missionImages = missionXVision?.images || [];
 
   return (
-    <div className="px-4 md:px-8 lg:px-15 xl:px-[127px] mt-10 md:mt-20 font-[Manrope]">
+    <div className="px-5 md:px-8 lg:px-15 xl:px-[127px] mt-10 md:mt-20 font-[Manrope]">
       {/* Empower Section */}
       {empower && (
         <div>

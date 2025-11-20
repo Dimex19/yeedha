@@ -5,7 +5,7 @@ import { getStrapiMedia } from '../../utils/StrapiImage';
 const Discover = ({title, cardWithIcon}:SharedCardsWithIconBlock) => {
   return (
     <>
-        <div className="px-4 md:px-8 lg:px-15 xl:px-[127px] mt-10 lg:mt-[59px] mb-16 lg:mb-[124px] font-[Manrope]">
+        <div className="px-5 md:px-8 lg:px-15 xl:px-[127px] mt-10 lg:mt-[59px] mb-16 lg:mb-[124px] font-[Manrope]">
             <h2 className="text-[#2563EB] font-semibold text-2xl lg:text-5xl xl:text-[58px] max-w-full lg:w-[806px]">{title}</h2>
             <div className="grid md:grid-cols-2 xl:grid-cols-3 justify-between items-center lg:items-start space-y-8 lg:space-y-0">
                 {cardWithIcon.map((feature, index) => {
