@@ -35,8 +35,8 @@ const Faq = ({ activeButton, faqOptionData }: FaqProps) => {
   return (
     <div className="font-[Manrope] px-4 sm:px-8 md:px-12 xl:px-[104px] mb-20 md:mb-[246px]">
       {/* Section Header */}
-      <div className="text-center max-w-[789px] mx-auto mb-[65px]">
-        <p className="text-[26px] sm:text-[30px] md:text-[35px] text-[#2563EB] font-bold">
+      <div className="text-center px-3 max-w-[789px] mx-auto mb-[65px]">
+        <p className="text-[22px] sm:text-[30px] md:text-[35px] text-[#2563EB] font-bold">
           Frequently Asked Questions — {activeButton}
         </p>
         <p className="text-[16px] sm:text-[18px] md:text-[20px] text-[#828282] font-medium">

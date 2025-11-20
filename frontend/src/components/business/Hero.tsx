@@ -19,7 +19,7 @@ const Hero = ({heading, description, cta}: BusinessHeroBlock) => {
                 <div className="absolute inset-0 flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start  px-6 sm:px-10 md:px-16 lg:px-[56px] top-[20%] lg:top-[28%] gap-10">
                     <div className="max-w-full lg:max-w-[50%] text-center lg:text-left">
                         <div className="">
-                            <p className="text-[30px] sm:text-[36px] text-white md:text-[44px] lg:text-[48px] font-bold leading-tight mb-4">{heading}</p>
+                            <p className="text-[24px] sm:text-[36px] text-white md:text-[44px] lg:text-[48px] font-bold leading-tight mb-4">{heading}</p>
                             <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-200">{description}</p>
                         </div>
                         <button className="w-[180px] sm:w-[210px] text-white h-[50px] sm:h-[55px] bg-[#2563EB] text-[16px] sm:text-[18px] rounded-[12px] hover:bg-[#1e4fd8] transition">{cta.label}</button>

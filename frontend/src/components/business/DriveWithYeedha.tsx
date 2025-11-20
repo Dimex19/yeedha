@@ -59,13 +59,13 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
                         null;
                       const imageSrc = getStrapiMedia(imageUrl);
                       return (
-                        <div key={feature.id} className="flex flex-col  max-w-[263px]">
+                        <div key={feature.id} className="flex flex-col  md:max-w-[263px]">
                           <img
                             src={imageSrc || Group1}
                             alt={feature.title}
-                            className="w-[60px] h-[60px] mb-4"
+                            className="w-10 md:w-[60px] h-10 md:h-[60px] mb-4"
                           />
-                          <h3 className="text-[26px] font-semibold mb-2">
+                          <h3 className="text-[20px] md:text-[26px] font-semibold mb-2">
                             {feature.title}
                           </h3>
                           <p className="text-[16px] text-[#6C737F] leading-relaxed">
@@ -101,9 +101,9 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
                               <img
                                 src={imageSrc || Group1}
                                 alt={step.title}
-                                className="w-[60px] h-[60px] mb-4"
+                                className="w-10 md:w-[60px] h-10 md:h-[60px] mb-4"
                               />
-                              <h4 className="font-semibold text-[24px] mb-2">
+                              <h4 className="font-semibold text-[20px] md:text-[24px] mb-2">
                                 {step.title}
                               </h4>
                               <p className="text-[15px] text-[#6C737F] leading-relaxed">
@@ -126,13 +126,13 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
           alt={activeOption.label}
           className="mt-6 w-full rounded-[10px] object-cover"
         />
-        <p className="absolute top-[40px] md:top-[70px] lg:top-[140px] xl:top-[129px] left-[70px] md:left-[140px] lg:left-[200px] xl:left-[306px] font-normal z-10 font-['Manrope'] text-[16px] md:text-[26px] lg:text-[32px] text-white">
+        <p className="absolute top-[30px] md:top-[70px] lg:top-[140px] xl:top-[129px] left-[30px] md:left-[140px] lg:left-[200px] xl:left-[306px] font-normal z-10 font-['Manrope'] text-[12px] md:text-[26px] lg:text-[32px] text-white">
           Watch the video to see the difference we make
         </p>
         <img
           src={PlayBtn}
           alt="play button"
-          className="absolute top-[60px] md:top-[120px] lg:top-[197px] xl:top-[186px] left-[160px] md:left-[330px] lg:left-[440px] xl:left-[563px] scale-[0.5] lg:scale-100"
+          className="absolute top-[20px] md:top-[120px] lg:top-[197px] xl:top-[186px] left-[110px] md:left-[330px] lg:left-[440px] xl:left-[563px] scale-[0.4] lg:scale-100"
         />
       </>
     ) : (

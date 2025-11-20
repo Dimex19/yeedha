@@ -47,8 +47,8 @@ const HowYeedhaWorks = ({
   return (
     <>
         <div className="mt-[40px] md:mt-[56px] font-[Manrope]">
-            <div className="md:w-[749px] text-center mx-auto mb-10 md:mb-[83px]">
-                <p className="text-[24px] md:text-[35px] text-[#2563EB]">{dynamicTitle && (
+            <div className="md:w-[749px] text-center mx-auto mb-10 md:mb-[83px] px-2.5">
+                <p className="text-[20px] md:text-[35px] text-[#2563EB]">{dynamicTitle && (
                     <>
                     How <b>{dynamicTitle.replace("How ", "").replace(" works", "")}</b> app works
                     </>
@@ -68,7 +68,7 @@ const HowYeedhaWorks = ({
                         <img
                         src={overlayImageSrc}
                         alt="Overlay visual"
-                        className="absolute top-[21%] left-[40%] sm:top-[28%] md:top-[31%] lg:top-[28.5%] xl:top-[20%] md:left-[40%] xl:left-[57%] w-[60%] lg:w-[70%] xl:w-[60%]"
+                        className="absolute bottom-[0%] left-[40%] sm:top-[28%] md:top-[31%] md:left-[40%] xl:left-[57%] w-[60%] lg:w-[70%] xl:w-[60%]"
                         />
                     )}
                 </div>
