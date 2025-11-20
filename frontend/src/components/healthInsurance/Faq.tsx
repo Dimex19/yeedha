@@ -103,7 +103,7 @@ const Faq = ({title, description, questions, CallToAction}: FAQBlock) => {
               {CallToAction?.description}
             </p>
           </div>
-          <button className="text-white w-[338px] h-[60px] bg-[#2563EB] rounded-[14px] mb-[40.93px] mx-auto">
+          <button className="text-white w-full md:w-[338px] h-[60px] bg-[#2563EB] rounded-[14px] mb-[40.93px] mx-auto">
             {CallToAction?.cta.label}
           </button>
         </div>
