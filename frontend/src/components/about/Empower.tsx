@@ -20,15 +20,15 @@ const Empower = ({ empower, missionXVision }: EmpowerProps) => {
   const missionImages = missionXVision?.images || [];
 
   return (
-    <div className="px-4 md:px-8 lg:px-15 xl:px-[127px] mt-20 font-[Manrope]">
+    <div className="px-4 md:px-8 lg:px-15 xl:px-[127px] mt-10 md:mt-20 font-[Manrope]">
       {/* Empower Section */}
       {empower && (
         <div>
           <div className="xl:w-[1140px]">
-            <h2 className="mt-[160px] font-semibold text-2xl md:text-[38px] text-[#2563EB]">
+            <h2 className="md:mt-[160px] font-semibold text-[20px] md:text-[38px] text-[#2563EB]">
               {title}
             </h2>
-            <p className="font-medium text-[20px] text-[#828282]">{description}</p>
+            <p className="font-medium text-[16px] md:text-[20px] text-[#828282]">{description}</p>
           </div>
           {imageSrc && <img src={imageSrc} alt="Empower" className="mt-[27px] w-full" />}
         </div>
@@ -38,13 +38,13 @@ const Empower = ({ empower, missionXVision }: EmpowerProps) => {
       {missionXVision && (
         <div className="mt-[80px]">
           <div className="xl:w-[1140px]">
-            <h2 className="mt-[37px] font-semibold text-2xl md:text-[38px] text-[#2563EB]">
+            <h2 className="mt-[37px] font-semibold text-[20px] md:text-[38px] text-[#2563EB]">
               {missionTitle}
             </h2>
-            <p className="font-medium text-[20px] text-[#828282]">{missionDescription}</p>
+            <p className="font-medium text-[16px] md:text-[20px] text-[#828282]">{missionDescription}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[35px] mt-[27px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[35px] gap-y-5 mt-[27px]">
             {missionImages.map((item) => {
               const imgUrl = item?.image?.url ? getStrapiMedia(item.image.url) : "";
               return (
