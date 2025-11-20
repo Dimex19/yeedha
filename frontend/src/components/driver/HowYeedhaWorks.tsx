@@ -76,14 +76,14 @@ const HowYeedhaWorks = ({
             <img
               src={overlayImageSrc}
               alt="Overlay visual"
-              className="absolute top-[21%] left-[40%] sm:top-[28%] md:top-[31%] lg:top-[28.5%] xl:top-[20%] md:left-[40%] xl:left-[57%] w-[60%] lg:w-[70%] xl:w-[60%]"
+              className="absolute bottom-[0%] left-[40%] sm:top-[28%] md:top-[31%] lg:top-[28.5%] xl:top-[20%] md:left-[40%] xl:left-[57%] w-[60%] lg:w-[70%] xl:w-[60%]"
             />
           )}
         </div>
 
         {/* TEXT + CTA */}
         <div className="w-full lg:w-[50%] xl:w-[45%] text-center lg:text-left">
-          <div className="flex flex-col px-10 lg:px-0 gap-y-6 sm:gap-y-8">
+          <div className="flex flex-col md:px-10 lg:px-0 gap-y-6 sm:gap-y-8">
             {activeData?.titleDesc?.map((item, index) => (
               <TitleDesc
                 key={index}

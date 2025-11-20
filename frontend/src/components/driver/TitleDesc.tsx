@@ -5,8 +5,8 @@ interface TitleDesProps {
 const TitleDesc = ({title, desc}: TitleDesProps) => {
   return (
     <>
-        <div className="xl:w-[507px]">
-            <p className="text-[20px] md:text-[24px] font-semibold">{title}</p>
+        <div className="xl:w-[507px] ">
+            <p className="text-[18px] md:text-[24px] font-semibold">{title}</p>
             <p className="text-[14.4px] text-[#6C737F]">{desc}</p>
         </div>
     </>
