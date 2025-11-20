@@ -14,7 +14,7 @@ const Hero = ({title, subtitle}: FAQPage) => {
         <div className="relative font-['Manrope']">
           <div className="md:w-[648px] mx-auto flex flex-col items-center justify-center mt-25 lg:mt-[188px] px-4 lg:px-0">
             <p className="text-[#676767] text-[12px] lg:text-[16px] font-medium text-center">{subtitle}</p>
-            <h1 className="font-semibold text-[22px] sm:text-3xl md:text-[32px] lg:text-[30px] md:leading-[56px] text-center text-[#2563EB]">{title}</h1>
+            <h1 className="font-semibold text-2xl sm:text-3xl md:text-[32px] lg:text-[30px] md:leading-[56px] text-center text-[#2563EB]">{title}</h1>
           </div>
         </div>
     </>

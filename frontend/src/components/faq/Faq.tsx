@@ -15,13 +15,13 @@ const Faq = ({options}: FAQOptionsBlock) => {
   };
 
   return (
-    <div className="font-[Manrope] mt-[60px] px-10 lg:px-[104px] mb-[120px]">
+    <div className="font-[Manrope] mt-[60px] px-5 md:px-10 lg:px-[104px] mb-[120px]">
       <div className="md:w-[564px] h-[50px] bg-[#F5F9FE] border border-[#D4E1FF] flex items-center justify-center rounded-[10px] mx-auto mt-[68px]">
         {options?.map((opt) => (
           <button
             key={opt.id}
             onClick={() => handleButtonClick(opt.option)}
-            className={`px-[20.5px] py-[8px] rounded-[5px] text-[14px] ${
+            className={`px-2.5 md:px-[20.5px] py-[8px] rounded-[5px] text-[10px] md:text-[14px] ${
               activeButton === opt.option
                 ? "bg-[#2563EB] text-white"
                 : "bg-transparent text-[#2563EB]"
@@ -45,7 +45,7 @@ const Faq = ({options}: FAQOptionsBlock) => {
             >
               {/* Header Row */}
               <div className="flex items-center justify-between min-h-[74px]">
-                <p className="text-[20px] font-medium">{faq.title}</p>
+                <p className="text-[16px] sm:text-[18px] md:text-[20px] font-medium">{faq.title}</p>
                 <span
                   className="text-[26px] font-bold cursor-pointer select-none"
                   onClick={() => toggleFaq(String(faq.id))}
@@ -61,7 +61,7 @@ const Faq = ({options}: FAQOptionsBlock) => {
                     : "max-h-0 opacity-0"
                 } overflow-hidden`}
               >
-                <p className="w-[664px] font-medium text-[16px] text-[#6C737F] pb-4">
+                <p className="max-w-[664px] font-medium text-[14px] sm:text-[15px] md:text-[16px] text-[#6C737F] pb-4">
                   {faq.description}
                 </p>
               </div>
