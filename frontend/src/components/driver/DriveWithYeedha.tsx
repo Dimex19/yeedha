@@ -71,9 +71,9 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
               <img
                 src={imageSrc || Group1}
                 alt={feature.title}
-                className="w-[60px] h-[60px] mb-4"
+                className="w-10 md:w-[60px] h-10 md:h-[60px] mb-4"
               />
-              <h3 className="text-[26px] font-semibold mb-2">
+              <h3 className="text-[20px] md:text-[26px] font-semibold mb-2">
                 {feature.title}
               </h3>
               <p className="text-[16px] text-[#6C737F] leading-relaxed">
@@ -125,7 +125,7 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
       {/* === Bottom Section (remaining items as steps) === */}
       {bottomSteps.length > 0 && (
         <div className="mt-20 ">
-          <h3 className="font-bold text-2xl sm:text-3xl md:text-[30px] mb-2">
+          <h3 className="font-bold text-[20px] md:text-2xl sm:text-3xl md:text-[30px] mb-2">
             Set up your business in these easy steps:
           </h3>
           <p className="font-medium text-[16px] text-[#828282] mb-12">
@@ -142,14 +142,14 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
               return (
                 <div
                   key={step.id}
-                  className="flex flex-col max-w-[263px]"
+                  className="flex flex-col md:max-w-[263px]"
                 >
                   <img
                     src={imageSrc || Group1}
                     alt={step.title}
-                    className="w-[60px] h-[60px] mb-4"
+                    className="w-10 md:w-[60px] h-10 md:h-[60px] mb-4"
                   />
-                  <h4 className="font-semibold text-[24px] mb-2">
+                  <h4 className="font-semibold text-[20px] md:text-[24px] mb-2">
                     {step.title}
                   </h4>
                   <p className="text-[15px] text-[#6C737F] leading-relaxed">
