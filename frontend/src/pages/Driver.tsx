@@ -7,11 +7,13 @@ import HowYeedhaWorks from "../components/driver/HowYeedhaWorks";
 import YeedhaAdvantage from "../components/driver/YeedhaAdvantage";
 import Layout from "../components/Layout";
 import { getDriversPageSettings } from "../utils/loaders";
+import Loader from "../components/Loader";
 
 const Driver = () => {
   const [driversPageData, setDriversPageData] = useState<any>(null);
   const [activeDriverType, setActiveDriverType] = useState<string>("E-Hailing");
   const location = useLocation(); // 👈 Get current URL
+  const [loading, setLoading] = useState<boolean>(true);
 
   // ✅ Sync state with ?tab= query param
   useEffect(() => {
@@ -32,6 +34,8 @@ const Driver = () => {
         }
       } catch (error) {
         console.error("Failed to fetch landing page settings:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -48,6 +52,10 @@ const Driver = () => {
 
   return (
     <Layout>
+      {loading && <Loader />}
+
+      {!loading && (
+        <>
       {heroBlock && <Hero {...heroBlock} />}
 
       {benefitBlock && (
@@ -67,6 +75,8 @@ const Driver = () => {
 
       {yeedhaAdvantageBlock && <YeedhaAdvantage {...yeedhaAdvantageBlock} />}
       {faqBlock && <Faq activeButton={activeDriverType} {...faqBlock} />}
+        </>
+      )}
     </Layout>
   );
 };

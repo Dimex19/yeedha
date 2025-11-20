@@ -4,10 +4,12 @@ import Hero from '../components/faq/Hero'
 import Faq from '../components/faq/Faq'
 // import StartAndNewsletter from '../components/home/StartAndNewsletter'
 import { getFaqPageSettings } from "../utils/loaders";
+import Loader from "../components/Loader";
 
 const FAQ = () => {
   const [faqPageData, setFaqPageData] = useState<any>(null);
-  
+  const [loading, setLoading] = useState<boolean>(true);
+
     useEffect(() => {
       const fetchSettings = async () => {
         try {
@@ -18,6 +20,8 @@ const FAQ = () => {
           }
         } catch (error) {
           console.error("Failed to fetch FAQ page settings:", error);
+        } finally {
+          setLoading(false); 
         }
       };
   
@@ -32,9 +36,15 @@ const FAQ = () => {
   return (
     <div>
         <Layout>
-            {faqPageData && <Hero {...faqPageData}/>}
-            {FAQBlock && <Faq {...FAQBlock}/>}
-            {/* {StartAndNewsletterBlock && <StartAndNewsletter {...StartAndNewsletterBlock}/>} */}
+          {loading && <Loader />}
+
+        {!loading && (
+          <>
+              {faqPageData && <Hero {...faqPageData}/>}
+              {FAQBlock && <Faq {...FAQBlock}/>}
+              {/* {StartAndNewsletterBlock && <StartAndNewsletter {...StartAndNewsletterBlock}/>} */}
+          </>
+        )}
         </Layout>
     </div>
   )

@@ -8,10 +8,12 @@ import Faq from '../components/cng/Faq'
 import ApplyForConversion from '../components/cng/ApplyForConversion'
 // import StartAndNewsletter from '../components/home/StartAndNewsletter'
 import { getCNGPageSettings } from "../utils/loaders"
+import Loader from "../components/Loader";
 
 const HealthInsurance = () => {
   const [CNGPageData, setCNGPageData] = useState<any>(null);
-      
+  const [loading, setLoading] = useState<boolean>(true);
+    
     useEffect(() => {
       const fetchSettings = async () => {
         try {
@@ -22,6 +24,8 @@ const HealthInsurance = () => {
           }
         } catch (error) {
           console.error("Failed to fetch CNG page settings:", error);
+        } finally {
+          setLoading(false);
         }
       };
   
@@ -38,6 +42,10 @@ const HealthInsurance = () => {
   return (
     <div>
         <Layout>
+          {loading && <Loader />}
+
+      {!loading && (
+        <>
             {heroBlock && <Hero {...heroBlock}/>}
             {whyThisMatterBlock && <WhyThisMatter {...whyThisMatterBlock}/>}
             {carReadyBlock && <CarReady {...carReadyBlock}/>}
@@ -45,6 +53,8 @@ const HealthInsurance = () => {
             {faqBlock && <Faq {...faqBlock}/>}
             <ApplyForConversion/>
             {/* <StartAndNewsletter/> */}
+        </>
+      )}
         </Layout>
     </div>
   )

@@ -7,9 +7,12 @@ import Eligibility from '../components/healthInsurance/Eligibility'
 import Faq from '../components/healthInsurance/Faq'
 // import StartAndNewsletter from '../components/home/StartAndNewsletter'
 import { getHealthInsurancePageSettings } from "../utils/loaders"
+import Loader from "../components/Loader";
 
 const HealthInsurance = () => {
   const [healthInsurancePageData, setHealthInsurancePageData] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
         
       useEffect(() => {
         const fetchSettings = async () => {
@@ -21,6 +24,8 @@ const HealthInsurance = () => {
             }
           } catch (error) {
             console.error("Failed to fetch Health Insurance page settings:", error);
+          } finally {
+            setLoading(false); 
           }
         };
     
@@ -37,12 +42,16 @@ const HealthInsurance = () => {
   return (
     <div>
         <Layout>
+            {loading && <Loader />}
+
+            {!loading && (<>
             {heroBlock && <Hero {...heroBlock}/>}
             {howItWorksBlock && <HowItWorks {...howItWorksBlock} />}
             {healthCoverageBlock && <HealthCoverage {...healthCoverageBlock}/>}
             {eligibilityBlock && <Eligibility {...eligibilityBlock}/>}
             {faqBlock && <Faq {...faqBlock}/>}
             {/* <StartAndNewsletter/> */}
+            </>)}
         </Layout>
     </div>
   )

@@ -6,10 +6,12 @@ import HowItWorks from '../components/autoServices/HowItWorks'
 import HealthCoverage from '../components/autoServices/HealthCoverage'
 import { getAutoServicePageSettings } from "../utils/loaders";
 import FindMechanic from '../components/autoServices/FindMechanic'
+import Loader from "../components/Loader";
 
 const HealthInsurance = () => {
   const [autoServicePageData, setAutoServicePageData] = useState<any>(null);
-    
+  const [loading, setLoading] = useState<boolean>(true);
+
   useEffect(() => {
     const fetchSettings = async () => {
       try {
@@ -20,6 +22,8 @@ const HealthInsurance = () => {
         }
       } catch (error) {
         console.error("Failed to fetch Auto Service page settings:", error);
+      } finally {
+        setLoading(false); 
       }
     };
 
@@ -35,11 +39,17 @@ const HealthInsurance = () => {
   return (
     <div>
         <Layout>
+          {loading && <Loader />}
+
+      {!loading && (
+        <>
             {heroBlock && <Hero {...heroBlock}/>}
             {howItWorksBlock && <HowItWorks {...howItWorksBlock}/>}
             {healthCoverageBlock && <HealthCoverage {...healthCoverageBlock}/>}
             <FindMechanic/>
             {/* <StartAndNewsletter/> */}
+        </>
+      )}
         </Layout>
     </div>
   )

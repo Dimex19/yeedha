@@ -5,10 +5,12 @@ import Form from '../components/contact/Form'
 // import StartAndNewsletter from '../components/home/StartAndNewsletter'
 import TalkToUs from '../components/contact/TalkToUs'
 import { getContactPageSettings } from "../utils/loaders";
+import Loader from "../components/Loader";
 
 const Contact = () => {
   const [contactPageData, setContactPageData] = useState<any>(null);
-          
+  const [loading, setLoading] = useState<boolean>(true);
+       
   useEffect(() => {
     const fetchSettings = async () => {
       try {
@@ -19,6 +21,8 @@ const Contact = () => {
         }
       } catch (error) {
         console.error("Failed to fetch Contact page settings:", error);
+      } finally {
+        setLoading(false); 
       }
     };
 
@@ -34,10 +38,16 @@ const Contact = () => {
   return (
     <div>
         <Layout>
+          {loading && <Loader />}
+
+          {!loading && (
+            <>
             {contactPageData && <Hero {...contactPageData}/>}
             <Form/>
             {talkToUsBlock && <TalkToUs {...talkToUsBlock}/>}
             {/* <StartAndNewsletter/> */}
+            </>
+          )}
         </Layout>
     </div>
   )

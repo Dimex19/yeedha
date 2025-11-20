@@ -8,9 +8,11 @@ import Download from '../components/home/Download';
 import About from '../components/home/About';
 import Layout from '../components/Layout';
 import { getLandingPageSettings } from "../utils/loaders";
+import Loader from "../components/Loader";
 
 const Home = () => {
   const [landingPageData, setLandingPageData] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchSettings = async () => {
@@ -22,6 +24,8 @@ const Home = () => {
         }
       } catch (error) {
         console.error("Failed to fetch landing page settings:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -40,13 +44,19 @@ const Home = () => {
 
   return (
     <Layout>
-      {heroBlock && <Hero {...heroBlock} />}
-      {doMoreBlock && <DoMore {...doMoreBlock} />}
-      {aboutBlock && <About {...aboutBlock} />}
-      {rideAndEarnBlock && <RideAndEarn {...rideAndEarnBlock}/> }
-      {ExtrasBlock && <Extras {...ExtrasBlock}/>}
-      {downloadBlock && <Download {...downloadBlock} />}
-      {/* {StartAndNewsletterBlock && <StartAndNewsletter {...StartAndNewsletterBlock}/>} */}
+      {loading && <Loader />}
+
+      {!loading && (
+        <>
+          {heroBlock && <Hero {...heroBlock} />}
+          {doMoreBlock && <DoMore {...doMoreBlock} />}
+          {aboutBlock && <About {...aboutBlock} />}
+          {rideAndEarnBlock && <RideAndEarn {...rideAndEarnBlock} />}
+          {ExtrasBlock && <Extras {...ExtrasBlock} />}
+          {downloadBlock && <Download {...downloadBlock} />}
+          {/* {StartAndNewsletterBlock && <StartAndNewsletter {...StartAndNewsletterBlock}/>} */}
+        </>
+      )}
     </Layout>
   );
 };

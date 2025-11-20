@@ -7,11 +7,13 @@ import HowYeedhaWorks from "../components/business/HowYeedhaWorks"
 import YeedhaAdvantage from "../components/business/YeedhaAdvantage"
 import Layout from "../components/Layout"
 import { getBusinessPageSettings } from "../utils/loaders";
+import Loader from "../components/Loader";
 
 const Driver = () => {
   const [businessPageData, setBusinessPageData] = useState<any>(null);
-    const [activeDriverType, setActiveDriverType] = useState<string>("Fleet Business"); // 👈 shared state
-    
+    const [activeDriverType, setActiveDriverType] = useState<string>("Fleet Business");
+    const [loading, setLoading] = useState<boolean>(true);
+
       useEffect(() => {
         const fetchSettings = async () => {
           try {
@@ -22,6 +24,8 @@ const Driver = () => {
             }
           } catch (error) {
             console.error("Failed to fetch landing page settings:", error);
+          } finally {
+            setLoading(false);
           }
         };
     
@@ -39,6 +43,10 @@ const Driver = () => {
   return (
     <>
         <Layout>
+          {loading && <Loader />}
+
+      {!loading && (
+        <>
             {heroBlock && <Hero {...heroBlock}/>}
             {benfitBlock &&  <DriveWithYeedha {...benfitBlock} activeButton={activeDriverType} // 👈 controlled state
           setActiveButton={setActiveDriverType}/>}
@@ -52,6 +60,8 @@ const Driver = () => {
             {faqBlock && (<Faq activeButton={activeDriverType} {...faqBlock}/>)}
             {downloadBlock && <Download {...downloadBlock}/>}
             {/* <StartAndNewsletter/> */}
+        </>
+      )}
         </Layout>
     </>
   )

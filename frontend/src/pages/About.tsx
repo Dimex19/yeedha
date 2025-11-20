@@ -5,10 +5,12 @@ import Empower from '../components/about/Empower'
 import Discover from '../components/about/Discover'
 import { getAboutPageSettings } from "../utils/loaders";
 import Cards from '../components/about/Cards';
+import Loader from "../components/Loader";
 
 const About = () => {
   const [driversPageData, setDriversPageData] = useState<any>(null);
-    
+  const [loading, setLoading] = useState<boolean>(true);
+
   useEffect(() => {
     const fetchSettings = async () => {
       try {
@@ -19,6 +21,8 @@ const About = () => {
         }
       } catch (error) {
         console.error("Failed to fetch landing page settings:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -34,11 +38,17 @@ const About = () => {
   return (
     <div>
         <Layout>
+          {loading && <Loader />}
+
+      {!loading && (
+        <>
             {driversPageData && <Hero {...driversPageData} />}
             {quoteBlock && <Cards {...quoteBlock} />}
             {empowerBlock && <Empower {...empowerBlock} />}
             <Empower empower={empowerBlock}  missionXVision={missionXVisionBlock}/>
             {CardsBlock && <Discover {...CardsBlock} />}
+        </>
+      )}
         </Layout>
     </div>
   )
