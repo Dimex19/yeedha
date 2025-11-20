@@ -49,7 +49,7 @@ const HowYeedhaWorks = ({
     <div className="mt-[40px] md:mt-[56px] font-[Manrope]">
       {/* Header */}
       <div className="md:w-[749px] text-center mx-auto mb-10 md:mb-[83px]">
-        <p className="text-[24px] md:text-[35px] text-[#2563EB]">
+        <p className="text-[20px] md:text-[35px] text-[#2563EB]">
           {dynamicTitle && (
             <>
               How <b>{dynamicTitle.replace("How ", "").replace(" works", "")}</b> app works
@@ -83,7 +83,7 @@ const HowYeedhaWorks = ({
 
         {/* TEXT + CTA */}
         <div className="w-full lg:w-[50%] xl:w-[45%] text-center lg:text-left">
-          <div className="flex flex-col gap-y-6 sm:gap-y-8">
+          <div className="flex flex-col px-10 lg:px-0 gap-y-6 sm:gap-y-8">
             {activeData?.titleDesc?.map((item, index) => (
               <TitleDesc
                 key={index}
@@ -94,7 +94,7 @@ const HowYeedhaWorks = ({
           </div>
 
           <button
-            className="flex items-center mt-[55px] gap-x-2.5 text-white justify-center rounded-[12px] bg-[#2563EB] w-full md:w-[243px] h-[55px]"
+            className="flex items-center mx-auto lg:mx-0 mt-[55px] gap-x-2.5 text-white justify-center rounded-[12px] bg-[#2563EB] w-full md:w-[243px] h-[55px]"
             onClick={() => {
               if (activeData?.cta?.href)
                 window.open(activeData.cta.href, "_blank");

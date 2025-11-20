@@ -94,13 +94,13 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
                 alt={activeOption.label}
                 className="mt-6 w-full rounded-[10px] object-cover"
               />
-              <p className="absolute top-[40px] md:top-[70px] lg:top-[140px] xl:top-[129px] left-[70px] md:left-[140px] lg:left-[200px] xl:left-[306px] font-normal z-10 font-['Manrope'] text-[16px] md:text-[26px] lg:text-[32px] text-white">
+              <p className="absolute top-[30px] md:top-[70px] lg:top-[140px] xl:top-[129px] left-[30px] md:left-[140px] lg:left-[200px] xl:left-[306px] font-normal z-10 font-['Manrope'] text-[12px] md:text-[26px] lg:text-[32px] text-white">
                 Watch the video to see the difference we make
               </p>
               <img
                 src={PlayBtn}
                 alt="play button"
-                className="absolute top-[60px] md:top-[120px] lg:top-[197px] xl:top-[186px] left-[160px] md:left-[330px] lg:left-[440px] xl:left-[563px] scale-[0.5] lg:scale-100"
+                className="absolute top-[20px] md:top-[120px] lg:top-[197px] xl:top-[186px] left-[110px] md:left-[330px] lg:left-[440px] xl:left-[563px] scale-[0.4] lg:scale-100"
               />
             </>
           ) : (
