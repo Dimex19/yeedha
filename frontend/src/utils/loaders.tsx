@@ -69,3 +69,7 @@ export async function getMechanicDataSettings() {
 //   url.search = globalSettingQuery;
   return fetchAPI(url.href, { method: "GET" });
 }
+export async function getPrivacyPolicy() {
+  const url = new URL("/api/privacy-policy", BASE_URL);
+  return fetchAPI(url.href, { method: "GET" });
+}
