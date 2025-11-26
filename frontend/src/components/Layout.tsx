@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           setHeaderData(data.header);
           setFooterData(data.footer);
           setStartAndNewsletterData(data.startAndNewsletter);
-          console.log("Global Settings Data:", data);
+          // console.log("Global Settings Data:", data);
         }
       } catch (error) {
         console.error("Failed to fetch global settings:", error);
