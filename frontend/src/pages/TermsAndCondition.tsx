@@ -1,6 +1,7 @@
+//TermsAndCondition
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
-import { getPrivacyPolicy } from "../utils/loaders";
+import { getTermsAndCondition } from "../utils/loaders";
 import Loader from "../components/Loader";
 
 import ReactMarkdown from "react-markdown";
@@ -20,12 +21,12 @@ export default function PrivacyPolicy() {
   useEffect(() => {
     const fetchPolicy = async () => {
       try {
-        const res = await getPrivacyPolicy();
+        const res = await getTermsAndCondition();
         if (res?.data) {
           setPolicy(res.data);
         }
       } catch (err) {
-        console.error("Error fetching privacy policy:", err);
+        console.error("Error fetching terms and condition:", err);
       } finally {
         setLoading(false);
       }

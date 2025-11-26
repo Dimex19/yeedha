@@ -143,6 +143,7 @@ const Footer = ({data}: FooterProps) => {
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-[14px] sm:text-[15px]">
             <a href="#">Home</a>
             <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-and-condition">Terms & Condition</a>
             {/* <a href="#">FAQ</a>
             <a href="#">About</a>
             <a href="#">Contact Us</a> */}

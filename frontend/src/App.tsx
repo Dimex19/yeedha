@@ -10,6 +10,7 @@ import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import ScrollToTop from './utils/ScrollToTop';
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsAndCondition from './pages/TermsAndCondition';
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
             <Route path='/auto-services' element={<AutoService/>}/>
             <Route path='/cng-conversion' element={<CNG/>}/>
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-
+            <Route path="/terms-and-condition" element={<TermsAndCondition />} />
         </Routes>
       </BrowserRouter>
       

@@ -73,3 +73,7 @@ export async function getPrivacyPolicy() {
   const url = new URL("/api/privacy-policy", BASE_URL);
   return fetchAPI(url.href, { method: "GET" });
 }
+export async function getTermsAndCondition() {
+  const url = new URL("/api/terms-and-condition", BASE_URL);
+  return fetchAPI(url.href, { method: "GET" });
+}
