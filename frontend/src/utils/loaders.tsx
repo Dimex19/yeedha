@@ -77,3 +77,15 @@ export async function getTermsAndCondition() {
   const url = new URL("/api/terms-and-condition", BASE_URL);
   return fetchAPI(url.href, { method: "GET" });
 }
+export async function createNewsletterSubscriber({ email }: { email: string }) {
+  const url = new URL("/api/subscribers", BASE_URL)
+  return fetchAPI(url.href, { method: "POST", body: { email } });
+}
+export async function joinDriverCommunity(driverType: string, phoneNumber: string) {
+  const url = new URL("/api/driver-community", BASE_URL)
+  return fetchAPI(url.href, { method: "POST", body: { driverType, phoneNumber } });
+}
+export async function joinBusinessCommunity(businessType: string, phoneNumber: string) {
+  const url = new URL("/api/business-community", BASE_URL)
+  return fetchAPI(url.href, { method: "POST", body: { businessType, phoneNumber } });
+}

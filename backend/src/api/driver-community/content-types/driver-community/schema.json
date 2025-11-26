@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "driver_communities",
+  "info": {
+    "singularName": "driver-community",
+    "pluralName": "driver-communities",
+    "displayName": "DriverCommunity"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "driverType": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    }
+  }
+}

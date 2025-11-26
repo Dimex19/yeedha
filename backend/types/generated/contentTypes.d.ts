@@ -553,6 +553,36 @@ export interface ApiAutoServiceAutoService extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBusinessCommunityBusinessCommunity
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'business_communities';
+  info: {
+    displayName: 'BusinessCommunity';
+    pluralName: 'business-communities';
+    singularName: 'business-community';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    businessType: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::business-community.business-community'
+    > &
+      Schema.Attribute.Private;
+    phoneNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBusinessPageBusinessPage extends Struct.SingleTypeSchema {
   collectionName: 'business_pages';
   info: {
@@ -687,6 +717,36 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDriverCommunityDriverCommunity
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'driver_communities';
+  info: {
+    displayName: 'DriverCommunity';
+    pluralName: 'driver-communities';
+    singularName: 'driver-community';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    driverType: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::driver-community.driver-community'
+    > &
+      Schema.Attribute.Private;
+    phoneNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1583,10 +1643,12 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::auto-service.auto-service': ApiAutoServiceAutoService;
+      'api::business-community.business-community': ApiBusinessCommunityBusinessCommunity;
       'api::business-page.business-page': ApiBusinessPageBusinessPage;
       'api::category.category': ApiCategoryCategory;
       'api::cng-conversion.cng-conversion': ApiCngConversionCngConversion;
       'api::contact.contact': ApiContactContact;
+      'api::driver-community.driver-community': ApiDriverCommunityDriverCommunity;
       'api::driver.driver': ApiDriverDriver;
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
