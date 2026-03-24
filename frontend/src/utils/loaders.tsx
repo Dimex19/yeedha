@@ -81,6 +81,89 @@ export async function createNewsletterSubscriber({ email }: { email: string }) {
   const url = new URL("/api/subscribers", BASE_URL)
   return fetchAPI(url.href, { method: "POST", body: { email } });
 }
+export async function contactUS(
+  userType: string,
+  fullName: string,
+  phoneNumber: string,
+  message: string
+) {
+  const url = new URL("/api/contact-us-forms", BASE_URL);
+
+  return fetchAPI(url.href, {
+    method: "POST",
+    body: {
+      data: {
+        userType,
+        fullName,
+        phoneNumber,
+        message,
+      },
+    },
+  });
+}
+export async function submitCNGConversionForm(
+  fullName: string,
+  phoneNumber: string,
+  driverID: string,
+  email: string,
+  vehicleMake: string,
+  location: string,
+  model: string,
+  modelYear: string,
+  fuelType: string,
+  yearsOfDriving: string,
+  acceptedTerms: boolean
+) {
+  const url = new URL("/api/cng-conversion-forms", BASE_URL);
+
+  return fetchAPI(url.href, {
+    method: "POST",
+    body: {
+      data: {
+        fullName,
+        phoneNumber,
+        driverID,
+        email,
+        vehicleMake,
+        location,
+        model,
+        modelYear,
+        fuelType,
+        yearsOfDriving,
+        acceptedTerms
+      }
+    }
+  });
+}
+export async function submitHealthInsuranceForm(
+  fullName: string,
+  phoneNumber: string,
+  driverId: string,
+  email: string,
+  driving2Months: string,
+  registeredAssociation: string,
+  healthInsurance: string,
+  medicalConditions: string,
+  acceptedTerms: boolean
+) {
+  const url = new URL("/api/health-insurance-forms", BASE_URL);
+  return fetchAPI(url.href, {
+    method: "POST",
+    body: {
+      data: {
+        fullName,
+        phoneNumber,
+        driverId,
+        email,
+        driving2Months,
+        registeredAssociation,
+        healthInsurance,
+        medicalConditions,
+        acceptedTerms
+      }
+    }
+  });
+}
 export async function joinDriverCommunity(driverType: string, phoneNumber: string) {
   const url = new URL("/api/driver-community", BASE_URL)
   return fetchAPI(url.href, { method: "POST", body: { driverType, phoneNumber } });

@@ -32,8 +32,8 @@ const HowItWorks = ({title, description, cardWithIcon}: YeedhaHealthCoverageBloc
   return (
     <div className="font-[Manrope]">
       {/* Heading */}
-      <div className="md:w-[647px] px-6 sm:px-8 mx-auto text-center">
-        <p className="text-[#2563EB] text-[26px] md:text-[35px] font-semibold">
+      <div className="md:w-[737px] px-6 sm:px-8 mx-auto text-center">
+        <p className="text-black text-[26px] md:text-[35px] font-semibold">
           {title}
         </p>
         <p className="text-[16px] md:text-[20px] font-medium text-[#828282]">

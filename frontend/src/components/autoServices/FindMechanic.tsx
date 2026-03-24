@@ -113,7 +113,7 @@ export default function FindMechanic() {
   };
 
   return (
-    <div className="bg-gray-50 py-[59px] px-4 md:px-[127px] font-[Manrope]">
+    <div id="findMechanic" style={{scrollMarginTop: '70px'}}  className="bg-gray-50 py-[59px] px-4 md:px-[127px] font-[Manrope]">
       <div className="text-center mb-8">
         <h1 className="text-[35px] font-semibold text-blue-600">
           Find a Mechanic You Can Trust

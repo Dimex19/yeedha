@@ -1,9 +1,13 @@
 import { Formik, Form as FormikForm, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { submitCNGConversionForm } from "../../utils/loaders";
+import { useState } from "react";
 
 const CNGForm = () => {
+  const [submitError, setSubmitError] = useState<string | null>(null);
+const [submitSuccess, setSubmitSuccess] = useState(false);
   return (
-    <div className="font-[Manrope] bg-[#FBFBFB] min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 lg:px-24 py-10">
+    <div id="qualification" style={{scrollMarginTop: '80px'}} className="font-[Manrope] bg-[#FBFBFB] min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 lg:px-24 py-10">
       {/* Title */}
       <div className="text-center mb-10">
         <h1 className="text-[22px] sm:text-[28px] font-semibold text-[#2563EB]">
@@ -24,32 +28,62 @@ const CNGForm = () => {
           initialValues={{
             fullName: "",
             driverId: "",
-            phone: "",
+            phoneNumber: "",
             email: "",
             vehicleMake: "",
             model: "",
             modelYear: "",
             fuelType: "",
             location: "",
-            experience: "",
-            agree: false,
+            yearsOfDriving: "",
+            acceptedTerms: false,
           }}
           validationSchema={Yup.object({
             fullName: Yup.string().required("Full Name is required"),
-            phone: Yup.string().required("Phone Number is required"),
+            phoneNumber: Yup.string().required("Phone Number is required"),
             vehicleMake: Yup.string().required("Vehicle Make is required"),
             model: Yup.string().required("Model is required"),
             fuelType: Yup.string().required("Fuel Type is required"),
             location: Yup.string().required("Location is required"),
-            agree: Yup.boolean().oneOf(
+            yearsOfDriving: Yup.string().required("Years of Driving is required"),
+            acceptedTerms: Yup.boolean().oneOf(
               [true],
               "You must agree before submitting."
             ),
           })}
-          onSubmit={(values, { setSubmitting, resetForm }) => {
-            console.log("Form data", values);
-            setSubmitting(false);
-            resetForm();
+          onSubmit={async (values, { setSubmitting, resetForm }) => {
+            setSubmitError(null);
+            setSubmitSuccess(false);
+
+            try {
+              const response = await submitCNGConversionForm(
+                values.fullName,
+                values.phoneNumber,
+                values.driverId,
+                values.email,
+                values.vehicleMake,
+                values.location,
+                values.model,
+                values.modelYear,
+                values.fuelType,
+                values.yearsOfDriving,
+                values.acceptedTerms
+              );
+
+              if (response?.id) {
+                setSubmitSuccess(true);
+                resetForm();
+              }
+
+            } catch (error: any) {
+              console.error(error);
+              setSubmitError(
+                error?.message || "Unable to submit application. Please try again."
+              );
+            } finally {
+              setSubmitting(false);
+              resetForm();
+            }
           }}
         >
           {({ isSubmitting }) => (
@@ -85,13 +119,13 @@ const CNGForm = () => {
               <div>
                 <label className="block font-medium mb-2">Phone Number *</label>
                 <Field
-                  name="phone"
+                  name="phoneNumber"
                   type="text"
                   placeholder="+234"
                   className="w-full border border-[#D8E9FF] h-[50px] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
                 />
                 <ErrorMessage
-                  name="phone"
+                  name="phoneNumber"
                   component="p"
                   className="text-red-500 text-sm mt-1"
                 />
@@ -185,7 +219,7 @@ const CNGForm = () => {
                   How long have you been driving for Yeedha?
                 </label>
                 <Field
-                  name="experience"
+                  name="yearsOfDriving"
                   as="select"
                   className="w-full border border-[#D8E9FF] h-[50px] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
                 >
@@ -200,7 +234,7 @@ const CNGForm = () => {
               <div className="sm:col-span-2 flex items-start gap-2 mt-3">
                 <Field
                   type="checkbox"
-                  name="agree"
+                  name="acceptedTerms"
                   className="w-[18px] h-[18px] accent-[#2563EB] mt-1"
                 />
                 <label className="text-sm text-gray-600 leading-tight">
@@ -211,6 +245,11 @@ const CNGForm = () => {
 
               {/* Submit Button */}
               <div className="sm:col-span-2">
+                {submitError && (
+                  <div className="sm:col-span-2 text-red-600 text-sm">
+                    {submitError}
+                  </div>
+                )}
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -219,6 +258,11 @@ const CNGForm = () => {
                   {isSubmitting ? "Submitting..." : "Apply Now"}
                 </button>
               </div>
+              {submitSuccess && (
+                  <div className="sm:col-span-2 text-green-600 text-sm">
+                    Your application has been submitted successfully.
+                  </div>
+                )}
             </FormikForm>
           )}
         </Formik>

@@ -22,6 +22,7 @@ const YeedhaAdvantage = () => {
     setActiveButton(buttonName);
     scroll(buttonName === "left" ? "left" : "right");
   };
+  const texts = ["Trust", "Safety", "Reliability", "Excellence" ]
 
   return (
     <div className="font-[Manrope] mt-16 md:mt-24 lg:mt-[138px] px-4 sm:px-8 md:px-12 lg:px-[88px] relative">
@@ -35,8 +36,10 @@ const YeedhaAdvantage = () => {
         ref={scrollRef}
         className="mt-10 md:mt-[45.03px] flex overflow-x-auto scroll-smooth gap-4 md:gap-[17.02px] no-scrollbar"
       >
-        {[1, 2, 3, 4].map((_, idx) => (
+        {texts.map((text, idx) => (
           <div className="relative flex-none" key={idx}>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-black/50 to-[#2563EB]/70"></div>
+            <p className="absolute top-10 left-40 right-40 font-semibold text-2xl md:text-[34px] text-white">{text}</p>
             <img
               src={Yeedha44}
               alt=""
@@ -45,10 +48,26 @@ const YeedhaAdvantage = () => {
             <img
               src={Yeedha45}
               alt=""
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] sm:w-[65%] md:w-[70%]"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] sm:w-[65%] md:w-[62%]"
             />
           </div>
         ))}
+        {/* {[1, 2, 3, 4].map((_, idx) => (
+          <div className="relative flex-none" key={idx}>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-black/50 to-[#2563EB]/70"></div>
+
+            <img
+              src={Yeedha44}
+              alt=""
+              className="w-[260px] sm:w-[320px] md:w-[380px] lg:w-[415.66px] h-auto rounded-[10px]"
+            />
+            <img
+              src={Yeedha45}
+              alt=""
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] sm:w-[65%] md:w-[62%]"
+            />
+          </div>
+        ))} */}
       </div>
 
       {/* Scroll Buttons */}

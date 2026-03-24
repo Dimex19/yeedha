@@ -25,7 +25,8 @@ interface FooterProps {
 
 const Footer = ({data}: FooterProps) => {
   if (!data) return null;
-  const { contactEmail, emergency, yeedhaDescription, quickLinks, newsLinks, productsLinks } = data;
+  const { contactEmail, emergency, yeedhaDescription, quickLinks } = data;
+  // const { contactEmail, emergency, yeedhaDescription, quickLinks, newsLinks, productsLinks } = data;
 
   return (
     <>
@@ -72,7 +73,7 @@ const Footer = ({data}: FooterProps) => {
         </div>
 
         {/* LINKS SECTION */}
-        <div className="flex flex-wrap justify-between gap-y-10 lg:gap-x-[80px] font-[Manrope] font-semibold text-[14px] sm:text-[15px]">
+        <div className="flex flex-wrap justify-between gap-y-10 lg:gap-x-[124px] font-[Manrope] font-semibold text-[14px] sm:text-[15px]">
           {/* Quick Links */}
           <div className="flex flex-col gap-y-[12px]">
             <p className="text-[#2563EB] text-[16px]">Quick Links</p>
@@ -85,34 +86,27 @@ const Footer = ({data}: FooterProps) => {
             <a href="#">Benefits</a>
             <a href="#">CNG</a> */}
           </div>
-
-          {/* News & Contact */}
-          <div className="flex flex-col gap-y-[12px]">
-            <p className="text-[#2563EB] text-[16px]">News</p>
-            {newsLinks.map((link, index) => (
-              <a href={link.href} key={index}>{link.label}</a>
-            ))}
-            {/* <a href="#">Blog</a>
-            <a href="#">FAQ</a>
-            <a href="#">Yeedha Media</a> */}
-            <p className="text-[#2563EB] text-[16px] mt-2">Contact</p>
-            <a href="#">{contactEmail}</a>
-          </div>
-
-          {/* Products & Social */}
-          <div className="flex md:flex-col gap-y-2 gap-x-10 justify-between">
-            <div className="flex flex-col gap-y-[12px]">
+          {/* <div className="flex flex-col gap-y-[12px]">
               <p className="text-[#2563EB] text-[16px]">Products</p>
               {productsLinks.map((link, index) => (
                 <a href={link.href} key={index}>{link.label}</a>
               ))}
-            </div>
-            {/* <a href="#">Drivers App</a>
-            <a href="#">Passengers App</a>
-            <a href="#">Business Owners App</a> */}
+            </div> */}
+
+          {/* News & Contact */}
+          <div className="flex flex-col gap-y-[12px]">
+            {/* <p className="text-[#2563EB] text-[16px]">News</p>
+            {newsLinks.map((link, index) => (
+              <a href={link.href} key={index}>{link.label}</a>
+            ))} */}
+            {/* <a href="#">Blog</a>
+            <a href="#">FAQ</a>
+            <a href="#">Yeedha Media</a> */}
+            <p className="text-[#2563EB] text-[16px]">Contact</p>
+            <a href="#">{contactEmail}</a>
             <div className="">
               <p className="text-[#2563EB] text-[16px]">Social</p>
-              <div className="flex gap-x-[20px] mt-2">
+              <div className="flex gap-x-[20px] mt-3">
                 <img src={Facebook} alt="Facebook" className="w-5 h-5" />
                 <img src={Instagram} alt="Instagram" className="w-5 h-5" />
                 <img src={Youtube} alt="YouTube" className="w-5 h-5" />
@@ -120,6 +114,28 @@ const Footer = ({data}: FooterProps) => {
               </div>
             </div>
           </div>
+
+          {/* Products & Social */}
+          {/* <div className="flex md:flex-col gap-y-2 gap-x-10 justify-between md:justify-start">
+            <div className="flex flex-col gap-y-[12px]">
+              <p className="text-[#2563EB] text-[16px]">Products</p>
+              {productsLinks.map((link, index) => (
+                <a href={link.href} key={index}>{link.label}</a>
+              ))}
+            </div> */}
+            {/* <a href="#">Drivers App</a>
+            <a href="#">Passengers App</a>
+            <a href="#">Business Owners App</a> */}
+            {/* <div className="">
+              <p className="text-[#2563EB] text-[16px]">Social</p>
+              <div className="flex gap-x-[20px] mt-3">
+                <img src={Facebook} alt="Facebook" className="w-5 h-5" />
+                <img src={Instagram} alt="Instagram" className="w-5 h-5" />
+                <img src={Youtube} alt="YouTube" className="w-5 h-5" />
+                <img src={Twitter} alt="Twitter" className="w-5 h-5" />
+              </div>
+            </div> */}
+          {/* </div> */}
         </div>
       </div>
 
@@ -141,7 +157,7 @@ const Footer = ({data}: FooterProps) => {
 
           {/* Bottom links */}
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-[14px] sm:text-[15px]">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
             <a href="/privacy-policy">Privacy Policy</a>
             <a href="/terms-and-condition">Terms & Condition</a>
             {/* <a href="#">FAQ</a>

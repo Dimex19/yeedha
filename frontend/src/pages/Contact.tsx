@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Layout from '../components/Layout'
 import Hero from '../components/contact/Hero'
 import Form from '../components/contact/Form'
-// import StartAndNewsletter from '../components/home/StartAndNewsletter'
 import TalkToUs from '../components/contact/TalkToUs'
 import { getContactPageSettings } from "../utils/loaders";
 import Loader from "../components/Loader";
@@ -45,7 +44,6 @@ const Contact = () => {
             {contactPageData && <Hero {...contactPageData}/>}
             <Form/>
             {talkToUsBlock && <TalkToUs {...talkToUsBlock}/>}
-            {/* <StartAndNewsletter/> */}
             </>
           )}
         </Layout>

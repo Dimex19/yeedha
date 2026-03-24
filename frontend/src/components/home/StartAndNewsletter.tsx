@@ -76,31 +76,56 @@ const StartAndNewsletter = ({ data }: StartAndNewsletterProps) => {
         {/* Content */}
         {isAlternateRoute ? (
           <div className="relative z-10 mt-10 lg:mt-[131px] px-4 md:w-[500px] lg:w-[680px] mx-auto">
-            <p className="font-semibold text-[16px] sm:text-[24px] lg:text-[28px] text-[#2563EB] mb-3 leading-snug">
-              {startSubsection.getStarted?.text}
-            </p>
-            <p className="text-[14px] text-[#333] mx-auto max-w-[80%] md:max-w-[60%] lg:w-[584px]">
-              {startSubsection.getStarted?.description}
-            </p>
+            {location.pathname === "/cng-conversion" ? <div className="">
+              <p className="font-semibold text-[16px] sm:text-[24px] lg:text-[28px] text-[#2563EB] mb-3 leading-snug">
+                Switch to CNG and Save Big on Fuel
+              </p>
+              <p className="text-[14px] text-[#333] mx-auto max-w-full md:max-w-[60%] lg:max-w-full">
+                A smarter fuel choice that helps your car and your wallet.
+              </p>
+            </div> : 
+            <div className="">
+              <p className="font-semibold text-[16px] sm:text-[24px] lg:text-[28px] text-[#2563EB] mb-1 leading-snug">
+                Stuck or Need a Fix? Yeedha Can Help
+              </p>
+              <p className="text-[14px] text-[#333] mx-auto md:max-w-[60%] lg:max-w-full max-w-full">
+                Get back on the road quickly with Yeedha’s fast and trustworthy car support.
+              </p>
+            </div>}
 
+            {location.pathname === "/cng-conversion" ? <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6 md:mt-[55px]">
+              <button className="bg-[#2563EB] w-full sm:w-[180px] h-[45px] rounded-[12px] text-white">
+                Apply for CNG
+              </button>
+              <button className="bg-[#2563EB] w-full sm:w-[180px] h-[45px] rounded-[12px] text-white">
+                Check if you qualify
+              </button>
+            </div> : 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6 md:mt-[55px]">
               <button className="bg-[#2563EB] w-full sm:w-[180px] h-[45px] rounded-[12px] text-white">
-                Request Car Rescue
+                Get a Tow Truck
               </button>
-              <button className="bg-[#2563EB] w-full sm:w-[180px] h-[45px] rounded-[12px] text-white">
+              <button 
+                onClick={() =>
+                    document.getElementById("findMechanic")?.scrollIntoView({ behavior: "smooth" })
+                  } className="bg-[#2563EB] w-full sm:w-[180px] h-[45px] rounded-[12px] text-white">
                 Find a Mechanic
               </button>
-            </div>
+            </div>}
           </div>
         ) : (
-          <div className="relative z-10 mt-10 md:mt-[131px] px-4">
+          <div className="relative z-10 font-[Manrope] mt-10 md:mt-[81px] px-4">
             <p className="font-semibold text-[20px] sm:text-[28px] md:text-[32px] text-[#2563EB]">
               {startSubsection.getStarted?.text}
             </p>
-            <p className="text-[14px] text-[#333] mx-auto md:max-w-[60%] lg:w-[584px] mt-2">
+            <p className="text-base text-black mx-auto md:max-w-[424px] mt-2">
               {startSubsection.getStarted?.description}
             </p>
-            <button className="bg-[#2563EB] w-[180px] h-[50px] rounded-[12px] text-white mt-5">
+            <button
+              onClick={() =>
+                document.getElementById("downloads")?.scrollIntoView({ behavior: "smooth" })
+              }
+            className="bg-[#2563EB] w-[180px] h-[50px] rounded-[12px] text-white mt-5">
               {startSubsection.getStarted?.cta.label}
             </button>
           </div>
@@ -114,14 +139,14 @@ const StartAndNewsletter = ({ data }: StartAndNewsletterProps) => {
       </div>
 
       {/* === NEWSLETTER SECTION === */}
-      <div className="px-4 sm:px-6 md:px-[47px] lg:px-[77px] xl:px-[127px] pt-10 md:pt-[104px] pb-10 md:pb-[120px] text-center">
+      <div className="px-4 sm:px-6 md:px-[47px] font-[Manrope] lg:px-[77px] xl:px-[127px] pt-10 md:pt-[104px] pb-10 md:pb-[120px] text-center">
         <p className="text-[24px] text-[#2563EB] font-bold">
           {newsletterSubsection.title}
         </p>
-        <p className="text-[#252B42] font-bold text-[18px] max-w-[617px] mx-auto">
+        <p className="text-[#252B42] font-bold text-[18px] md:text-[24px] max-w-[617px] mx-auto">
           {newsletterSubsection.shortDescription}
         </p>
-        <p className="text-[#737373] text-[14px] max-w-[452px] mx-auto mt-2.5">
+        <p className="text-[#737373] text-[14px] md:text-base max-w-[402px] mx-auto mt-2.5">
           {newsletterSubsection.description}
         </p>
 
@@ -132,13 +157,13 @@ const StartAndNewsletter = ({ data }: StartAndNewsletterProps) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your Email"
-            className="w-full md:w-[500px] h-[50px] bg-[#F9F9F9] border border-[#E8E8E8] rounded-t-[10px] md:rounded-l-[10px] pl-4 text-[#949494] focus:outline-none"
+            className="w-full md:w-[500px] h-[50px] bg-[#F9F9F9] border border-[#E8E8E8] rounded-[10px] rounded-r-[0px] pl-4 text-[#949494] focus:outline-none"
           />
 
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full md:w-[117px] h-[50px] bg-[#2563EB] text-white rounded-b-[10px] md:rounded-r-[10px] mt-3 md:mt-0"
+            className="w-full md:w-[117px] h-[50px] bg-[#2563EB] text-white rounded-[10px] rounded-l-[0px] mt-3 md:mt-0"
           >
             {loading ? "..." : "Subscribe"}
           </button>

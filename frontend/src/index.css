@@ -77,3 +77,6 @@ button:focus-visible {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+#benefits {
+  scroll-margin-top: 120px;
+}

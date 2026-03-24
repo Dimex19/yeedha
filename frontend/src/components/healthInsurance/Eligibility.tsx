@@ -1,37 +1,73 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { submitHealthInsuranceForm } from "../../utils/loaders";
+import { useState } from "react";
 
 const HowItWorks = () => {
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   const initialValues = {
     fullName: "",
     driverId: "",
-    phone: "",
+    phoneNumber: "",
     email: "",
     driving2Months: "",
     registeredAssociation: "",
     healthInsurance: "",
-    conditions: "",
-    agree: false,
+    medicalConditions: "",
+    acceptedTerms: false,
   };
 
   const validationSchema = Yup.object({
     fullName: Yup.string().required("Full name is required"),
     driverId: Yup.string().required("Driver ID is required"),
-    phone: Yup.string().required("Phone number is required"),
+    phoneNumber: Yup.string().required("Number number is required"),
     driving2Months: Yup.string().required("This field is required"),
     registeredAssociation: Yup.string().required("This field is required"),
     healthInsurance: Yup.string().required("This field is required"),
-    agree: Yup.boolean().oneOf([true], "You must accept before submitting"),
+    acceptedTerms: Yup.boolean().oneOf([true], "You must accept before submitting"),
   });
 
-  const onSubmit = (values: typeof initialValues) => {
-    console.log("Form Data", values);
-    alert("Form Submitted!");
-  };
+  const onSubmit = async (values: typeof initialValues, { setSubmitting, resetForm }: any) => {
+  setSubmitError(null);
+  setSubmitSuccess(false);
+
+  try {
+    const response = await submitHealthInsuranceForm(
+      values.fullName,
+      values.phoneNumber,
+      values.driverId,
+      values.email,
+      values.driving2Months,
+      values.registeredAssociation,
+      values.healthInsurance,
+      values.medicalConditions,
+      values.acceptedTerms
+    );
+
+    console.log("RAW RESPONSE:", JSON.stringify(response));
+
+    if (response?.id) {
+      setSubmitSuccess(true);
+      resetForm();
+    } else {
+      setSubmitError(
+        response?.error?.message || "Something went wrong. Please try again."
+      );
+    }
+  } catch (error: any) {
+    console.error("Error submitting form:", error);
+    setSubmitError(
+      error?.message || "Unable to submit application. Please try again."
+    );
+  } finally {
+    setSubmitting(false); // only this here, NOT resetForm()
+  }
+};
 
   return (
     <>
-      <div className="font-[Manrope] mt-20 md:mt-[121px] bg-[#FBFBFB] px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[314px] pt-10 md:pt-[68px] pb-10 md:pb-[77px] mb-20 md:mb-[96px]">
+      <div id="eligibility" style={{scrollMarginTop: '70px'}}  className="font-[Manrope] mt-20 md:mt-[121px] bg-[#FBFBFB] px-4 sm:px-8 md:px-16 lg:px-24 xl:px-[314px] pt-10 md:pt-[68px] pb-10 md:pb-[77px] mb-20 md:mb-[96px]">
         {/* Header */}
         <div className="max-w-[650px] mx-auto text-center">
           <p className="text-[#2563EB] text-[24px] sm:text-[30px] md:text-[35px] font-semibold leading-snug">
@@ -92,20 +128,20 @@ const HowItWorks = () => {
                   </div>
                 </div>
 
-                {/* Phone + Email */}
+                {/* Number + Email */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block font-medium mb-2.5">
                       Phone Number <span className="text-red-500">*</span>
                     </label>
                     <Field
-                      name="phone"
+                      name="phoneNumber"
                       type="text"
                       placeholder="+234"
                       className="w-full border border-[#D8E9FF] h-[50px] sm:h-[55px] bg-white rounded px-3 py-2 text-sm sm:text-base"
                     />
                     <ErrorMessage
-                      name="phone"
+                      name="phoneNumber"
                       component="p"
                       className="text-red-500 text-sm"
                     />
@@ -199,7 +235,7 @@ const HowItWorks = () => {
                   </label>
                   <Field
                     as="textarea"
-                    name="conditions"
+                    name="medicalConditions"
                     placeholder="Please describe any existing health conditions..."
                     className="w-full border border-[#D8E9FF] bg-white rounded px-3 py-2 h-24 text-sm sm:text-base"
                   />
@@ -210,7 +246,7 @@ const HowItWorks = () => {
                   <label className="flex items-start sm:items-center gap-2">
                     <Field
                       type="checkbox"
-                      name="agree"
+                      name="acceptedTerms"
                       className="appearance-none w-[19px] h-[19px] border border-gray-400 rounded-sm checked:bg-[#2563EB] checked:border-[#2563EB]"
                     />
                     <span className="text-xs sm:text-sm text-gray-600 leading-snug">
@@ -220,19 +256,30 @@ const HowItWorks = () => {
                     </span>
                   </label>
                   <ErrorMessage
-                    name="agree"
+                    name="acceptedTerms"
                     component="p"
                     className="text-red-500 text-sm"
                   />
                 </div>
 
                 {/* Submit button */}
+                {submitError && (
+                  <div className="sm:col-span-2 text-red-600 text-sm">
+                    {submitError}
+                  </div>
+                )}
+                
                 <button
                   type="submit"
                   className="w-full bg-[#2563EB] text-white py-3 rounded-md font-medium hover:bg-blue-700 text-sm sm:text-base"
                 >
                   Apply Now
                 </button>
+                {submitSuccess && (
+                  <div className="sm:col-span-2 text-green-600 text-sm">
+                    Application submitted successfully!
+                  </div>
+                )}
               </Form>
             )}
           </Formik>

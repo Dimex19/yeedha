@@ -49,7 +49,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <div>
       <Header {...headerTheme} data={headerData} />
       <main>{children}</main>
-      <StartAndNewsletter {...({ data: startAndNewsletterData } as any)} />
+      {location.pathname !== "/contact" && <StartAndNewsletter {...({ data: startAndNewsletterData } as any)} />}
       <Footer {...({ data: footerData } as any)} />
     </div>
   );

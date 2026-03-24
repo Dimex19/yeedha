@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { Formik, Form as FormikForm, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
+import { contactUS } from "../../utils/loaders";
 // Ensure this path is correct based on your project structure
 import Rectangle4516 from '../../assets/images/rectangle4516.png' 
 
 const Form = () => {
     // Corrected initialValues in validationSchema for 'message' instead of 'email' and added an initial value to keep the Formik schema cleaner.
-    const initialValues = { fullName: "", driverId: "", phone: "", message: "" };
+    const initialValues = { fullName: "", userType: "", phoneNumber: "", message: "", countryCode: "+234" };
 
     const validationSchema = Yup.object({
         fullName: Yup.string().required("Full Name is required"),
         // A simple string check for phone; consider a more robust regex for production
-        phone: Yup.string().required("Phone Number is required"),
+        phoneNumber: Yup.string().required("Phone Number is required"),
         // Added message validation to match the form field
         message: Yup.string().required("Message is required"),
     });
@@ -25,20 +25,12 @@ const Form = () => {
 
     return (
         <>
-            {/* Added responsiveness: px-4 for mobile, md:px-12 for tablets, lg:px-[125px] for large screens. mt-10 for mobile, lg:mt-[95px] for large screens. */}
+            
             <div className="font-[Manrope] mt-10 px-4 md:px-12 xl:px-[125px]">
                 <p className="mb-4 text-lg md:text-[18px]">What type of user are you?</p>
-                {/* Changed from 'flex justify-between' to a responsive grid/flex layout */}
-                {/* On small screens, the image will stack below the form. On md screens and up, they are side-by-side. */}
                 <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-12">
                     <div className="font-medium text-[18px] lg:w-1/2">
-                        {/* Responsive grid:
-                            - On mobile (default): 1 column (or use grid-cols-2 for smaller buttons)
-                            - On tablets (md): 3 columns, allowing two buttons per row (3 * 2/3 = 2 buttons)
-                            - On large screens (lg): 6 columns as in the original design
-                        */}
                         <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-3 md:gap-x-[15px] gap-y-4 md:gap-y-[17px] text-sm md:text-[16px] font-medium text-[#2563EB]`}>
-                            {/* Replaced fixed widths (w-[190.21px]) with w-full to make buttons fill their grid column */}
                             <button
                                 className={`col-span-1 md:col-span-1 lg:col-span-2 w-full h-[50px] md:h-[60.64px] rounded-[10.21px] ${
                                     activeButton === "e-hailing"
@@ -91,12 +83,28 @@ const Form = () => {
                         <Formik
                             initialValues={initialValues}
                             validationSchema={validationSchema}
-                            onSubmit={(values, { setSubmitting, resetForm }) => {
-                                console.log("Form data", values);
-                                setSubmitting(false);
+                            onSubmit={async (values, { setSubmitting, resetForm }) => {
+                                try {
+                                // const fullPhone = `+234${values.phoneNumber}`;
+                                    const fullPhone = `${values.countryCode}${values.phoneNumber}`;
+                                await contactUS(
+                                    activeButton,
+                                    values.fullName,
+                                    fullPhone,
+                                    values.message
+                                );
+
                                 resetForm();
+                                alert("Message sent successfully!");
+                                } catch (error) {
+                                console.error("Submission error:", error);
+                                alert("Something went wrong. Please try again.");
+                                } finally {
+                                setSubmitting(false);
+                                }
                             }}
-                        >
+                            >
+
                             {({ isSubmitting }) => (
                                 <FormikForm className="space-y-6 mt-8 md:mt-[40px]">
                                     <div>
@@ -126,14 +134,14 @@ const Form = () => {
                                                 // Assuming countryCode is not part of the current validation for simplicity
                                             />
                                             <Field
-                                                name="phone"
+                                                name="phoneNumber"
                                                 type="text"
                                                 placeholder="e.g., 8012345678"
                                                 className="w-full border border-[#D8E9FF] h-[50px] md:h-[57px] bg-white rounded px-3 py-2 focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition duration-150"
                                             />
                                         </div>
                                         <ErrorMessage
-                                            name="phone"
+                                            name="phoneNumber"
                                             component="p"
                                             className="text-red-500 text-sm mt-1"
                                         />

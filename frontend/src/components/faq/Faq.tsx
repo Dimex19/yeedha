@@ -77,11 +77,10 @@ const Faq = ({options}: FAQOptionsBlock) => {
             <img src={Group5} alt="" className="w-[87px] h-[87px]" />
             <div className="flex-1 text-left">
                 <p className="font-bold text-[22px] text-[#2563EB]">
-                  Got more questions?
+                  Need further help?
                 </p>
-                <p className="text-[16px]">
-                  Lorem ipsum dolor sit amet nibh consectetur. Nisi lectus phasellus
-                  neque, Lorem ipsum dolor sit amet nibh consectetur.
+                <p className="text-[16px] text-[#6C737F]">
+                  Our team is ready to assist you with any questions you may have.
                 </p>
             </div>
           </div>

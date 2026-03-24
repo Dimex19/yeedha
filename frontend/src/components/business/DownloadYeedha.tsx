@@ -22,18 +22,18 @@ const Download = ({ title, description, apps }: DownloadSectionBlock) => {
   const downloadLinks = selectedApp?.downloadLinks || [];
 
   return (
-    <div className="font-[Manrope] px-5 md:px-0 bg-[#2563EB] text-white mb-[131px] text-center pt-[66px] pb-[85px]">
+    <div id="downloads" style={{scrollMarginTop: '70px'}} className="font-[Manrope] px-5 md:px-0 bg-[#2563EB] text-white mb-[131px] text-center pt-[66px] pb-[85px]">
       {/* Title & Description */}
       <p className="text-3xl md:text-[65px] font-bold">{title}</p>
-      <p className="text-[12px] md:text-[22px] font-medium">{description}</p>
+      <p className="w-full md:max-w-[495px] mx-auto mt-[5px] text-[12px] md:text-[22px] font-medium">{description}</p>
 
       {/* Switch Buttons */}
-      <div className="md:w-[564px] text-[12px] h-[40px] md:h-[50px] bg-white flex items-center justify-center rounded-[10px] mx-auto mt-10 md:mt-[68px]">
+      <div className="md:w-[444px] text-[12px] h-[40px] md:h-[50px] bg-white flex items-center justify-center rounded-[10px] mx-auto mt-6 md:mt-[38px]">
         {apps?.map((app) => (
           <button
             key={app.id}
             onClick={() => setActiveApp(app.title)}
-            className={`px-[20px] py-[4px] rounded-[5px] ${
+            className={`px-5 md:px-[42px] py-[9px] rounded-[5px] ${
               activeApp === app.title
                 ? "bg-[#2563EB] text-white"
                 : "bg-transparent text-[#2563EB]"

@@ -29,25 +29,28 @@ const Faq = ({ activeButton, faqOptionData }: FaqProps) => {
   const activeFaqSet = faqOptionData.find(
     (faq) => faq.label === activeButton
   );
+  
   console.log("Active FAQ Set:", activeFaqSet);
   const faqs = activeFaqSet?.faqs || [];
 
   return (
     <div className="font-[Manrope] px-4 sm:px-8 md:px-12 xl:px-[104px] mb-20 md:mb-[246px]">
       {/* Section Header */}
-      <div className="text-center px-3 max-w-[789px] mx-auto mb-[65px]">
+      <div className="text-center px-3 max-w-[859px] mx-auto mb-[65px]">
         <p className="text-[22px] sm:text-[30px] md:text-[35px] text-[#2563EB] font-bold">
-          Frequently Asked Questions — {activeButton}
+          Frequently Asked Questions by Business Owners
+          {/* Frequently Asked Questions — {activeButton} */}
         </p>
         <p className="text-[16px] sm:text-[18px] md:text-[20px] text-[#828282] font-medium">
-          Here are the most common questions {activeButton.toLowerCase()} owners ask.
+          Get answers to common questions about Yeedha {activeButton.toLowerCase()} business 
+          {/* Here are the most common questions {activeButton.toLowerCase()} owners ask. */}
         </p>
       </div>
 
       {/* Flex container with equal height children */}
       <div className="flex flex-col lg:flex-row gap-y-10 lg:gap-x-[66px] items-stretch">
         {/* Left Side: FAQs */}
-        <div className="flex-1 w-full">
+        <div className="flex-2 w-full">
           {faqs.length > 0 ? (
             faqs.map((faq) => (
               <div
@@ -94,10 +97,10 @@ const Faq = ({ activeButton, faqOptionData }: FaqProps) => {
               className="mx-auto mb-[25px] sm:mb-[35px] w-[70px] sm:w-[90px]"
             />
             <p className="font-bold text-[20px] sm:text-[22px] text-[#2563EB] mb-2">
-              Got more questions?
+              We’re here to help
             </p>
             <p className="text-[14px] sm:text-[16px] mb-2.5 text-[#6C737F]">
-              Contact our support team and we’ll help you get started as a {activeButton.toLowerCase()} owner.
+              Have questions, feedback, or need assistance? Reach out to us and we’ll make sure you get the support you need.
             </p>
           </div>
           <button className="text-white text-[14px] sm:text-[16px] w-full sm:w-[250px] lg:w-[338px] h-[50px] sm:h-[55px] lg:h-[60px] bg-[#2563EB] rounded-[12px] sm:rounded-[14px] mb-[30px] sm:mb-[40.93px] mx-auto">

@@ -10,7 +10,7 @@ const RideAndEarn = ({ title, description, rideAndEarnSubsection }: RideAndEarnB
     >
       {/* Section Header */}
       <div className="text-center">
-        <p className="text-3xl lg:text-[45px] text-[#2563EB] font-bold font-[Manrope]">
+        <p className="text-[21px] md:text-3xl lg:text-[45px] text-[#2563EB] font-bold font-[Manrope]">
           {title}
         </p>
         <p className="md:max-w-[450px] lg:max-w-[617px] xl:max-w-[759px] text-[#828282] font-medium text-[12px] md:text-[16px] lg:text-[20px] text-center mx-auto">

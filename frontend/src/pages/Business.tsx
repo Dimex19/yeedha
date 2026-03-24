@@ -11,7 +11,7 @@ import Loader from "../components/Loader";
 
 const Driver = () => {
   const [businessPageData, setBusinessPageData] = useState<any>(null);
-    const [activeDriverType, setActiveDriverType] = useState<string>("Fleet Business");
+    const [activeDriverType, setActiveDriverType] = useState<string>("Car Rental");
     const [loading, setLoading] = useState<boolean>(true);
 
       useEffect(() => {

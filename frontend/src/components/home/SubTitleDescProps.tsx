@@ -15,7 +15,7 @@ const SubTitleDescProps: React.FC<SubTitleDescPropsType> = ({text1, title, desc,
       <div className=' md:mb-5 '>
           <p className="text-[#2563EB] text-[14px] lg:text-[21px] font-semibold">{text1}</p>
           <p className="text-[#111927] text-[18px] lg:text-[30.9px] font-semibold">{title}</p>
-          <p className="text-[12px] text-[#6C737F]">{desc}</p>
+          <p className="text-[12px] lg:text-[14.4px] text-[#6C737F]">{desc}</p>
       </div>
     </div>
   )

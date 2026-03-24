@@ -4,7 +4,7 @@ import type { BusinessHeroBlock } from "../../utils/types/drivers";
 import { joinBusinessCommunity } from "../../utils/loaders";
 
 const Hero = ({heading, description, cta}: BusinessHeroBlock) => {
-  const [activeButton, setActiveButton] = useState<string>("fleet");
+  const [activeButton, setActiveButton] = useState<string>("");
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -43,22 +43,26 @@ const Hero = ({heading, description, cta}: BusinessHeroBlock) => {
           <img
             src={Rectangle41}
             alt="Hero"
-            className="w-full h-[750px] sm:h-[800px] md:h-[900px] lg:h-[850px] object-cover"
+            className="w-full h-[750px] sm:h-[800px] md:h-[900px] lg:h-[580px] object-cover"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/70"></div>
 
-          <div className="absolute inset-0 flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start px-6 sm:px-10 md:px-16 lg:px-[56px] top-[20%] lg:top-[28%] gap-10">
+          <div className="absolute inset-0 flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start px-6 sm:px-10 md:px-16 lg:px-[106px] top-[20%] lg:top-[28%] gap-10">
             
             {/* LEFT TEXT */}
-            <div className="max-w-full lg:max-w-[50%] text-center lg:text-left">
+            <div className="max-w-full lg:max-w-[60%] text-center lg:text-left lg:mt-16 ">
               <p className="text-[24px] sm:text-[36px] text-white md:text-[44px] lg:text-[48px] font-bold leading-tight mb-4">
                 {heading}
               </p>
-              <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-200">
+              <p className="max-w-[500px] text-base sm:text-lg md:text-xl mb-6 text-gray-200">
                 {description}
               </p>
-              <button className="w-[180px] sm:w-[210px] text-white h-[50px] sm:h-[55px] bg-[#2563EB] rounded-[12px]">
+              <button 
+                onClick={() =>
+                  document.getElementById("downloads")?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="w-[180px] sm:w-[210px] text-white h-[50px] sm:h-[55px] bg-[#2563EB] rounded-[12px]">
                 {cta.label}
               </button>
             </div>

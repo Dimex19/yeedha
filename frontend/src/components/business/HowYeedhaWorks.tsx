@@ -1,4 +1,4 @@
-import { FaArrowRight } from 'react-icons/fa6'
+// import { FaArrowRight } from 'react-icons/fa6'
 import TitleDesc from './TitleDesc'
 import { getStrapiMedia } from "../../utils/StrapiImage";
 import type { BusinessHowYeedhaWorksBlock } from "../../utils/types/business";
@@ -6,7 +6,7 @@ import type { BusinessHowYeedhaWorksBlock } from "../../utils/types/business";
 const HowYeedhaWorks = ({
   title,
   description,
-  cta,
+  // cta,
 //   image,
 //   titleDesc,
   optionData = [],
@@ -28,7 +28,7 @@ const HowYeedhaWorks = ({
   console.log("Active Button:", activeButton);
   // Construct dynamic title
   const dynamicTitle = activeButton
-    ? `How Yeedha ${activeButton} works`
+    ? `How Yeedha ${activeButton} works Business`
     : title;
 
   // Resolve images from Strapi
@@ -68,7 +68,7 @@ const HowYeedhaWorks = ({
                         <img
                         src={overlayImageSrc}
                         alt="Overlay visual"
-                        className="absolute bottom-[0%] left-[40%] sm:top-[28%] md:top-[31%] md:left-[40%] xl:left-[57%] w-[60%] lg:w-[70%] xl:w-[60%]"
+                        className="absolute bottom-[0%] left-[40%] sm:top-[28%] md:top-[39%] md:left-[40%] xl:left-[57%] w-[60%] lg:w-[70%] xl:w-[60%]"
                         />
                     )}
                 </div>
@@ -82,11 +82,11 @@ const HowYeedhaWorks = ({
                         />
                         ))}
                     </div>
-                    <button className="flex items-center mt-[55px] gap-x-2.5 text-white justify-center rounded-[12px] bg-[#2563EB] w-full md:w-[243px] h-[55px]"
+                    {/* <button className="flex items-center mt-[55px] gap-x-2.5 text-white justify-center rounded-[12px] bg-[#2563EB] w-full md:w-[243px] h-[55px]"
                     onClick={() => {
                         if (activeData?.cta?.href)
                             window.open(activeData.cta.href, "_blank");
-                        }}>{activeData?.cta?.label || cta?.label || "Get Started"}{" "} <span><FaArrowRight/></span></button>
+                        }}>{activeData?.cta?.label || cta?.label || "Get Started"}{" "} <span><FaArrowRight/></span></button> */}
                 </div>
             </div>
         </div>

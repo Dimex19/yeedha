@@ -15,7 +15,7 @@ const Hero = ({title, description, cta, image, imageText}: HeroBlock) => {
       <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 xl:gap-0 px-5 sm:px-10 md:px-16 xl:px-[106px]">
         
         {/* Left Section */}
-        <div className="text-center lg:text-left w-full lg:w-[864px] text-white">
+        <div className="text-center lg:text-left w-full lg:w-[654px] text-white">
           <div>
             <p className="text-[24px] sm:text-[32px] lg:text-[42px] text-[#2563EB] font-bold leading-tight">
               {title}
@@ -31,6 +31,9 @@ const Hero = ({title, description, cta, image, imageText}: HeroBlock) => {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start">
               {cta?.map((button) => (
                 <button
+                  onClick={() =>
+                    document.getElementById("eligibility")?.scrollIntoView({ behavior: "smooth" })
+                  }
                   key={button.id}
                   className="w-full sm:w-[210px] h-[50px] sm:h-[55px] bg-[#2563EB] text-white text-[16px] sm:text-[18px] rounded-[12px] hover:bg-blue-700 transition"
                 >

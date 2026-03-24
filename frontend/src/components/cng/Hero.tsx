@@ -22,7 +22,10 @@ const Hero = ({title, description, cta, image, imageText}: HeroBlock) => {
               {cta?.map((button) => (
                 <button
                   key={button.id}
-                  className="w-full sm:w-[210px] h-[50px] sm:h-[55px] bg-[#2563EB] text-white text-[16px] sm:text-[18px] rounded-[12px]"
+                  onClick={() =>
+                    document.getElementById("qualification")?.scrollIntoView({ behavior: "smooth" })
+                  }
+                    className="w-full sm:w-[210px] h-[50px] sm:h-[55px] bg-[#2563EB] text-white text-[16px] sm:text-[18px] rounded-[12px]"
                 >
                   {button.label}
                 </button>

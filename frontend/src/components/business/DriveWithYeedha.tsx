@@ -1,7 +1,7 @@
 import HeroImg from '../../assets/images/Rectangle44.png'
 import PlayBtn from '../../assets/images/video-circle.png'
 import { getStrapiMedia } from "../../utils/StrapiImage";
-import Group1 from "../../assets/icons/group1.png";
+import Group3 from "../../assets/icons/group3.png";
 // import Group4 from '../../assets/icons/group4.png'
 import type { BusinessBenefitBlock } from "../../utils/types/drivers";
 
@@ -29,10 +29,10 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
         const bottomSteps = imageTitleDesc.slice(4);
   return (
     <>
-        <div className="py-10 px-6 mt-[80px] md:mt-20 md:px-12 lg:px-20 xl:px-[97px]">
+        <div className="py-10 px-6 mt-[80px] md:mt-20 md:px-12 lg:px-20 xl:px-[97px] font-[Manrope]">
             <div className="max-w-[797px] font-[Manrope] ">
                 <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px] font-semibold leading-snug">{title}</p>
-                <p className="text-base sm:text-lg md:text-xl font-medium mt-2">{description}</p>
+                <p className="text-base sm:text-lg md:text-xl text-[#828282] font-medium mt-2">{description}</p>
             </div>
             <div className={`mt-6 flex flex-wrap gap-3 sm:gap-4 text-sm sm:text-base font-medium text-[#2563EB]`}>
                 {optionPlusImage.map((item, index) => (
@@ -45,7 +45,7 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
                         : "bg-[#F5F9FE] text-[#2563EB]"
                     }`}
                 >
-                    {item.label}
+                    {item.label} Business
                 </button>
                 ))}
             </div>
@@ -61,14 +61,14 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
                       return (
                         <div key={feature.id} className="flex flex-col  md:max-w-[263px]">
                           <img
-                            src={imageSrc || Group1}
+                            src={imageSrc || Group3}
                             alt={feature.title}
                             className="w-10 md:w-[60px] h-10 md:h-[60px] mb-4"
                           />
-                          <h3 className="text-[20px] md:text-[26px] font-semibold mb-2">
+                          <h3 className="text-[20px] md:text-[22px] font-medium mb-2">
                             {feature.title}
                           </h3>
-                          <p className="text-[16px] text-[#6C737F] leading-relaxed">
+                          <p className="text-[14px] text-[#6C737F] leading-relaxed">
                             {feature.description}
                           </p>
                         </div>
@@ -79,11 +79,11 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
                   {/* === Bottom Section (remaining items as steps) === */}
                   {bottomSteps.length > 0 && (
                     <div className="mt-20 ">
-                      <h3 className="font-bold text-2xl sm:text-3xl md:text-[30px] mb-2">
+                      <h3 className="font-medium text-2xl sm:text-3xl md:text-[30px] mb-2">
                         Set up your business in these easy steps:
                       </h3>
                       <p className="font-medium text-[16px] text-[#828282] mb-12">
-                        Follow these simple steps to start earning.
+                        Quick setup designed to help your business grow
                       </p>
             
                       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 justify-items-between ">
@@ -96,17 +96,17 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
                           return (
                             <div
                               key={step.id}
-                              className="flex flex-col  max-w-[263px]"
+                              className="flex flex-col max-w-[283px]"
                             >
                               <img
-                                src={imageSrc || Group1}
+                                src={imageSrc || Group3}
                                 alt={step.title}
                                 className="w-10 md:w-[60px] h-10 md:h-[60px] mb-4"
                               />
-                              <h4 className="font-semibold text-[20px] md:text-[24px] mb-2">
+                              <h4 className="font-medium text-[20px] md:text-[22px] mb-2">
                                 {step.title}
                               </h4>
-                              <p className="text-[15px] text-[#6C737F] leading-relaxed">
+                              <p className="text-[14px] text-[#6C737F] max-w-[273px] leading-relaxed">
                                 {step.description}
                               </p>
                             </div>

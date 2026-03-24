@@ -20,9 +20,11 @@ const ListIconTitleDesc = ({image, title, desc, titleFont, descWidth}: IconTitle
   return (
     <>
         <div className={`flex flex-col items-center text-center border border-[#D8E9FF] pt-[51.7px] pb-[49.31px] pl-[20px] md:pl-[33.98px] pr-[20px] md:pr-[33.02px] rounded-xl`}>
-            <img src={image} alt="" className="mb-[58.06px] w-[124px] h-[124px]" />
-            <p className={`text-[${titleFont}] mb-[17px] font-semibold text-[#2563EB]`}>{title}</p>
-            <ul className="text-[16.82px] text-[#828282]  text-left list-disc list-inside" style={{ width: descWidth }}>
+            <div className="w-[124px] h-[124px] mb-[58.06px] border border-[#D8E9FF] rounded-full flex justify-center items-center">
+                <img src={image} alt="" className=" " />
+            </div>
+            <p className={`text-[${titleFont}] mb-[17px] font-semibold text-black`}>{title}</p>
+            <ul className="text-[15.82px] text-[#828282]  text-left list-disc list-inside" style={{ width: descWidth }}>
                 {typeof desc === 'string' && <li>{desc}</li>}
                 {typeof desc === 'object' && desc !== null && (
                     <>

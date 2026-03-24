@@ -57,7 +57,7 @@ const Faq = ({title, description, questions, CallToAction}: FAQBlock) => {
       {/* Flex container with equal height children */}
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-[66px] items-stretch px-4 sm:px-8 lg:px-0">
   {/* Left Side: FAQs */}
-  <div className="flex-1">
+  <div className="flex-2">
     {questions.map((faq) => (
       <div
         key={faq.id}

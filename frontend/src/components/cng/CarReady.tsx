@@ -34,11 +34,11 @@ const CarReady = ({title, description, iconTitleList}: CarReadyBlock) => {
   return (
     <div className="font-[Manrope] px-6 mt-[91.93px]">
       {/* Heading */}
-      <div className="md:w-[647px] sm:px-8 mx-auto text-center">
-        <p className="text-[#2563EB] text-[26px] md:text-[35px] font-semibold">
+      <div className="md:w-[850px] sm:px-8 mx-auto text-center">
+        <p className="text-black text-[26px] md:text-[35px] font-semibold">
           {title}
         </p>
-        <p className="text-[16px] md:text-[20px] font-medium text-[#828282]">
+        <p className="text-[16px] md:w-[617px] mx-auto text-center md:text-[20px] font-medium text-[#828282]">
           {description}
         </p>
       </div>

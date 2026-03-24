@@ -30,11 +30,11 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
   return (
     <div className="py-10 px-6 mt-[80px] md:mt-20 md:px-12 lg:px-20 xl:px-[97px] font-[Manrope]">
       {/* Header */}
-      <div className="max-w-[617px] mb-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px] font-semibold leading-snug">
+      <div className=" mb-8">
+        <h2 className="max-w-[617px] text-2xl sm:text-3xl md:text-4xl lg:text-[45px] font-semibold leading-snug">
           {title}
         </h2>
-        <p className="text-base sm:text-lg md:text-xl font-medium mt-2 text-[#828282]">
+        <p className="max-w-[817px] text-base sm:text-lg md:text-xl font-medium mt-2 text-[#828282]">
           {description}
         </p>
       </div>
@@ -126,10 +126,10 @@ const DriveWithYeedha = ({ title, description, optionPlusImage, activeButton, se
       {bottomSteps.length > 0 && (
         <div className="mt-20 ">
           <h3 className="font-bold text-[20px] md:text-2xl sm:text-3xl md:text-[30px] mb-2">
-            Set up your business in these easy steps:
+            Start Your Journey
           </h3>
           <p className="font-medium text-[16px] text-[#828282] mb-12">
-            Follow these simple steps to start earning.
+            Getting started is simple. We’ll guide you every step of the way.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 justify-items-between ">

@@ -5,7 +5,7 @@ const Hero = ({subTitle, title}: ContactPage) => {
   return (
     <>
         <div className="relative font-['Manrope']">
-          <div className="md:w-[584px] mx-auto flex flex-col items-center justify-center mt-25 lg:mt-[188px] px-4 lg:px-0">
+          <div className="md:w-[684px] mx-auto flex flex-col items-center justify-center mt-25 lg:mt-[188px] px-4 lg:px-0">
             <p className="text-[#676767] text-[12px] lg:text-[16px] font-medium text-center mb-[15px]">{subTitle}</p>
             <h1 className="font-semibold text-2xl md:text-[32px] lg:text-[48px] md:leading-[56px] text-center text-[#2563EB]">{title}</h1>
           </div>

@@ -10,16 +10,19 @@ const Hero = ({title, description, cta, image, imageText}: HealthInsuranceHeroBl
 
           {/* Left section */}
           <div className="text-center lg:text-left max-w-full lg:max-w-[864px] mt-5 lg:mt-[50px]">
-            <p className="text-[26px] sm:text-[32px] md:text-[38px] lg:text-[42px] text-[#2563EB] font-bold leading-snug">
+            <p className="text-[26px] sm:text-[32px] md:text-[38px] md:max-w-[615px] lg:text-[42px] text-[#2563EB] font-bold leading-snug">
               {title}
             </p>
-            <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-black mt-3 mb-8 max-w-full sm:max-w-[500px] mx-auto lg:mx-0">
+            <p className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-black mt-3 mb-8 max-w-full sm:max-w-[680px] mx-auto lg:mx-0">
               {description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start">
               {cta?.map((button) => (
                 <button
+                  onClick={() =>
+                    document.getElementById("findMechanic")?.scrollIntoView({ behavior: "smooth" })
+                  }
                   key={button.id}
                   className="w-full sm:w-[210px] h-[50px] sm:h-[55px] bg-[#2563EB] text-white text-[16px] sm:text-[18px] rounded-[12px]"
                 >
