@@ -654,6 +654,45 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCngConversionFormCngConversionForm
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'cng_conversion_forms';
+  info: {
+    displayName: 'CNGConversionForm';
+    pluralName: 'cng-conversion-forms';
+    singularName: 'cng-conversion-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    acceptedTerms: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    driverID: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    fuelType: Schema.Attribute.String;
+    fullName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cng-conversion-form.cng-conversion-form'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    model: Schema.Attribute.String;
+    modelYear: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    vehicleMake: Schema.Attribute.String;
+    yearsOfDriving: Schema.Attribute.String;
+  };
+}
+
 export interface ApiCngConversionCngConversion extends Struct.SingleTypeSchema {
   collectionName: 'cng_conversions';
   info: {
@@ -688,6 +727,38 @@ export interface ApiCngConversionCngConversion extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiContactUsFormContactUsForm
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_us_forms';
+  info: {
+    displayName: 'ContactUsForm';
+    pluralName: 'contact-us-forms';
+    singularName: 'contact-us-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fullName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us-form.contact-us-form'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    userType: Schema.Attribute.String;
   };
 }
 
@@ -848,6 +919,43 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
       false
     >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHealthInsuranceFormHealthInsuranceForm
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'health_insurance_forms';
+  info: {
+    displayName: 'HealthInsuranceForm';
+    pluralName: 'health-insurance-forms';
+    singularName: 'health-insurance-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    acceptedTerms: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    driverId: Schema.Attribute.String;
+    driving2Months: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    fullName: Schema.Attribute.String;
+    healthInsurance: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::health-insurance-form.health-insurance-form'
+    > &
+      Schema.Attribute.Private;
+    medicalConditions: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    registeredAssociation: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1646,12 +1754,15 @@ declare module '@strapi/strapi' {
       'api::business-community.business-community': ApiBusinessCommunityBusinessCommunity;
       'api::business-page.business-page': ApiBusinessPageBusinessPage;
       'api::category.category': ApiCategoryCategory;
+      'api::cng-conversion-form.cng-conversion-form': ApiCngConversionFormCngConversionForm;
       'api::cng-conversion.cng-conversion': ApiCngConversionCngConversion;
+      'api::contact-us-form.contact-us-form': ApiContactUsFormContactUsForm;
       'api::contact.contact': ApiContactContact;
       'api::driver-community.driver-community': ApiDriverCommunityDriverCommunity;
       'api::driver.driver': ApiDriverDriver;
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
+      'api::health-insurance-form.health-insurance-form': ApiHealthInsuranceFormHealthInsuranceForm;
       'api::health-insurance.health-insurance': ApiHealthInsuranceHealthInsurance;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::location.location': ApiLocationLocation;
