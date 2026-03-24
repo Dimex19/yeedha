@@ -17,7 +17,7 @@ const About = () => {
         const { data } = await getAboutPageSettings();
         if (data) {
           setDriversPageData(data);
-          console.log("About Page Data:", data);
+          console.log("About Page:", data);
         }
       } catch (error) {
         console.error("Failed to fetch landing page settings:", error);
